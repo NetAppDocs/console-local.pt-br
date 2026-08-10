@@ -13,8 +13,6 @@ summary: NetApp Console é um aplicativo SaaS que utiliza agentes do Console par
 :imagesdir: ./media/
 
 
-NetApp oferece duas maneiras de executar sua plataforma de gerenciamento de storage unificado: NetApp Console e NetApp Console implantação local. Ambas compartilham uma base comum, mas diferem em arquitetura, conectividade, escopo de recursos e modelo operacional. NetApp Console utiliza agentes do Console implantados em seu ambiente para gerenciar sistemas de storage. NetApp Console implantação local é uma máquina virtual sem agente. NetApp Console implantação local se comunica diretamente com clusters ONTAP e oferece recursos de gerenciamento de frota corporativa que não estão disponíveis no NetApp Console.
-
 
 NOTE: Escolha o NetApp Console se você gerencia ambientes de nuvem e locais e deseja que a NetApp cuide da infraestrutura da plataforma. Escolha a implantação local do NetApp Console se você gerencia um grande ambiente ONTAP local e precisa de total soberania de dados e gerenciamento de storage voltado a políticas.
 
@@ -27,7 +25,7 @@ NetApp hospeda e mantém o NetApp Console como um aplicativo SaaS. Você se insc
 
 O NetApp Console também oferece suporte ao modo restrito (instalado em sua própria nuvem pública com conectividade de saída limitada) e ao modo privado (instalado localmente ou em sua nuvem sem conectividade com a plataforma NetApp Console, incluindo ambientes isolados da internet).
 
-https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Saiba mais sobre os modos de implantação do NetApp Console"^].
+https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Saiba mais sobre os modos de implantação do NetApp Console"].
 
 O NetApp Console oferece suporte à mais ampla gama de sistemas de storage, incluindo storage de nuvem como Amazon FSx for ONTAP, Cloud Volumes ONTAP, Amazon S3, Google Cloud Storage, E-Series, StorageGRID e clusters ONTAP locais. Ele fornece acesso ao conjunto completo de serviços de dados da NetApp, incluindo NetApp Backup and Recovery, NetApp Disaster Recovery, NetApp Ransomware Resilience, NetApp Copy and Sync e NetApp Data Classification. O NetApp Console também oferece recursos de contrato de suporte, como Digital Advisor, Lifecycle Planning e painéis de Sustainability.
 
@@ -56,7 +54,7 @@ A implantação local do console oferece suporte a clusters ONTAP locais e ao Ne
 
 A implantação local do Console é mais adequada para organizações com grandes ambientes ONTAP locais que exigem provisionamento voltado a políticas, verificações automatizadas de conformidade e total soberania de dados.
 
-link:https://docs.netapp.com/us-en/concept-netapp-console-local.html["Saiba mais sobre a implantação local do NetApp Console^."]
+link:https://docs.netapp.com/us-en/console-local/concept-netapp-console-local.html["Saiba mais sobre a implantação local do NetApp Console^."]
 
 
 

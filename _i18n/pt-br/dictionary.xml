@@ -3686,7 +3686,6 @@
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">Referência</block>
   <block id="7ba642558e7e1d23e0a4b6d723fe8cb1" category="sidebar">NetApp Console API de implantação local</block>
   <block id="454d0fa294eacaf6687d76609e9d2de5" category="sidebar">IDs da organização e da frota</block>
-  <block id="48a692835317bf23f0c6c5786de2ed91" category="sidebar">Referência da API de gerenciamento de identidade e acesso</block>
   <block id="cddab4871d91f1348299c2439e79e2c8" category="sidebar">Referência de alertas do ONTAP</block>
   <block id="4bb64a663d2c295916c54bfd11eb3986" category="sidebar">Categorias de conformidade de segurança de cluster</block>
   <block id="6833b9c301b8c18695d73d7766de5136" category="sidebar">Categorias de conformidade de segurança de Storage VMs</block>
@@ -3695,12 +3694,10 @@
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="sidebar">Obtenha ajuda</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="sidebar">Avisos legais</block>
   <block id="d84803ce394c9284844fcf1a08967ee4" category="paragraph"><block ref="a11bdddbf642d1f60f3b9997ef8c00d9" category="inline-link-rx"></block>.</block>
-  <block id="0aa0a64aaeee0597df416c44affddd02" category="paragraph">NetApp oferece duas maneiras de executar sua plataforma de gerenciamento de storage unificado: NetApp Console e NetApp Console implantação local. Ambas compartilham uma base comum, mas diferem em arquitetura, conectividade, escopo de recursos e modelo operacional. NetApp Console utiliza agentes do Console implantados em seu ambiente para gerenciar sistemas de storage. NetApp Console implantação local é uma máquina virtual sem agente. NetApp Console implantação local se comunica diretamente com clusters ONTAP e oferece recursos de gerenciamento de frota corporativa que não estão disponíveis no NetApp Console.</block>
   <block id="8e3ec462216d5097444b77ca00f80473" category="admonition">Escolha o NetApp Console se você gerencia ambientes de nuvem e locais e deseja que a NetApp cuide da infraestrutura da plataforma. Escolha a implantação local do NetApp Console se você gerencia um grande ambiente ONTAP local e precisa de total soberania de dados e gerenciamento de storage voltado a políticas.</block>
   <block id="d7500dc8af696cd476663bebb9d0fcb4" category="paragraph">NetApp hospeda e mantém o NetApp Console como um aplicativo SaaS. Você se inscreve e começa a gerenciar o storage imediatamente. Para gerenciar sistemas de storage, você implanta agentes leves do Console em seus ambientes de nuvem ou locais. Os agentes se conectam externamente à plataforma NetApp Console, e a NetApp gerencia automaticamente a autenticação, as atualizações e a disponibilidade da plataforma.</block>
   <block id="773ad4889739d9b22df6b5f152501006" category="paragraph">O NetApp Console também oferece suporte ao modo restrito (instalado em sua própria nuvem pública com conectividade de saída limitada) e ao modo privado (instalado localmente ou em sua nuvem sem conectividade com a plataforma NetApp Console, incluindo ambientes isolados da internet).</block>
   <block id="09e422c729719f602773531e14c7fdcb" category="inline-link">Saiba mais sobre os modos de implantação do NetApp Console</block>
-  <block id="32ef743eec8d1960468ee10a3c5852f2" category="paragraph"><block ref="6c90d7f16c5f8e8c87a61f8328eb6845" category="inline-link-rx"></block>.</block>
   <block id="6bc8e262d6c87c1cc67ba2e2ef69c080" category="paragraph">O NetApp Console oferece suporte à mais ampla gama de sistemas de storage, incluindo storage de nuvem como Amazon FSx for ONTAP, Cloud Volumes ONTAP, Amazon S3, Google Cloud Storage, E-Series, StorageGRID e clusters ONTAP locais. Ele fornece acesso ao conjunto completo de serviços de dados da NetApp, incluindo NetApp Backup and Recovery, NetApp Disaster Recovery, NetApp Ransomware Resilience, NetApp Copy and Sync e NetApp Data Classification. O NetApp Console também oferece recursos de contrato de suporte, como Digital Advisor, Lifecycle Planning e painéis de Sustainability.</block>
   <block id="abd3ebf1d0176fca066a577a665824f3" category="paragraph">O NetApp Console é mais adequado para organizações que gerenciam ambientes de nuvem híbrida e desejam o máximo de recursos, menos trabalho para manter tudo funcionando e licenciamento flexível.</block>
   <block id="78c9351d6bfa969cec1e259c5314fb98" category="inline-link">Saiba mais sobre o NetApp Console^.</block>
@@ -3722,7 +3719,6 @@
   <block id="00c24ecc0e9a6f1c6a5202f40e8c96c1" category="paragraph">A implantação local do console oferece suporte a clusters ONTAP locais e ao NetApp Backup and Recovery. Ela se integra ao Active Directory para autenticação federada e oferece suporte à autenticação multifator para usuários locais.</block>
   <block id="be6ca74d1ea996c7c4fe59d3f22d39a4" category="paragraph">A implantação local do Console é mais adequada para organizações com grandes ambientes ONTAP locais que exigem provisionamento voltado a políticas, verificações automatizadas de conformidade e total soberania de dados.</block>
   <block id="70b86d6aa7fb00fd1d760b33b8607159" category="inline-link-macro">Saiba mais sobre a implantação local do NetApp Console^.</block>
-  <block id="dea2002a8471bfaae7f8b931f449e095" category="paragraph"><block ref="dea2002a8471bfaae7f8b931f449e095" category="inline-link-macro-rx"></block></block>
   <block id="0161e3d40bdbea6ca6998c8c60165b33" category="section-title">Comparação de recursos</block>
   <block id="21021ea0e52be8e9c599f4dff41e5be0" category="cell">Recurso</block>
   <block id="23dad8eedc041cc12dbd56726f7f5a94" category="cell">Sim (requer o agente do Console)</block>
@@ -3757,4 +3753,7 @@
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="cell">Licenciamento</block>
   <block id="5d888c34f4251b9bdd3ba8412b69ff87" category="cell">Assinaturas do Marketplace e bring-your-own-license</block>
   <block id="c7eca4d9dd171fc4b4a21c3425a47aa6" category="cell">Traga sua própria licença</block>
+  <block id="5ceffe99385ecce35b5a538a16ca57cb" category="paragraph"><block ref="dc7c11e9da585b9fa1e35ca44da95ccc" category="inline-link-rx"></block>.</block>
+  <block id="f64bf1d04df251b82d06554b478f9ae4" category="paragraph"><block ref="f64bf1d04df251b82d06554b478f9ae4" category="inline-link-macro-rx"></block></block>
+  <block id="955bb7127a670884e7aac906d810238a" category="sidebar">Referência da API de implantação local do console</block>
 </blocks>
