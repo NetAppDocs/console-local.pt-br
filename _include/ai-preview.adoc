@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.

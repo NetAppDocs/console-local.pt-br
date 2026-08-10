@@ -1,0 +1,265 @@
+---
+sidebar: sidebar 
+permalink: reference-dashboard-card-templates.html 
+keywords: card templates, dashboard cards, metric types, chart types, performance, capacity, health, alerts, netapp console local 
+summary: Referência para painéis predefinidos, cartões de painel personalizados e métricas na implantação local do NetApp Console. 
+---
+= Referência de painéis predefinidos e cartões de painel personalizados na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, painéis predefinidos e modelos de cartões de painel personalizados fornecem cobertura de monitoramento para o desempenho, capacidade, integridade e operações de alerta do ONTAP.
+
+
+
+[[predefined-dashboards]]
+== Painéis predefinidos
+
+Os seguintes painéis predefinidos estão disponíveis imediatamente.
+
+[cols="35,65"]
+|===
+| Nome | Descrição 
+
+
+| Volumes | Desempenho do volume, capacidade, QoS, FabricPool, taxa de crescimento e métricas de previsão. 
+
+
+| Tempo até o enchimento | Previsões de tempo até a capacidade máxima (time-till-full) do ONTAP para clusters, volumes e agregados. 
+
+
+| Segurança | Conformidade com segurança, criptografia, proteção autônoma contra ransomware e visão geral de autenticação. 
+
+
+| SVMs | Monitoramento do desempenho, capacidade, volume, LIF, protocolo (CIFS, FCP, iSCSI, NFS, NVMe/FC), QoS e mapa de calor de latência do ONTAP SVM. 
+
+
+| Energia | Monitoramento do consumo de energia, temperatura e velocidade da ventoinha do cluster ONTAP para nós, prateleiras e agregados. 
+
+
+| Nós | Desempenho do nó ONTAP, CPU, rede e monitoramento do backend. 
+
+
+| Rede | Métricas de desempenho de rede, incluindo Ethernet, FibreChannel, NVMe/FC, grupos de agregação de links e rotas. 
+
+
+| LUNs | Monitoramento do desempenho, capacidade e eficiência das LUNs do ONTAP. 
+
+
+| Saúde | Monitoramento da integridade do cluster ONTAP, incluindo erros, avisos, alertas do EMS, problemas de HA, integridade de nós/discos/shelfs, volumes, licenças e portas de rede. 
+
+
+| Agregados | Monitoramento da capacidade agregada do ONTAP, dos índices de eficiência e da taxa de crescimento. 
+|===
+
+
+[[dashboard-level-time-windows-and-aggregation]]
+== Janelas de tempo e agregação em nível de dashboard
+
+Os intervalos de tempo disponíveis são de 30 minutos, 1 hora, 24 horas, 48 horas, 7 dias e 30 dias. As opções de agregação variam conforme o modelo e incluem visualizações como consolidação de toda a frota ou resultados no estilo "top-N". O intervalo de tempo e a agregação são configurados no nível do painel e se aplicam a todos os cartões do painel.
+
+
+
+[[dashboard-card-templates-and-metrics]]
+== Modelos de cartões do painel e métricas
+
+Os cartões são os blocos de construção dos painéis personalizados. Cada cartão usa um modelo predefinido com uma métrica e um tipo de gráfico, depois mapeia essa visualização para objetos específicos do ONTAP e objetivos de monitoramento.
+
+
+NOTE: Os modelos de cartão são predefinidos e não criados pelo usuário.
+
+
+
+[[storage-operations-metric-index-at-a-glance]]
+[[metrics-list]]
+=== Índice de métricas de operações de armazenamento (em resumo)
+
+Os tipos de métricas estão alinhados a resultados comuns de administração de armazenamento, incluindo gargalos de desempenho, pressão de capacidade, risco de integridade e volume de alertas.
+
+[cols="18,37,30,15"]
+|===
+| Tipo de métrica | Métricas compatíveis | Caso de uso do administrador de armazenamento | Modelos detalhados 
+
+
+| Desempenho | Latência média, latência de pico, IOPS, taxa de transferência (MB/s), utilização, capacidade de desempenho | Identifique gargalos, pressão constante e margem de desempenho | <<performance-templates,Acesse os modelos>> 
+
+
+| Capacidade | Capacidade utilizada, capacidade livre, capacidade utilizada (%), capacidade de snapshot utilizada | Acompanhe o crescimento, identifique áreas com baixa capacidade disponível e monitore o impacto de snapshots | <<capacity-templates,Acesse os modelos>> 
+
+
+| Saúde | Estado de saúde, objetos degradados/críticos, discos com falha, erros de interface de rede, objetos ativos (por latência) | Detectar regressões de saúde e priorizar a triagem operacional | <<health-templates,Acesse os modelos>> 
+
+
+| Alertas | Alertas (Críticos), alertas por gravidade, alertas por área de impacto, alertas recentes, tendência de alertas | Monitore os incidentes ativos e a tendência do volume de alertas ao longo do tempo | <<alerts-templates,Acesse os modelos>> 
+|===
+
+
+[[supported-ontap-object-hierarchy-resource-types]]
+=== Hierarquia de objetos ONTAP suportada (tipos de recursos)
+
+Os dados do cartão podem ser representados em vários níveis de objeto do ONTAP, desde a visibilidade em nível de frota até a solução de problemas em nível de objeto.
+
+As configurações de *Tipo de recurso* correspondem a um ou mais dos seguintes níveis de recurso:
+
+* Frota
+* Cluster
+* Sistema (nó)
+* SVM
+* Volume
+* LUN
+* Nível local (agregado)
+
+
+Os níveis de recursos disponíveis dependem do template e da métrica que você selecionar.
+
+
+
+[[chart-types-for-operational-analysis]]
+=== Tipos de gráficos para análise operacional
+
+O tipo de gráfico afeta a rapidez com que você consegue interpretar tendências, comparações, distribuições e valores de ponto no tempo.
+
+[cols="25,75"]
+|===
+| Tipo de gráfico | Ideal para 
+
+
+| Gráfico de linhas | Tendências em séries temporais, como latência, IOPS, throughput, utilização e tendências de alertas ao longo do tempo. 
+
+
+| Gráfico de barras | Comparação e distribuição categórica, como alertas por gravidade ou área de impacto. 
+
+
+| Pizza ou doughnut | Distribuição proporcional, como porcentagem da capacidade utilizada. 
+
+
+| Tabela | Dados detalhados em várias colunas, como capacidade utilizada, status de integridade e alertas recentes. 
+
+
+| Número único (stat) | Um único valor-chave visível num relance, como contagens de alertas críticos ou discos com falha. 
+|===
+
+
+[[performance-templates-for-workload-triage]]
+[[performance-templates]]
+=== Modelos de desempenho para triagem de carga de trabalho
+
+Os modelos de desempenho se concentram em sinais de latência, taxa de transferência e utilização que indicam a pressão da carga de trabalho.
+
+[cols="25,20,55"]
+|===
+| Modelo | Tipo de gráfico | Descrição 
+
+
+| Latência média | Linha | Latência média entre os alvos selecionados durante o período de tempo escolhido. 
+
+
+| Latência de pico | Linha | Latência máxima observada nos alvos selecionados durante o período de tempo escolhido. 
+
+
+| IOPS | Linha | Soma das operações de E/S por segundo nos alvos selecionados. 
+
+
+| Taxa de transferência (MB/s) | Linha | Soma da taxa de transferência de dados entre os alvos selecionados. 
+
+
+| Utilização | Linha | Utilização média da CPU ou do disco nos destinos selecionados. 
+
+
+| Capacidade de desempenho | Tabela | Análise da margem livre comparando a utilização atual com o ponto ideal. 
+|===
+
+
+[[capacity-templates-for-growth-and-headroom]]
+[[capacity-templates]]
+=== Modelos de capacidade para crescimento e margem de segurança
+
+Os modelos de capacidade focam no espaço consumido e disponível para apoiar o planejamento do crescimento e a detecção de riscos.
+
+[cols="25,20,55"]
+|===
+| Modelo | Tipo de gráfico | Descrição 
+
+
+| Capacidade utilizada | Tabela | Soma da capacidade utilizada nos alvos selecionados. 
+
+
+| Capacidade livre | Tabela | Soma da capacidade livre ou disponível nos alvos selecionados. 
+
+
+| Capacidade utilizada (%) | Pizza ou doughnut | Proporção média de uso em relação ao total nos alvos selecionados. 
+
+
+| Capacidade de Snapshot utilizada | Tabela | Soma do espaço de Snapshot consumido nos destinos selecionados. 
+|===
+
+
+[[health-templates-for-risk-detection]]
+[[health-templates]]
+=== Modelos de saúde para detecção de riscos
+
+Os modelos de saúde focam no estado do objeto e em indicadores de falha para apoiar a triagem operacional.
+
+[cols="25,20,55"]
+|===
+| Modelo | Tipo de gráfico | Descrição 
+
+
+| Estado de saúde | Tabela | Estado de saúde mais recente para cada objeto alvo selecionado. 
+
+
+| Objetos degradados/críticos | Número único | Contagem de objetos cujo estado de saúde não é OK. 
+
+
+| Discos com falha | Número único | Soma dos discos com falha nos sistemas selecionados. 
+
+
+| Erros na interface de rede | Pizza ou doughnut | Soma dos contadores de erros da interface de rede nos destinos selecionados. 
+
+
+| Objetos Quentes (por latência) | Tabela | Recursos classificados por latência máxima, em ordem decrescente. 
+|===
+
+
+[[alerts-templates-for-incident-prioritization]]
+[[alerts-templates]]
+=== Modelos de alertas para priorização de incidentes
+
+Os modelos de alertas focam no volume de incidentes, gravidade e área de impacto para auxiliar no monitoramento e na priorização.
+
+[cols="25,20,55"]
+|===
+| Modelo | Tipo de gráfico | Descrição 
+
+
+| Alertas (Crítico) | Número único | Contagem de alertas de gravidade crítica dentro do período analisado. 
+
+
+| Alertas por gravidade | Bar | Alertas agrupados por nível de gravidade. 
+
+
+| Alertas por área de impacto | Bar | Alertas agrupados por área de impacto, como capacidade, desempenho ou segurança. 
+
+
+| Alertas recentes | Tabela | Alertas mais recentes, ordenados por horário em ordem decrescente. 
+
+
+| Tendência de alerta | Linha | Contagem de alertas por intervalo de tempo na janela de tempo escolhida. 
+|===
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:task-dashboard-create.html["Crie um painel personalizado"]
+* link:task-customize-dashboard-cards.html["Personalize os cartões do painel de controle na implantação local do NetApp Console"]
+* link:task-dashboard-manage.html["Gerencie painéis personalizados"]
+

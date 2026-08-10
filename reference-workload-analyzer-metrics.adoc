@@ -1,0 +1,228 @@
+---
+sidebar: sidebar 
+permalink: reference-workload-analyzer-metrics.html 
+keywords: workload analyzer, latency, delay center, throughput, IOPS, resource utilization, capacity, capacity forecast, QoS, storage efficiency, snapshot, performance troubleshooting, metrics reference, netapp console local 
+summary: Referência de todas as métricas disponíveis no Analisador de Carga de Trabalho, organizadas por seção de análise. 
+---
+= Métricas do Workload Analyzer na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, o Analisador de Carga de Trabalho exibe métricas em seis seções. A descrição de cada métrica explica como o analisador renderiza a métrica no gráfico e o que ela indica sobre o comportamento do volume.
+
+
+
+[[qos-reference-lines-in-latency-charts]]
+=== Linhas de referência de QoS em gráficos de latência
+
+Se o volume selecionado usar uma política de QoS, você pode usar duas linhas de referência adicionais no seletor de métricas:
+
+[cols="20,80"]
+|===
+| Linha de referência | Descrição 
+
+
+| Limite máximo de QoS | O teto máximo de latência é definido pela política de QoS. Quando a linha de latência se aproxima ou toca esse limite, o ONTAP está limitando a carga de trabalho, e o limite de QoS — em vez de um recurso físico — é a principal fonte de latência. 
+
+
+| Limite mínimo de QoS | O piso mínimo garantido de latência definido pela política de QoS. Esta linha indica o piso de tempo de resposta imposto à carga de trabalho. Quando outras cargas de trabalho utilizam mínimos de QoS para garantir sua taxa de transferência, o ONTAP pode limitar essa carga de trabalho, o que resulta em maior latência. 
+|===
+Essas linhas horizontais não aparecem na análise do centro de latência ao passar o cursor sobre o elemento. Elas servem como limites de referência, não como fatores que contribuem para a latência.
+
+
+
+[[latency-breakdown-by-io-type]]
+=== Análise da latência por tipo de I/O
+
+Use a análise de tipo de E/S na seção *Análise de Latência* após selecionar *Análise por centro de atraso* no menu suspenso Exibir. O gráfico divide a latência total em três categorias com base na direção da operação de E/S. Use essas métricas para determinar se um problema de desempenho está afetando operações de leitura, gravação ou metadados.
+
+[cols="20,40,40"]
+|===
+| Tipo de latência | Descrição | Causas comuns de valores elevados 
+
+
+| Latência de leitura | Tempo médio para concluir uma solicitação de leitura do cliente no volume, desde o momento em que a solicitação é recebida até o retorno dos dados. As solicitações de leitura devem percorrer todo o caminho de E/S, desde a camada de protocolo de rede pela pilha de processamento de dados até o agregado onde os dados residem. | Contenção de agregados ou de disco; falhas de cache que promovem leituras para o disco físico; dados frios recuperados de uma camada de capacidade da nuvem via FabricPool; leituras entre nós quando os dados residem em um nó diferente daquele que está processando a solicitação. 
+
+
+| Latência de gravação | Tempo médio para reconhecer uma solicitação de gravação do cliente no volume. O ONTAP reconhece uma gravação assim que ela é confirmada no log de gravação do NVRAM; os dados são posteriormente gravados no agregado. | Saturação da NIC ou alta latência de ida e volta entre o cliente e o nó de storage; SnapMirror síncrono aguardando o cluster de destino confirmar o recebimento antes que a gravação possa ser reconhecida; pressão na NVRAM sob cargas de gravação pesadas; sobrecarga de CPU devido à deduplicação, compressão ou compactação em execução no caminho de I/O de gravação. 
+
+
+| Outra latência | Tempo médio para concluir operações que não sejam de leitura ou gravação no volume, incluindo abertura de arquivos, consulta de atributos, navegação em diretórios, criação de arquivos e bloqueios. Latência elevada em outras operações pode afetar a capacidade de resposta do aplicativo, mesmo quando a latência de leitura e gravação parece normal. | Pressão na CPU devido a operações de eficiência em linha que competem com o processamento de metadados; alta atividade no namespace proveniente de cargas de trabalho que geram um grande número de criações, exclusões ou varreduras de diretórios; limitação de QoS que restringe o total de IOPS, deixando menos IOPS disponíveis para operações de metadados; sobrecarga de ativação de volume quando muitos volumes estão ativos simultaneamente. 
+|===
+
+
+[[throughput-components]]
+== Componentes de throughput
+
+Utilize os componentes de throughput na seção *Análise de Throughput* após você selecionar *Detalhamento (RWO)* no menu suspenso Exibir. O analisador exibe IOPS e MB/s simultaneamente.
+
+[cols="20,40,40"]
+|===
+| Componente | Descrição | Renderizado como 
+
+
+| Leitura IOPS | Operações de leitura por segundo. | Área empilhada no gráfico de IOPS. 
+
+
+| IOPS de gravação | Operações de escrita por segundo. | Área empilhada no gráfico de IOPS. 
+
+
+| Outros IOPS | Metadados e outras operações não relacionadas a dados por segundo. | Área empilhada no gráfico de IOPS. 
+
+
+| Leitura MB/s | Taxa de transferência de leitura em megabytes por segundo. | Área empilhada no gráfico de MB/s. 
+
+
+| Gravação MB/s | Taxa de transferência de escrita em megabytes por segundo. | Área empilhada no gráfico de MB/s. 
+
+
+| Taxa de transferência da nuvem | Taxa de transferência em megabytes por segundo entre o volume e a camada de capacidade da nuvem. Essa métrica aparece apenas para cargas de trabalho que transferem capacidade para a nuvem por meio do FabricPool. | Área empilhada no gráfico de MB/s. 
+|===
+Os componentes de leitura, gravação e outros somam-se ao valor total de IOPS ou MB/s. Passe o cursor sobre o gráfico para ver o valor de cada componente, sua porcentagem do total e o tamanho médio de E/S (MB/s ÷ IOPS) por categoria.
+
+
+
+[[resource-utilization-metrics]]
+== Métricas de utilização de recursos
+
+Use a seção *Utilização de Recursos* para revisar as métricas de utilização de recursos. O analisador mostra cada recurso que atende ao volume como uma linha independente. Os recursos não se acumulam.
+
+
+
+[[node-metrics]]
+=== Métricas do nó
+
+[cols="25,75"]
+|===
+| Métrica | Descrição 
+
+
+| Utilização de nós | Percentual de utilização composto para o nó. Passe o cursor sobre para ver a utilização de CPU, a utilização de rede e a margem disponível para cada nó. 
+
+
+| Utilização de CPU | Porcentagem da capacidade de CPU do nó em uso. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+
+
+| Utilização de rede | Porcentagem da capacidade de rede do nó em uso. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+
+
+| Margem | Capacidade restante do nó disponível para carga de trabalho adicional. A dica de ferramenta ao passar o cursor mostra esse valor. 
+|===
+
+
+[[aggregate-metrics]]
+=== Métricas de agregado
+
+[cols="25,75"]
+|===
+| Métrica | Descrição 
+
+
+| Utilização de agregado | Percentual de ocupação do disco no agregado. Passe o cursor para ver o valor de ocupação do disco, o número de volumes no agregado e o espaço disponível. 
+
+
+| Disco ocupado | Percentual do tempo em que os discos do agregado atendem ativamente solicitações de E/S. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+
+
+| Contagem de volumes | Número de volumes atualmente hospedados no agregado. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+
+
+| Margem | Capacidade agregada restante disponível para carga de trabalho adicional. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+|===
+Quando uma linha de utilização de nó ou agregado cruza o limite de aviso de alta utilização, que o gráfico marca com uma linha de referência tracejada, outras cargas de trabalho nesse recurso podem estar competindo com o volume selecionado por capacidade de E/S.
+
+
+
+[[capacity-metrics]]
+== Métricas de capacidade
+
+
+
+[[capacity-view]]
+=== Visão de capacidade
+
+Use a seção *Análise de Capacidade* para revisar as métricas de Visualização de Capacidade após você selecionar *Visualização de Capacidade* no menu suspenso Exibir.
+
+[cols="25,75"]
+|===
+| Métrica | Descrição 
+
+
+| Capacidade física | Espaço consumido em disco após as operações de eficiência de storage. Esta é a área empilhada na parte inferior do gráfico. Físico + Disponível sempre é igual ao tamanho total do volume. 
+
+
+| Capacidade disponível | Espaço livre restante no volume. Esta é a área empilhada superior no gráfico. Ela diminui à medida que a Capacidade Física aumenta. 
+
+
+| Índice de Eficiência de Storage | Índice de eficiência geral (dados lógicos ÷ dados físicos). A dica de ferramenta exibida ao passar o cursor mostra esse valor. Ele reflete a economia combinada da desduplicação, compressão e compactação. 
+
+
+| Economias com a desduplicação | Espaço economizado ao remover blocos de dados duplicados. A dica de ferramenta ao passar o cursor mostra esse valor. 
+
+
+| Economia de compressão | Espaço economizado pela compactação de dados em linha. A dica de ferramenta exibida ao passar o cursor mostra esse valor. 
+
+
+| Economia de compactação | O espaço é economizado ao compactar vários blocos pequenos em um único bloco físico. A dica de ferramenta ao passar o cursor exibe esse valor. 
+|===
+
+
+[[snapshot-view]]
+=== Visualização de Snapshot
+
+Use a Visualização de Snapshot quando você quiser analisar métricas específicas de Snapshot.
+
+[cols="25,40,35"]
+|===
+| Métrica | Descrição | Renderizado como 
+
+
+| Snapshot disponível | Espaço pré-alocado reservado para snapshots, configurado como uma porcentagem do tamanho do volume. | Linha de referência horizontal. 
+
+
+| Snapshot usado | Espaço real consumido pelas cópias de Snapshot. | Gráfico de área abaixo da linha de reserva. 
+|===
+Passe o cursor sobre o gráfico para ver o tamanho da reserva de Snapshot, o espaço usado pelo Snapshot e sua porcentagem da reserva, a contagem total de Snapshot e a idade do Snapshot mais antigo. Quando o consumo de Snapshot excede a reserva, os Snapshots começam a consumir espaço da área de dados do volume.
+
+
+
+[[forecast-behavior]]
+== Comportamento de previsão
+
+Use a opção *Mostrar Previsão* em qualquer seção de análise quando você quiser projetar valores futuros além do período atual com base na tendência observada. Os seguintes comportamentos se aplicam a todas as seções:
+
+[cols="25,75"]
+|===
+| Aspecto | Comportamento 
+
+
+| Janela de projeção | Projeta para frente com base no intervalo de tempo selecionado. Para uma visualização de 2 horas, a janela de projeção é de aproximadamente 1 hora. Para uma visualização de 7 dias, a janela de projeção se estende por vários dias. 
+
+
+| Estilo visual | O analisador exibe os valores previstos como uma linha tracejada. Um separador vertical marca o limite entre os dados reais e os valores projetados. 
+
+
+| Alertas de limite | O analisador exibe uma mensagem informativa quando a previsão indica que o volume ultrapassará um limite de alerta ou crítico, juntamente com uma estimativa do tempo para a violação. 
+
+
+| Base de tendência | A projeção utiliza a taxa de alteração da porção mais recente do intervalo de tempo selecionado. Alta volatilidade nos dados recentes reduz a confiabilidade da previsão. 
+
+
+| Dados mínimos necessários | A previsão de capacidade requer pelo menos 10 dias de dados históricos. Quando restam menos de 30 dias de capacidade antes que o volume esteja cheio, o analisador identifica o storage como quase cheio. 
+|===
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:concept-workload-analyzer.html["Saiba mais sobre o NetApp Console local deployment Workload Analyzer"]
+* link:task-analyzer-volume-latency-investigate.html["Investigar alta latência em um volume"]
+* link:task-analyzer-volume-throughput-investigate.html["Investigar a alta demanda de taxa de transferência em um volume"]
+* link:task-analyzer-volume-capacity-investigate.html["Investigar o crescimento da capacidade em um volume"]
+

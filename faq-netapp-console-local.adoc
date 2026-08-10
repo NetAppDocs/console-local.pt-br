@@ -1,0 +1,176 @@
+---
+sidebar: sidebar 
+permalink: faq-netapp-console-local.html 
+keywords: faq, frequently asked questions, frequently asked questions about netapp console local, netapp console local, storage classes, storage class policies, storage fleets, folders, rbac, role inheritance, active directory, mfa, workload analyzer, alerts, custom dashboards, llm, ai-assisted management, backup and recovery, audit, ontap 
+summary: Perguntas frequentes sobre a implantação local do NetApp Console, incluindo implantação, classes de armazenamento, frotas, RBAC, monitoramento, gerenciamento assistido por IA e proteção de dados. 
+---
+= Perguntas frequentes sobre a implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Este FAQ responde a perguntas comuns sobre a implantação local do NetApp Console. Ele se concentra em conceitos, pré-requisitos e comportamento do sistema que são úteis ao implantar, configurar e gerenciar a implantação local do Console.
+
+
+
+[[get-started-with-netapp-console-local-deployment]]
+== Comece a usar o NetApp Console na implantação local
+
+.O que é a implantação local do NetApp Console e por que você usaria a opção de auto-hospedagem?
+A implantação local do NetApp Console é uma opção de implantação auto-hospedada que executa o plano de controle do Console em seu próprio ambiente de storage no local. Ela oferece gerenciamento de storage unificado e automação — provisionamento, aplicação de políticas, detecção de desvios e correção — mantendo seus dados, metadados e tráfego de gerenciamento inteiramente dentro de sua própria infraestrutura, para que você obtenha vantagem operacional sem sacrificar a soberania de dados. link:concept-netapp-console-local.html["Saiba mais sobre a implantação local do NetApp Console"].
+
+.Como faço para implantar o NetApp Console em uma implantação local?
+Você implanta o NetApp Console local como um appliance virtual no seu ambiente VMware vCenter usando uma imagem OVA pré-configurada. Após a implantação, descubra seu storage, adicione membros e atribua funções para começar. link:concept-deploy-netapp-console-local.html["Saiba mais sobre as opções de implantação"].
+
+.Preciso de uma licença ou assinatura para usar o NetApp Console na implantação local?
+Não. Você não precisa de uma licença ou assinatura para começar a usar o NetApp Console local deployment. No entanto, alguns serviços de dados da NetApp acessíveis a partir do Console local deployment, como o NetApp Backup and Recovery, são licenciados ou baseados em assinatura e podem ter um custo associado.
+
+.Qual é a sequência de configuração recomendada para o gerenciamento de storage em uma implantação local do NetApp Console?
+O fluxo de trabalho típico consiste em descobrir os sistemas de armazenamento nas frotas corretas, definir políticas de classe de armazenamento, criar classes de armazenamento a partir dessas políticas, associar as classes às frotas onde se aplicam, provisionar volumes ou LUNs usando uma classe e, em seguida, monitorar desvios e corrigi-los para manter as cargas de trabalho alinhadas. link:concept-manage-storage.html["Saiba mais sobre o gerenciamento de storage"].
+
+
+
+[[storage-classes-and-policies]]
+== Classes e políticas de armazenamento
+
+.O que é uma classe de armazenamento e por que você usaria uma?
+Uma classe de armazenamento é um modelo reutilizável que captura os padrões de armazenamento da sua organização—desempenho, capacidade, segurança e proteção de dados—em um único objeto nomeado, montado a partir de políticas de classe de armazenamento. Ao provisionar usando uma classe de armazenamento, a implantação local do Console aplica esses padrões automaticamente, sem decisões de configuração por carga de trabalho, e depois monitora a carga de trabalho em relação à classe, alertando você caso haja desvios de conformidade. link:concept-storage-classes.html["Saiba mais sobre classes de armazenamento"].
+
+.O que são políticas de classe de armazenamento e como elas se relacionam com as classes de armazenamento?
+As políticas de classe de armazenamento são os blocos de construção que você combina para criar uma classe de armazenamento. Cada política rege uma dimensão do comportamento do armazenamento, então você define as políticas independentemente e depois as reúne em uma classe. Isso permite que você reutilize a mesma política em várias classes ou atualize uma política em um local e aplique essa alteração a todas as classes que a utilizam. link:concept-storage-class-policies.html["Saiba mais sobre as políticas de classe de armazenamento"].
+
+.Que tipos de políticas de classe de armazenamento você pode criar?
+NetApp A implantação local do Console inclui quatro tipos de políticas de classe de armazenamento:
+
+* *Política de desempenho*: Define os valores esperados de IOPS/TB, pico de IOPS/TB, mínimo absoluto de IOPS e metas de latência esperada, utilizados para posicionamento e detecção de desvios.
+* *Política de capacidade*: Controla a reserva de espaço, o crescimento automático, o FabricPool tiering e o provisionamento de FlexVol ou FlexGroup para NAS.
+* *Política de segurança*: define criptografia, proteção contra ransomware e requisitos de FIPS.
+* *Política de proteção de dados*: Define o número de snapshots retidos em cada intervalo para um cronograma de backup consistente.
+
+
+link:concept-storage-class-policies.html["Saiba mais sobre as políticas de classe de armazenamento"].
+
+.Preciso criar classes de armazenamento e políticas do zero?
+Não. A implantação local do Console inclui políticas definidas pelo sistema em todos os quatro tipos de política e classes de armazenamento predefinidas. Você pode usá-las como estão ou copiá-las como ponto de partida para políticas e classes personalizadas, adaptadas aos requisitos da sua organização. link:concept-storage-class-policies.html["Saiba mais sobre as políticas de classe de armazenamento"].
+
+.O que você precisa configurar antes de criar uma classe de armazenamento?
+Antes de criar uma classe de armazenamento, certifique-se de:
+
+* Descubra pelo menos um ONTAP cluster para que a implantação local do Console tenha destinos de storage para avaliar durante o posicionamento.
+* Tenha a função de admin da organização.
+* Crie as políticas de classe de armazenamento que atendam aos seus requisitos de desempenho, capacidade e outros, porque as classes são montadas a partir de políticas.
+
+
+link:concept-storage-classes.html["Saiba mais sobre classes de armazenamento"].
+
+.O que acontece quando uma carga de trabalho deixa de estar em conformidade com sua classe de armazenamento?
+Após o provisionamento, a implantação local do Console avalia continuamente cada carga de trabalho em relação à sua classe de armazenamento. Quando uma carga de trabalho apresenta desvios, seja devido a uma alteração direta na configuração do cluster ou à degradação do desempenho, o Console sinaliza a violação imediatamente e gera um alerta. Você pode seguir etapas de correção guiadas ou configurar a correção automatizada para resolver condições comuns de desvio. link:concept-storage-classes.html["Saiba mais sobre classes de armazenamento"].
+
+
+
+[[storage-fleets-and-folders]]
+== Frotas de storage e pastas
+
+.O que é uma frota de armazenamento e por que você deveria usar uma?
+Uma frota de storage agrupa os sistemas de storage que você gerencia juntos. Em vez de configurar políticas ou acessar cluster por cluster, você as aplica uma única vez no nível da frota, assim cada cluster na frota opera sob os mesmos padrões, o que reduz o trabalho repetitivo e mantém o comportamento consistente. link:concept-storage-fleets.html["Saiba mais sobre frotas de armazenamento"].
+
+.Qual a diferença entre pastas e frotas?
+Pastas agrupam frotas relacionadas (por exemplo, por região ou unidade de negócios) e não podem ter sistemas de armazenamento associados a elas diretamente, enquanto frotas agrupam os sistemas de armazenamento que você gerencia. Pastas são uma ferramenta de organização e delegação de acesso que não é visível para membros sem permissões do IAM—membros acessam frotas, não pastas. link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas"].
+
+.Como a associação de uma classe de armazenamento a uma frota afeta o provisionamento?
+Ao associar uma classe de armazenamento a uma frota, a implantação local do Console aplica as políticas dessa classe a todo o provisionamento dentro da frota. As cargas de trabalho provisionadas na frota herdam automaticamente as regras de desempenho, capacidade e hierarquização, sem que os administradores precisem selecionar ou verificar as configurações, tornando a associação frota-classe a principal maneira de impor padrões consistentes em todos os clusters. link:concept-storage-fleets.html["Saiba mais sobre frotas de armazenamento"].
+
+
+
+[[provisioning-storage]]
+== Provisionamento de storage
+
+.Quais métodos de provisionamento o Console NetApp com implantação local suporta?
+NetApp Console local oferece suporte a três fluxos de trabalho de provisionamento, todos os quais aplicam classes de armazenamento e permanecem regidos por RBAC e registro de auditoria:
+
+* *Provisionamento manual*: você escolhe o sistema de destino e os detalhes de configuração para controle explícito.
+* *Provisionamento automatizado*: você fornece as informações da carga de trabalho e uma classe de armazenamento opcional, e o Console recomenda a melhor localização.
+* *Provisionamento assistido por IA (agente)*: Você descreve o que precisa em linguagem natural, e o Console propõe um plano que você revisa e aprova antes de ele realizar o provisionamento.
+
+
+link:concept-manage-storage.html["Saiba mais sobre o gerenciamento de storage"].
+
+
+
+[[monitoring-and-alerts]]
+== Monitoramento e alertas
+
+.Como posso monitorar a saúde e o desempenho do meu storage?
+NetApp Console local oferece painéis de integridade e desempenho para toda a frota, permitindo identificar clusters ou volumes que precisam de atenção, o Workload Analyzer para investigação detalhada de volumes, alertas e notificações configuráveis e correção guiada ou automatizada. link:concept-monitor-storage.html["Saiba mais sobre monitoramento de storage"].
+
+.O que o Workload Analyzer faz?
+O Workload Analyzer mostra o comportamento de um único volume ao longo do tempo, correlacionando latência, limite de taxa de transferência, IOPS, utilização de recursos, capacidade e alterações de configuração dentro da mesma janela, para que você possa identificar as causas principais. Ele pode ajudar você a determinar se o storage ou outra camada, como rede, é a origem de um problema do aplicativo, e você pode agir diretamente nas recomendações de correção a partir do analisador. link:concept-workload-analyzer.html["Saiba mais sobre o Workload Analyzer"].
+
+.Por que um volume pode apresentar alta latência mesmo quando os gráficos de desempenho parecem normais?
+A baixa capacidade disponível pode ser a causa. Quando um sistema ONTAP está com mais de 85% de sua capacidade ocupada, a alta utilização pode, por si só, causar problemas de desempenho, então a seção de capacidade do Workload Analyzer pode explicar a latência que os gráficos de desempenho, por si só, não conseguem contabilizar. link:concept-workload-analyzer.html["Saiba mais sobre o Workload Analyzer"].
+
+.De onde vêm os alertas na implantação local do NetApp Console e como são categorizados?
+Os alertas se originam do ONTAP Event Management System (EMS) em clusters descobertos e das operações de NetApp Backup and Recovery, consolidados em uma única visão de toda a organização. Cada alerta identifica o sistema afetado, uma gravidade (como crítica, aviso ou informativa) e uma área de impacto (capacidade, conectividade, proteção de dados, desempenho ou segurança). O Console exibe alertas apenas para as frotas que suas permissões permitem. link:concept-console-alerts.html["Saiba mais sobre alertas"].
+
+.Como as regras de notificação de alertas decidem quem recebe a notificação?
+Uma regra de notificação associa alertas com base no serviço, gravidade, área de impacto e sistema de destino, depois envia notificações aos usuários com funções de acesso específicas por e-mail ou webhook. Observe que as regras se aplicam a sistemas específicos, não a frotas, e podem ser silenciadas durante janelas de manutenção planejadas. O Console inclui regras padrão e permite que você crie regras personalizadas. link:concept-console-alerts.html["Saiba mais sobre alertas"].
+
+.O que posso fazer com painéis personalizados?
+Os painéis personalizados permitem que você crie visualizações de monitoramento personalizadas, montando cartões a partir de modelos predefinidos, escolhendo o escopo, as métricas, a agregação, os recursos de destino e o período. Os modelos abrangem desempenho, capacidade, integridade e alertas, e você pode definir o escopo dos cartões para qualquer nível da hierarquia do ONTAP. Cada painel e cartão é privado para você e exibe dados apenas dos recursos que você está autorizado a visualizar. link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"].
+
+
+
+[[identity-and-access]]
+== Identidade e acesso
+
+.Como o controle de acesso baseado em funções funciona em uma implantação local do NetApp Console?
+O RBAC permite que você atribua funções predefinidas com privilégios mínimos aos membros no nível da organização, pasta ou frota, e a mesma função concede diferentes acessos efetivos dependendo do escopo em que você a atribui. Isso permite que você conceda amplo acesso aos administradores centrais enquanto limita os administradores regionais ou de equipe às frotas que eles gerenciam. link:concept-iam-rbac.html["Saiba mais sobre controle de acesso baseado em funções"].
+
+.Como funciona a herança de funções e posso sobrescrevê-la em um escopo inferior?
+Uma função atribuída no nível da organização ou pasta é herdada por todas as subpastas, frotas e recursos abaixo dela, então o design de suas pastas e frotas determina a abrangência da atribuição. Você não pode substituir o acesso herdado em um escopo inferior; para alterá-lo, modifique a atribuição no escopo superior onde você a concedeu originalmente. link:concept-iam-rbac.html#role-inheritance["Saiba mais sobre herança de funções na implantação local do NetApp Console"].
+
+.Quais categorias de funções predefinidas estão disponíveis?
+NetApp Console agrupa funções predefinidas de implantação local em três categorias:
+
+* *Funções da plataforma*: permissões de administração do console, como Organization admin, Folder ou fleet admin, Federation admin e Super admin ou Super viewer.
+* *Funções do aplicativo*: Permissões de armazenamento e monitoramento, como Storage admin, Storage viewer e Operations support analyst.
+* *Funções de serviço de dados*: Permissões para serviços de dados específicos, como as funções de NetApp Backup and Recovery e o visualizador de Classification.
+
+
+link:reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso predefinidas"].
+
+.Por que devo integrar o NetApp Console implantado localmente ao Active Directory?
+A integração com o Active Directory permite que os usuários façam login com suas credenciais corporativas existentes, eliminando senhas separadas do Console e permitindo que os administradores consultem os usuários do diretório ao atribuir acesso. A autorização permanece separada: o Console ainda usa suas próprias funções para controlar o que cada membro pode fazer. link:concept-secure-access.html["Saiba mais sobre acesso seguro"]
+
+.Como funciona a autenticação multifator para usuários do Console?
+Usuários locais podem habilitar a autenticação multifator (MFA) para adicionar outra etapa de verificação que reduz o risco de acesso não autorizado caso as credenciais sejam comprometidas. Usuários autenticados por diretório não podem habilitar a MFA por meio da implantação local do Console. link:concept-secure-access.html["Saiba mais sobre acesso seguro"].
+
+
+
+[[ai-assisted-management]]
+== Gerenciamento assistido por IA
+
+.Quais provedores de LLM o NetApp Console com implantação local suporta para gerenciamento assistido por IA?
+Você traz sua própria assinatura ou acesso a serviços para um tipo de provedor compatível: OpenAI ou OpenAI-compatible. Em seguida, você fornece uma chave de API válida durante a configuração. Você também precisa do Console implantado com acesso ao cluster, conectividade de rede de saída para o endpoint configurado, a função de administrador da organização e classes de armazenamento que orientam o provisionamento. link:concept-llm-integration.html["Saiba mais sobre a integração do LLM"].
+
+.Habilitar a integração com o LLM envia seus dados de storage ou consultas para um serviço de terceiro?
+O Console envia prompts e contexto relacionado apenas para o endpoint LLM que você configurar. Se esse endpoint for um serviço de nuvem de terceiro, os dados serão enviados para esse serviço via HTTPS. Se esse endpoint for um serviço interno compatível com OpenAI, os dados permanecem no seu caminho interno para essa integração. Todas as ações de IA também respeitam seu RBAC e operações sensíveis exigem sua confirmação. link:concept-llm-integration.html["Saiba mais sobre a integração do LLM"].
+
+.O que o assistente do Console pode fazer e como posso controlar se ele altera seu armazenamento?
+Após conectar um LLM, o assistente do Console permite que os usuários provisionem armazenamento, investiguem alertas e obtenham respostas usando linguagem natural. Os usuários escolhem um modo de acesso: no modo *somente leitura*, o assistente responde e orienta sem fazer alterações, enquanto no modo *leitura/gravação*, ele pode agir na infraestrutura de storage, mas mostra os detalhes para o usuário revisar e confirmar antes de cada alteração. link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+
+
+
+[[data-protection-and-auditing]]
+== Proteção e auditoria de dados
+
+.Quais são os recursos de proteção de dados disponíveis na implantação local do NetApp Console?
+A implantação local do NetApp Console oferece a você acesso ao NetApp Backup and Recovery para que você possa fazer backup e restaurar dados a partir da mesma interface, mantendo a governança consistente e reduzindo o número de ferramentas que suas equipes utilizam. link:concept-data-services.html["Saiba mais sobre serviços de dados"].
+
+.Como a implantação local do NetApp Console oferece suporte à auditoria e à retenção de logs?
+Cada ação administrativa gera um registro de auditoria que você pode revisar e filtrar na página de Auditoria. Você pode exportar os logs de auditoria para o seu próprio servidor syslog por meio de um webhook, para que cheguem às suas ferramentas de monitoramento centralizado ou SIEM para maior retenção e análise, e como o Console é executado no seu ambiente, os dados de log nunca saem da sua infraestrutura. link:task-audit-console-activity.html["Audite a atividade de implantação local do NetApp Console"].

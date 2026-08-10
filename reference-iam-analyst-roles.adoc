@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-analyst-roles.html 
+keywords: operations support analyst, analyst roles, read-only access, monitoring access, alert access, audit access, identity and access management, access roles, rbac, netapp console local 
+summary: Você pode atribuir a função de analista de suporte operacional aos usuários para conceder a eles acesso a alertas e monitoramento. Usuários com essa função também podem abrir chamados de suporte. 
+---
+= Função de acesso de analista de suporte operacional na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, você pode atribuir a função de analista de suporte operacional aos usuários para fornecer acesso a alertas e monitoramento.
+
+
+
+[[operational-support-analyst]]
+== Analista de suporte operacional
+
+[cols="1,2"]
+|===
+| Tarefa | Pode realizar 
+
+
+| Veja os sistemas de armazenamento | Sim 
+
+
+| Veja a página Audit e as notificações | Sim 
+
+
+| Visualizar, baixar e configurar alertas | Sim 
+|===

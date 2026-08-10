@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-manage.html 
+keywords: manage dashboard, view dashboards, edit dashboard, clone dashboard, delete dashboard, netapp console local 
+summary: Visualize e gerencie painéis no NetApp Console em implantação local, abrindo, editando, clonando e excluindo painéis personalizados. 
+---
+= Gerencie painéis na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gerencie painéis personalizados na implantação local do NetApp Console para manter as visualizações alinhadas às operações. Você pode editar, duplicar e excluir painéis conforme as equipes, frotas e prioridades mudam.
+
+Esta tarefa aplica-se apenas a dashboards personalizados em *Armazenamento > Dashboards*. Os dashboards predefinidos da página inicial não podem ser editados da mesma forma.
+
+
+
+[[view-dashboards]]
+== Visualizar painéis
+
+Visualize painéis personalizados e predefinidos para encontrar o painel que você deseja abrir, editar, duplicar ou excluir.
+
+
+TIP: Você pode duplicar um painel predefinido para criar uma versão personalizada que você pode editar.
+
+.Passos
+. Selecione *Armazenamento > Painéis*.
+. Analise a tabela do dashboard para encontrar o dashboard que você deseja abrir.
+. Selecione o nome do painel para abri-lo e visualizar suas métricas.
+. Se necessário, use as ações disponíveis para editar, duplicar ou excluir painéis personalizados.
+
+
+
+
+[[update-a-dashboard-as-priorities-change]]
+== Atualize o painel conforme as prioridades mudam
+
+Edite um painel quando suas prioridades operacionais mudarem e você precisar ajustar quais cartões e métricas estão visíveis.
+
+.Passos
+. Selecione *Armazenamento > Painéis*.
+. Abra o painel que você deseja editar.
+. Modifique um cartão existente no painel selecionando Editar no menu de ações do cartão.
+. Adicione um novo cartão ao painel selecionando *Adicionar cartão*.
++
+link:task-customize-dashboard-cards.html["Personalize os cartões na implantação local do NetApp Console"].
+
+. Selecione *Salvar alterações* para salvar o painel.
++
+** Você também pode optar por salvar suas alterações como um novo painel selecionando *Salvar como novo painel* no menu de ações. Essa opção é útil quando você deseja manter o painel original para outras equipes ou frotas enquanto cria uma nova versão para suas necessidades de monitoramento atuais.
+** Você também pode optar por descartar suas alterações selecionando *Descartar alterações* no menu de ações. Essa opção é útil quando você deseja reverter para a última versão salva do painel.
+
+
+
+
+
+
+[[reuse-a-custom-dashboard-for-another-resource-or-fleet]]
+== Reutilize um painel personalizado para outro recurso ou frota
+
+Duplique um painel quando quiser reutilizar um layout comprovado para outra equipe, frota ou cenário de monitoramento sem precisar recriá-lo do zero.
+
+
+TIP: Você pode duplicar um painel predefinido para criar uma versão personalizada que você pode editar.
+
+.Passos
+. Selecione *Armazenamento > Painéis*.
+. Para o painel que você deseja duplicar, selecione *Duplicar* no menu de ações.
++
+A implantação local no NetApp Console cria uma cópia que inclui todos os cartões do painel original.
+
+. Forneça um nome e uma descrição para o painel duplicado.
+. Selecione o painel duplicado que você acabou de criar. Altere as métricas, os recursos e os tipos de cartão para adequá-los ao seu novo cenário de monitoramento.
++
+link:task-customize-dashboard-cards.html["Personalize os cartões na implantação local do NetApp Console"].
+
+
+
+
+
+[[remove-dashboards-you-no-longer-use]]
+== Remova painéis que você não usa mais
+
+Exclua um painel quando ele não for mais compatível com as operações atuais e você quiser manter sua lista de painéis focada em casos de uso ativos.
+
+.Passos
+. Selecione *Armazenamento > Painéis*.
+. Para o painel que você deseja remover, selecione *Excluir*.
+. Confirme a exclusão.
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:task-dashboard-get-started.html["Comece a usar dashboards na implantação local do NetApp Console"]
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:task-dashboard-create.html["Crie um painel personalizado"]
+* link:task-customize-dashboard-cards.html["Personalize os cartões do painel de controle na implantação local do NetApp Console"]
+

@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+. Selecione *Administração > Credenciais*.
+. Selecione *Adicionar credenciais* e siga os passos do assistente.
++
+.. *Localização das credenciais*: Selecione *Microsoft Azure > Agent*.
+.. *Definir credenciais*: insira informações sobre a entidade de serviço do Microsoft Entra que concede as permissões necessárias:
++
+*** ID do aplicativo (cliente)
+*** ID do diretório (tenant)
+*** Segredo do cliente
+
+
+.. *Assinatura do Marketplace*: associe uma assinatura do Marketplace a estas credenciais, assinando agora ou selecionando uma assinatura existente.
+.. *Revisar*: confirme os detalhes das novas credenciais e selecione *Adicionar*.
+
+
+

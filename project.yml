@@ -1,0 +1,206 @@
+---
+settings:
+  name: NetApp Console local deployment
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  release_notes_autogen:
+    release_notes_repo: console-local-relnotes
+  langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: NetApp Console implantação local
+    entries:
+    - title: Notas de lançamento
+      entries:
+      - title: O que há de novo
+        url: "/whats-new.html"
+      - title: Limitações conhecidas
+        url: "/reference-local-known-limitations.html"
+      - title: Compare a implantação local do NetApp Console e o NetApp Console
+        url: "/console-differences.html"
+    - title: Comece agora
+      entries:
+      - title: Saiba mais sobre o NetApp Console
+        url: "/concept-netapp-console-local.html"
+      - title: Saiba mais sobre gerenciamento de identidade e acesso
+        url: "/concept-identity-and-access-management.html"
+      - title: Saiba mais sobre gerenciamento de fleet
+        url: "/concept-manage-storage.html"
+      - title: Saiba mais sobre as classes e políticas de armazenamento
+        url: "/concept-storage-classes.html"
+      - title: Saiba mais sobre a integração do LLM (gerenciamento assistido por IA)
+        url: "/concept-llm-integration.html"
+      - title: Saiba mais sobre NetApp Backup and Recovery
+        url: "/concept-data-services.html"
+    - title: Instale e configure
+      entries:
+      - title: Guia rápido para configurar o NetApp Console
+        url: "/task-quick-start-console-setup.html"
+      - title: Instalar NetApp Console
+        entries:
+        - title: Instalar NetApp Console
+          url: "/task-install-agent-on-prem-ova.html"
+      - title: Planeje a organização do seu NetApp Console
+        entries:
+        - title: Comece a usar identidade e acesso
+          url: "/task-iam-fleet-mgmt-get-started.html"
+        - title: Saiba mais sobre pastas e frotas
+          url: "/concept-folders-fleets-overview.html"
+        - title: Saiba mais sobre controle de acesso baseado em funções (RBAC)
+          url: "/concept-iam-rbac.html"
+      - title: Configure a organização do seu NetApp Console
+        entries:
+        - title: Crie pastas e frotas
+          url: "/task-iam-manage-folders-fleets.html"
+        - title: Adicionar sistemas de armazenamento ao NetApp Console
+          url: "/task-add-systems.html"
+        - title: Associe recursos a pastas e frotas
+          url: "/task-iam-manage-resources.html"
+        - title: Adicione membros e atribua funções iniciais
+          url: "/task-iam-manage-members-permissions.html"
+        - title: Funções de acesso
+          entries:
+          - title: NetApp Console funções de acesso
+            url: "/reference-iam-predefined-roles.html"
+          - title: Funções da plataforma
+            url: "/reference-iam-platform-roles.html"
+          - title: Funções de analista de suporte operacional
+            url: "/reference-iam-analyst-roles.html"
+          - title: Funções de storage
+            url: "/reference-iam-storage-roles.html"
+          - title: Funções de backup e recuperação
+            url: "/reference-iam-backup-rec-roles.html"
+      - title: Configurar as integrações e os serviços do NetApp Console
+        entries:
+        - title: Integrar o NetApp Console com o Active Directory
+          url: "/task-iam-active-directory-integrate.html"
+        - title: Conecte seu LLM e ative o assistente do NetApp Console
+          url: "/task-llm-connect.html"
+        - title: Solução de problemas de integração do LLM
+          url: "/task-llm-troubleshoot-integration.html"
+        - title: Configurar o envio de notificações
+          url: "/task-console-configure-notifications-delivery.html"
+    - title: Use o NetApp Console
+      entries:
+      - title: Faça login no NetApp Console
+        url: "/task-logging-in.html"
+      - title: Visualizar sistemas associados a frotas
+        url: "/task-iam-switch-fleets.html"
+      - title: Gerencie as configurações de usuário do seu NetApp Console
+        url: "/task-user-settings.html"
+      - title: Use o assistente do NetApp Console
+        url: "/task-console-asst-use.html"
+    - title: Gerencie o armazenamento no NetApp Console
+      entries:
+      - title: Aprenda sobre gerenciamento de storage
+        url: "/concept-manage-storage.html"
+      - title: Padronizar o comportamento de storage
+        entries:
+        - title: Saiba mais sobre classes de armazenamento
+          url: "/concept-storage-classes.html"
+        - title: Saiba mais sobre as políticas de classe de armazenamento
+          url: "/concept-storage-class-policies.html"
+        - title: Analise as políticas de classe de armazenamento predefinidas
+          url: "/reference-storage-class-policies.html"
+        - title: Criar classes de armazenamento
+          url: "/task-storage-class-manage.html"
+      - title: Provisionar storage
+        url: "/task-provisioning-manual.html"
+    - title: Monitore a integridade do storage
+      entries:
+      - title: Saiba mais sobre como monitorar a integridade do armazenamento no NetApp
+          Console
+        url: "/concept-monitor-storage.html"
+      - title: Monitoramento com dashboards
+        entries:
+        - title: Ver métricas da página inicial
+          url: "/task-storage-dashboard.html"
+        - title: Use painéis personalizados
+          entries:
+          - title: Saiba mais sobre painéis personalizados
+            url: "/concept-custom-dashboards.html"
+          - title: Comece a usar os dashboards
+            url: "/task-dashboard-get-started.html"
+          - title: Crie um painel personalizado
+            url: "/task-dashboard-create.html"
+          - title: Personalize os cartões do dashboard
+            url: "/task-customize-dashboard-cards.html"
+          - title: Cartões de painel personalizados e referência de métricas
+            url: "/reference-dashboard-card-templates.html"
+        - title: Gerencie painéis personalizados
+          entries:
+          - title: Gerencie painéis personalizados
+            url: "/task-dashboard-manage.html"
+      - title: Monitore frotas usando o inventário
+        url: "/concept-monitor-fleets-inventory.html"
+      - title: Corrigir alertas
+        entries:
+        - title: Saiba mais sobre alertas
+          url: "/concept-console-alerts.html"
+        - title: Ver alertas
+          url: "/task-alerts-monitor.html"
+        - title: Configurar regras de notificação para alertas
+          url: "/task-alert-rules-manage.html"
+        - title: Corrigir a deriva da storage class
+          url: "/task-storage-class-drift-remediate.html"
+        - title: Ações de remediação de alertas
+          url: "/reference-alert-remediation.html"
+      - title: Investigue problemas de desempenho
+        entries:
+        - title: Saiba mais sobre o Workload Analyzer
+          url: "/concept-workload-analyzer.html"
+        - title: Investigar alta latência em um volume
+          url: "/task-analyzer-volume-latency-investigate.html"
+        - title: Investigar a alta demanda de taxa de transferência em um volume
+          url: "/task-analyzer-volume-throughput-investigate.html"
+        - title: Investigar o crescimento da capacidade em um volume
+          url: "/task-analyzer-volume-capacity-investigate.html"
+        - title: Referência de métricas do Workload Analyzer
+          url: "/reference-workload-analyzer-metrics.html"
+    - title: Administrar e monitorar a implantação local do NetApp Console
+      entries:
+      - title: Saiba mais sobre como administrar a implantação local do NetApp Console
+        url: "/concept-administer-netapp-console-local.html"
+      - title: Audite as operações de implantação local do NetApp Console
+        url: "/task-audit-console-activity.html"
+      - title: Licenses and subscriptions
+        url: https://docs.netapp.com/us-en/console-licenses-subscriptions/index.html
+      - title: Manter o NetApp Console
+        entries:
+        - title: Manutenção da VM do NetApp Console
+          url: "/task-console-local-vm-config.html"
+      - title: Gerenciar usuários e acessos
+        entries:
+        - title: Gerenciar o acesso dos membros (centrado no membro)
+          url: "/task-iam-manage-roles.html"
+        - title: Gerenciar atribuições de acesso à frota (centrado na frota)
+          url: "/task-iam-users-fleets-assign.html"
+        - title: Gerenciar a segurança dos membros
+          url: "/task-manage-member-security.html"
+    - title: Referência
+      entries:
+      - title: NetApp Console API de implantação local
+        entries:
+        - title: IDs da organização e da frota
+          url: "/task-iam-rename-organization.html"
+        - title: Referência da API de gerenciamento de identidade e acesso
+          url: https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html
+      - title: Provedores e modelos de LLM suportados
+        url: "/reference-llm-supported-models.html"
+      - title: Referência de alertas do ONTAP
+        url: "/reference-ontap-alerts.html"
+      - title: Categorias de conformidade de segurança de cluster
+        url: "/reference-cluster-compliance-categories.html"
+      - title: Categorias de conformidade de segurança de Storage VMs
+        url: "/reference-svm-compliance-categories.html"
+    - title: Conhecimento e suporte
+      entries:
+      - title: Cadastre-se para receber suporte
+        url: "/task-support-registration.html"
+      - title: Obtenha ajuda
+        url: "/task-get-help.html"
+  - title: Avisos legais
+    url: "/legal-notices.html"

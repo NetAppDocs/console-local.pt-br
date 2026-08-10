@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+Pontos de extremidade contatados a partir de computadores ao usar o console baseado na Web NetApp::
++
+--
+Os computadores que acessam o Console por meio de um navegador da web devem ter a capacidade de se conectar a vários endpoints. Você precisará usar o Console para configurar o agente do Console e para o uso diário do Console.
+
+link:reference-networking-saas-console.html["Prepare a rede para o NetApp Console"].
+
+--
+

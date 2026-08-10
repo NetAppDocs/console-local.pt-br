@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept-manage-storage-workflow.html 
+keywords: storage management workflow, storage classes, provisioning, storage class policies, ONTAP, fleet, drift detection, compliance monitoring, storage governance, operational efficiency, netapp console local 
+summary: Saiba mais sobre como gerenciar o storage na implantação local do NetApp Console, incluindo classes de storage, políticas e métodos de provisionamento. 
+---
+= Visão geral do fluxo de trabalho de gerenciamento de storage na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, o NetApp Console (local) ajuda você a gerenciar o storage do ONTAP em escala usando padrões consistentes e reutilizáveis. Em vez de tomar decisões pontuais para cada volume ou LUN, você define o comportamento aprovado uma vez e o aplica em frotas, quer você provisione manualmente, use a alocação automatizada ou use fluxos de trabalho de planejamento e aprovação assistidos por IA.
+
+Esta página é o ponto de partida para administradores de storage que gerenciam o ONTAP usando frotas, políticas de classe de storage e classes de storage. Ela organiza o fluxo de trabalho completamente e fornece links para procedimentos detalhados.
+
+Se você é novo nesses conceitos, comece com [Saiba mais sobre como gerenciar storage com a implantação local do NetApp Console](concept-manage-storage.html).
+
+
+
+[[prerequisites-and-dependencies]]
+== Pré-requisitos e dependências
+
+Administrador da organização: garanta que os sistemas de storage sejam detectados e atribuídos às frotas corretas. Os administradores de storage não podem aplicar padrões ou provisionar em uma frota até que os sistemas estejam disponíveis nessa frota e o acesso seja concedido via RBAC.
+
+É necessário acesso RBAC. Confirme se você tem acesso às frotas onde definirá os padrões e provisionará o storage.
+
+
+
+[[typical-workflow]]
+== Fluxo de trabalho típico
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Analisar frotas e acesso
+[role="quick-margin-list"]
+* Analise as frotas disponíveis e confirme se você tem acesso às frotas onde deseja gerenciar o storage.
+* Valide as permissões e o escopo antes de criar ou atribuir padrões de storage.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Definir políticas de classe de armazenamento
+[role="quick-margin-list"]
+* Defina políticas de classe de armazenamento que representem seus padrões.
+* Capture requisitos (desempenho, proteção, posicionamento) em políticas reutilizáveis.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Criar classes de storage
+[role="quick-margin-list"]
+* Crie classes de armazenamento combinando políticas em modelos de workload.
+* Utilize modelos consistentes para garantir que as cargas de trabalho sejam provisionadas de acordo com seus padrões.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Associe classes de armazenamento a frotas
+[role="quick-margin-list"]
+* Associe as classes de armazenamento às frotas onde elas se aplicam.
+* Defina o escopo das classes para as frotas corretas para que as opções corretas apareçam durante o provisionamento.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]Provisionar volumes ou LUNs
+[role="quick-margin-list"]
+* Provisione volumes ou LUNs usando o método que corresponde ao seu modelo operacional.
+* Escolha o fluxo de trabalho que melhor se adapta à forma como suas equipes solicitam, aprovam e entregam storage.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]Monitore as cargas de trabalho e corrija os desvios
+[role="quick-margin-list"]
+* Monitore as cargas de trabalho para detectar desvios das políticas definidas.
+* Corrija as configurações não conformes para restaurar o alinhamento com a política.
+

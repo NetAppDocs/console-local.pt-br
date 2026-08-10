@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-create.html 
+keywords: create dashboard, custom dashboard, add dashboard, metrics, cards, card templates, fleet monitoring, storage visibility, performance monitoring, capacity monitoring, netapp console local 
+summary: Crie um painel personalizado na implantação local do NetApp Console, adicione cartões e salve uma visualização de monitoramento utilizável. 
+---
+= Crie painéis para monitorar metas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Crie um painel personalizado na implantação local do NetApp Console, adicione cartões e salve uma visualização de monitoramento para operações diárias.
+
+Se você precisa apenas de monitoramento em nível organizacional pronto para uso, comece com os painéis predefinidos da página inicial. Crie um painel personalizado quando você precisar de uma visualização específica para uma função, segmentação em nível de recurso ou um layout de cartão personalizado.
+
+.Diretrizes para o painel de implantação local do NetApp Console
+* Somente o usuário que cria o painel pode visualizá-lo. Você não pode compartilhar painéis com outros usuários, mesmo quando os adiciona à página inicial do Console.
+* Você só pode visualizar os recursos que você tem permissão para visualizar. Se você não vir um recurso na lista de recursos disponíveis, você não tem permissão para visualizá-lo.
+* Antes de começar, identifique os tipos de métricas e recursos que você deseja que o painel monitore. link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"]
+
+
+
+
+[[build-a-dashboard-for-your-monitoring-goals]]
+== Crie um painel de controle para seus objetivos de monitoramento
+
+Crie um painel de controle quando você precisar de um local centralizado para monitorar as métricas importantes para sua função, como a saúde da frota, pontos críticos de desempenho e tendências de alertas.
+
+.Passos
+. Selecione *Armazenamento > Painéis*.
+. Selecione *Adicionar painel*.
++
+A implantação local do NetApp Console cria um novo painel com um nome padrão e sem descrição.
+
+. Selecione *Adicionar cartão*.
+. Selecione o *Tipo de recurso* para o cartão, como frota, sistema ou volume e então escolha os recursos na lista de recursos disponíveis.
+. Selecione *Próximo* para continuar para escolher uma métrica e um tipo de cartão.
+. Selecione uma métrica para exibir. Você pode filtrar as métricas disponíveis por tipo: o *Tipo de Métrica*: *Desempenho*, *Capacidade*, *Saúde* ou *Alertas*, ou pesquisar uma métrica específica pelo nome. As métricas disponíveis dependem do tipo de recurso que você selecionou.
++
+link:reference-dashboard-card-templates.html#metrics-list["Saiba mais sobre as métricas disponíveis."]
+
+. Selecione um cartão para incluir no painel e selecione *Avançar*.
++
+Você só pode selecionar um cartão por vez. A pré-visualização do cartão mostra dados em tempo real para a métrica e o tipo de recurso selecionados.
+
+. Dê um nome ao seu cartão. O nome deve ser único no painel de controle.
+. Revise a prévia do cartão, insira um nome e uma descrição para o cartão e selecione *Adicionar*.
+. Repita estas etapas para os cartões adicionais.
+. Selecione o ícone de lápis para editar o nome e a descrição do painel e descrever sua finalidade.
+. Selecione o menu de ações à direita do botão Adicionar cartão e selecione *Salvar dashboard*.
++
+O painel salvo está disponível em *Armazenamento > Painéis*.
+
+. Opcionalmente, adicione este painel à sua página inicial selecionando *Adicionar à página inicial* no menu de ações. O painel é adicionado à página inicial. Somente você pode visualizar os painéis personalizados que criar. Ele não é compartilhado com outras pessoas.
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:task-customize-dashboard-cards.html["Personalize os cartões do painel de controle na implantação local do NetApp Console"]
+* link:task-dashboard-manage.html["Gerencie painéis na implantação local do NetApp Console"]
+

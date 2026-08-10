@@ -1,0 +1,125 @@
+---
+sidebar: sidebar 
+permalink: concept-netapp-console-local.html 
+keywords: netapp console local, overview, self-hosted, data sovereignty, storage management, ONTAP, fleet management, RBAC, policy enforcement, storage governance 
+summary: Saiba mais sobre a implantação local do NetApp Console, uma plataforma de gerenciamento de storage auto-hospedada que você pode implantar em seu próprio ambiente. 
+---
+= Saiba mais sobre a implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A implantação local do NetApp Console permite que você hospede e execute o plano de controle autônomo do NetApp Console em sua própria infraestrutura.
+
+Você obtém gerenciamento de storage unificado, aplicação de políticas, automação em escala de fleet e operações assistidas por IA. Nenhum dado, metadado ou tráfego de gerenciamento sai do seu ambiente.
+
+
+
+[[deploy-and-operate-console-in-your-own-infrastructure]]
+== Implemente e opere o NetApp Console em sua própria infraestrutura
+
+NetApp Console local é implantado em sua própria infraestrutura, então sua equipe controla a implantação, a conectividade e as operações diárias. Você implanta o agente do Console, mantém a máquina virtual do Console e gerencia os caminhos de rede necessários para o tráfego de monitoramento e gerenciamento. Isso oferece aos administradores corporativos controle total dos limites operacionais, mantendo os dados de gerenciamento dentro do ambiente.
+
+* link:task-install-agent-on-prem-ova.html["Instale o NetApp Console em uma implantação local usando um OVA no vCenter"].
+* link:task-console-local-vm-config.html["Mantenha seu vCenter ou host ESXi para implantação local do NetApp Console"].
+* link:reference-ports-on-prem.html["Saiba mais sobre as portas para o agente do Console local na implantação local do NetApp Console"].
+
+
+
+
+[[automate-storage-operations-with-apis-and-service-accounts]]
+== Automatize as operações de storage com APIs e contas de serviço
+
+NetApp Console local oferece suporte a integrações baseadas em API, permitindo que sua organização automatize operações de storage repetitivas. As contas de serviço permitem que os aplicativos se autentiquem e operem com funções atribuídas. Os mesmos controles de acesso baseado em funções e controles de auditoria aplicados a usuários interativos regem essas ações. Isso oferece suporte à automação empresarial, mantendo o acesso delimitado e rastreável.
+
+* link:task-iam-manage-members-permissions.html["Adicione membros à sua organização de implantação local do NetApp Console"].
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Saiba mais sobre a API do NetApp Console IAM"^]
+
+
+
+
+[[control-access-with-rbac-and-active-directory-integration]]
+== Controle o acesso com RBAC e integração ao Active Directory
+
+NetApp Console local oferece controle de acesso baseado em funções (RBAC) de confiança zero, que limita o que os usuários podem ver e fazer nas frotas e recursos que gerenciam. Você pode integrar com o Active Directory para que os usuários façam login com suas credenciais corporativas existentes, e os usuários locais podem adicionar autenticação multifator (MFA) para outra camada de verificação. A governança de acesso permanece alinhada com as práticas mais amplas de gerenciamento de identidade e acesso da sua organização.
+
+* link:concept-identity-and-access-management.html["Saiba mais sobre gerenciamento de identidade e acesso na implantação local do NetApp Console"].
+* link:concept-secure-access.html["Saiba mais sobre o acesso seguro ao NetApp Console implantação local"].
+
+
+
+
+[[organize-fleets-and-delegate-storage-administration]]
+== Organize frotas e delegue a administração de storage
+
+NetApp Console local permite dimensionar a administração organizando recursos em pastas e frotas. Você pode mapear frotas para ambientes, unidades de negócios ou regiões e, em seguida, delegar a administração no âmbito da organização, da pasta ou da frota para manter a responsabilidade clara. Essa estrutura ajuda grandes equipes de storage a distribuir o trabalho sem perder a consistência das políticas ou a governança.
+
+* link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas na implantação local do NetApp Console"].
+* link:concept-storage-fleets.html["Saiba mais sobre frotas de armazenamento na implantação local do NetApp Console"].
+
+
+
+
+[[track-and-export-administrative-activity-for-compliance]]
+== Rastrear e exportar atividades administrativas para fins de conformidade
+
+Cada ação administrativa gera um registro de auditoria. As equipes de segurança e conformidade podem usar esses registros para investigar incidentes, demonstrar a eficácia dos controles e atender aos requisitos de auditoria. Exporte os logs de auditoria para o seu servidor syslog por meio de um webhook para monitoramento centralizado, maior retenção e análise. Como a implantação local do NetApp Console é executada em seu próprio ambiente, os dados de log nunca saem da sua infraestrutura.
+
+* link:task-audit-console-activity.html["Audite a atividade de implantação local do NetApp Console"].
+
+
+
+
+[[provision-storage-consistently-with-storage-class-policies]]
+== Provisione storage de forma consistente com as políticas de classe de storage
+
+NetApp A implantação local do Console impõe o storage consistente por meio de classes de storage — modelos que agrupam desempenho, capacidade e políticas de tiering em definições reutilizáveis. Os administradores definem os padrões de storage uma única vez. Administradores e fluxos de trabalho automatizados usam essas classes aprovadas para toda atividade de provisionamento em seu ambiente. Isso impede a deriva de configuração, reduz o tempo que administradores menos experientes gastam em decisões de provisionamento e garante que toda carga de trabalho atenda imediatamente aos padrões da sua organização. Após o provisionamento, a implantação local do Console continua monitorando cada carga de trabalho para garantir a conformidade.
+
+* link:concept-manage-storage.html["Saiba mais sobre como gerenciar o storage com a implantação local do NetApp Console"].
+
+
+
+
+[[monitor-storage-class-compliance-and-remediate-drift-automatically]]
+== Monitore a conformidade da classe de armazenamento e corrija desvios automaticamente
+
+A implantação local do NetApp Console monitora cada carga de trabalho em relação à classe de armazenamento usada para provisioná-la. Quando uma carga de trabalho apresenta desvios, devido a uma alteração direta na configuração do cluster ou à degradação do desempenho, a implantação local do NetApp Console sinaliza a violação imediatamente. Os administradores podem seguir etapas de correção guiadas ou configurar a correção automatizada para resolver condições comuns de desvio sem intervenção manual. Essa aplicação contínua reduz o risco de auditoria e mantém seu ambiente em conformidade entre as revisões programadas.
+
+
+
+[[monitor-storage-health-and-receive-alerts-across-fleets]]
+== Monitore a integridade do storage e receba alertas em todas as frotas
+
+A implantação local do NetApp Console oferece a você um local centralizado para monitorar a integridade e o desempenho de cada cluster que você gerencia. Painéis de controle para toda a frota exibem clusters e volumes que precisam de atenção. Painéis de controle personalizados permitem que os administradores criem visualizações de monitoramento que correspondam às suas responsabilidades. O Workload Analyzer correlaciona latência, taxa de transferência, utilização de recursos e alterações de configuração ao longo do tempo para ajudar você a identificar as causas raiz antes que os problemas afetem as cargas de trabalho.
+
+Configure canais de entrega de e-mail e webhook para que os alertas cheguem às equipes certas quando as condições mudam. Os administradores da organização configuram os destinos e os administradores de storage os aplicam nas regras de alerta para que os fluxos de resposta correspondam ao seu modelo operacional. Isso ajuda as equipes corporativas a responder mais rapidamente a eventos de capacidade, desempenho e proteção.
+
+* link:concept-monitor-storage.html["Saiba mais sobre como monitorar a integridade do storage na implantação local do NetApp Console"].
+* link:task-console-configure-notifications-delivery.html["Configure os canais de entrega de notificações na implantação local do NetApp Console"].
+* link:task-alert-rules-manage.html["Configure regras de notificação para alertas na implantação local do NetApp Console"].
+
+
+
+
+[[provision-storage-and-investigate-alerts-with-natural-language]]
+== Provisione armazenamento e investigue alertas com linguagem natural
+
+NetApp A implantação local do Console pode se conectar ao seu próprio large language model (LLM) para fornecer gerenciamento de storage assistido por IA. Você pode descrever uma carga de trabalho em linguagem simples para obter um plano de provisionamento, pedir ao Console para investigar um alerta ativo ou obter respostas contextuais sobre seu ambiente de storage. Cada ação de IA permanece dentro dos limites das suas classes de storage e dos controles de acesso baseado em funções que se aplicam à sua conta, e você deve confirmar operações confidenciais antes que elas prossigam. A implantação local do Console envia solicitações apenas para o endpoint LLM que seus administradores configurarem.
+
+* link:concept-llm-integration.html["Saiba mais sobre a integração do LLM na implantação local do NetApp Console"].
+
+
+
+
+[[back-up-and-restore-storage-with-netapp-backup-and-recovery]]
+== Faça backup e restaure o storage com o NetApp Backup and Recovery
+
+Além do provisionamento e monitoramento, a implantação local do NetApp Console oferece acesso ao NetApp Backup and Recovery, permitindo que você proteja seus dados a partir da mesma interface. Você pode fazer backup e restaurar seus dados para atender aos seus requisitos de proteção e recuperação. Gerenciar a proteção de dados juntamente com seu storage mantém a governança consistente e reduz o número de ferramentas que suas equipes precisam para operar.
+
+* link:concept-data-services.html["Saiba mais sobre os serviços de dados na implantação local do NetApp Console"].
+

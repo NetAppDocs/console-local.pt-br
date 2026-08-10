@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+Acesse o portal do Azure e atribua a função personalizada do Azure à máquina virtual do agente do Console para uma ou mais assinaturas.
+
+.Passos
+. No portal do Azure, abra o serviço *Assinaturas* e selecione sua assinatura.
++
+É importante atribuir a função a partir do serviço *Assinaturas*, pois isso especifica o escopo da atribuição da função no nível da assinatura. O _escopo_ define o conjunto de recursos aos quais o acesso se aplica. Se você especificar um escopo em um nível diferente (por exemplo, no nível da máquina virtual), sua capacidade de concluir ações a partir do NetApp Console será afetada.
+
++
+https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview["Documentação do Microsoft Azure: compreenda o escopo do Azure RBAC"^]
+
+. Selecione *Controle de acesso (IAM)* > *Adicionar* > *Adicionar atribuição de função*.
+. Na aba *Função*, selecione a função *Console Operator* e selecione *Avançar*.
++
+
+NOTE: Console Operator é o nome padrão fornecido na política. Se você escolheu um nome diferente para a função, selecione esse nome em vez disso.
+
+. Na aba *Membros*, conclua as seguintes etapas:
++
+.. Atribua acesso a uma *Managed identity*.
+.. Selecione *Selecionar membros*, selecione a assinatura na qual a máquina virtual do agente do Console foi criada, em *Identidade gerenciada*, escolha *Máquina virtual* e, em seguida, selecione a máquina virtual do agente do Console.
+.. Selecione *Select*.
+.. Selecione *Next*.
+.. Selecione *Revisar + atribuir*.
+.. Se você deseja gerenciar recursos em assinaturas adicionais do Azure, alterne para essa assinatura e repita estas etapas.
+
+
+

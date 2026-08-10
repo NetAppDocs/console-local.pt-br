@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-resources.html 
+keywords: resource, hierarchy, association, access, resource permissions, resource hierarchy, iam, identity and access management 
+summary: Controle o acesso dos usuários aos recursos adicionando-os a frotas e pastas na sua organização de implantação local do NetApp Console. Conceda acesso aos usuários no nível da frota. 
+---
+= Gerencie recursos em pastas e frotas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gerencie o acesso a recursos no NetApp Console em implantação local associando os recursos à pasta ou frota correta, o que controla quais equipes podem acessá-los e gerenciá-los.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pasta ou frota. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Coloque os recursos onde as equipes certas possam gerenciá-los, mova-os quando a propriedade mudar e remova as associações quando não forem mais necessárias.
+
+Um _recurso_ é uma entidade que a implantação local do Console reconhece, como um recurso de storage ou uma carga de trabalho de Backup e Recovery.
+
+
+
+[[console-resource-types]]
+== Tipos de recursos do Console
+
+A implantação local do NetApp Console oferece suporte a recursos de storage e cargas de trabalho de backup e recuperação. Associe qualquer tipo de recurso a uma frota para controlar o acesso e o gerenciamento.
+
+Recursos de storage:: Os recursos de storage são o tipo de recurso mais comum em sua organização. Ao adicionar um sistema de storage à implantação local do Console, associe-o a uma frota para que as equipes apropriadas possam acessá-lo e gerenciá-lo. Por exemplo, após adicionar um ONTAP cluster, associe-o à  `Production-US-East`frota.
+Cargas de trabalho de backup e recuperação:: As cargas de trabalho de Backup and Recovery também são consideradas recursos. Você pode atribuir permissões de membro para acessar cargas de trabalho de Backup and Recovery associando essas cargas de trabalho a frotas. Por exemplo, atribua o acesso de um membro a uma carga de trabalho de Backup and Recovery associando-a a uma frota à qual o membro possa acessar e concedendo a função apropriada de Backup and Recovery.
+
+
+
+
+[[view-the-resources-in-your-organization]]
+== Veja os recursos na sua organização
+
+Visualize os recursos da sua organização para encontrar um recurso específico e ver a quais frotas ou pastas ele está associado. Se você não criou nenhuma pasta ou frota, todos os recursos são associados à frota padrão diretamente subordinada à organização.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Recursos*.
+. Selecione *Pesquisa e filtragem avançadas*.
+. Use as opções disponíveis para encontrar um recurso:
++
+** *Pesquisar por nome do recurso*: digite uma cadeia de texto e selecione *Adicionar*.
+** *Plataforma*: Selecione uma ou mais plataformas, como Amazon Web Services.
+** *Recursos*: Selecione um ou mais recursos, como o Cloud Volumes ONTAP.
+** *Organização, pasta ou frota*: selecione toda a organização, uma pasta específica ou uma frota específica.
+
+
+. Selecione *Pesquisar*.
+
+
+
+
+[[associate-a-resource-with-a-folder-or-fleet]]
+[[associate-resource]]
+== Associe um recurso a uma pasta ou frota
+
+Associe um recurso a uma frota ou pasta para que as equipes apropriadas possam gerenciá-lo. Por exemplo, após adicionar um ONTAP cluster, associe-o à  `Production-US-East` frota para que os administradores de storage regionais dessa frota possam gerenciá-lo.
+
+
+NOTE: Usuários com a função de administrador da organização podem adicionar recursos a uma pasta para delegar tarefas de associação de frota ao administrador da pasta ou da frota correspondente. link:task-iam-manage-folders-fleets.html#associate-resource-folder["Associe um recurso a uma pasta"].
+
+.Passos
+. Na página *Recursos*, navegue até um recurso na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Associar a uma pasta ou frota*.
+. Selecione uma pasta ou frota e, em seguida, selecione *Aceitar*.
+. Para associar uma pasta ou frota adicional, selecione *Adicionar pasta ou frota* e, em seguida, selecione a pasta ou frota.
++
+Observe que você só pode selecionar entre as pastas e frotas para as quais você tem permissões de administrador.
+
+. Selecione *Associar recursos*.
++
+** Se você associou o recurso a frotas, os membros que têm permissões para essas frotas agora podem acessar o recurso a partir do Console.
+** Se você associou o recurso a uma pasta, um administrador de pasta ou de frota agora pode acessar o recurso e associá-lo a uma frota dentro da pasta. link:task-iam-manage-folders-fleets.html#associate-resource-folder["Associe um recurso a uma pasta"].
+
+
+
+
+
+
+[[view-the-folders-and-fleets-associated-with-a-resource]]
+[[view-folders-and-fleets]]
+== Veja as pastas e frotas associadas a um recurso
+
+Verifique a quais frotas ou pastas um recurso está associado.
+
+
+NOTE: Para verificar quais membros têm acesso ao recurso, consulte os membros atribuídos à pasta ou frota associada. link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"].
+
+.Passos
+. Na página *Recursos*, navegue até um recurso na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Ver detalhes*.
+
+
+O exemplo a seguir mostra um recurso associado a uma frota.
+
+image:screenshot-iam-resource-details.png["Uma captura de tela da página de detalhes do recurso que mostra um recurso associado a uma frota que está diretamente subordinada à organização."]
+
+
+NOTE: Para ver quais membros têm acesso ao recurso, revise a pasta ou frota associada.
+
+link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"]. link:task-iam-manage-roles.html["Gerencie o acesso de membros"].
+
+
+
+[[remove-a-resource-from-a-folder-or-fleet]]
+[[remove-resource]]
+== Remover um recurso de uma pasta ou frota
+
+Remova a associação de um recurso a uma pasta ou frota para impedir que os membros o gerenciem lá.
+
+
+NOTE: Para remover um sistema de storage de toda a organização, acesse a página *Sistemas* e remova o sistema.
+
+.Passos
+. Na página *Recursos*, navegue até um recurso na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Ver detalhes*.
+. Para remover um recurso de uma pasta ou frota, selecione image:icon-delete.png["Um ícone de uma lata de lixo"] ao lado da pasta ou frota.
+. Selecione *Excluir* para remover a associação.
+
+
+
+
+[[move-a-resource-between-fleets]]
+== Mover um recurso entre frotas
+
+Transfira um recurso de uma frota para outra removendo sua associação com a frota atual e, em seguida, associando-o à frota de destino.
+
+
+NOTE: O acesso ao recurso muda assim que a associação muda. Se possível, conclua ambas as etapas em uma única janela de manutenção.
+
+.Passos
+. Na página *Recursos*, navegue até um recurso na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Ver detalhes*.
+. Selecione image:icon-delete.png["Um ícone de uma lata de lixo"] ao lado da frota atual e selecione *Excluir*.
+. Selecione *Adicionar pasta ou fleet*.
+. Selecione a frota desejada e selecione *Aceitar*.
+. Selecione *Associar recursos*.
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:concept-identity-and-access-management.html["Saiba mais sobre identidade e acesso no NetApp Console"]
+* link:task-iam-fleet-mgmt-get-started.html["Comece a usar identidade e acesso no NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota após mover recursos"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Saiba mais sobre a API de identidade e acesso"^]
+

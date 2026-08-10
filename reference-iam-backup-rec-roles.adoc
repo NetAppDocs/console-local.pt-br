@@ -1,0 +1,499 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-backup-rec-roles.html 
+keywords: backup and recovery roles, NetApp Backup and Recovery, backup admin, restore admin, clone admin, backup and recovery viewer, backup and recovery super admin, roles, permissions, rbac, access control, identity and access management, netapp console local 
+summary: Você pode atribuir as seguintes funções aos usuários para conceder a eles acesso ao NetApp Backup and Recovery dentro do Console. As funções de Backup and Recovery oferecem a você a flexibilidade de atribuir aos usuários uma função específica para as tarefas que eles precisam realizar em sua organização. Como você atribui as funções depende das suas próprias práticas de negócio e de gerenciamento de storage. 
+---
+= Funções do NetApp Backup and Recovery na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, você pode atribuir as seguintes funções aos usuários para conceder a eles acesso ao NetApp Backup and Recovery dentro do Console. As funções de Backup and Recovery oferecem a você flexibilidade para atribuir aos usuários uma função específica para as tarefas que eles precisam realizar em sua organização. A forma como você atribui as funções depende das suas próprias práticas de negócios e de gerenciamento de storage.
+
+O serviço utiliza as seguintes funções específicas para o NetApp Backup and Recovery.
+
+* *Superadministrador de backup e recuperação*: Executar quaisquer ações em NetApp Backup and Recovery.
+* *Administrador de backup do Backup and Recovery*: Execute backups para snapshots locais, replique para storage secundário e faça backup para storage de objetos em ações no NetApp Backup and Recovery.
+* *Administrador de restauração de backup e recuperação*: restaure cargas de trabalho usando o NetApp Backup and Recovery.
+* *Backup and recovery clone admin*: clone aplicativos e dados usando o NetApp Backup and Recovery.
+* *Visualizador de backup e recuperação*: Exibe informações no NetApp Backup and Recovery, mas não permite executar nenhuma ação.
+
+
+Para obter detalhes sobre todos os papéis de acesso ao NetApp Console, consulte  https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["A documentação de configuração e administração do NetApp Console"^].
+
+
+
+[[roles-used-for-common-actions]]
+== Funções usadas para ações comuns
+
+A tabela a seguir indica as ações que cada função de NetApp Backup and Recovery pode executar para todas as cargas de trabalho.
+
+[cols="20,20,15,15a,15a,15a"]
+|===
+| Recurso e ação | Superadministrador de backup e recuperação | Backup e recuperação administrador de backup | Administrador de backup e recuperação de restauração | Administrador de clones de backup e recuperação | Visualizador de backup e recuperação 
+
+
+| Adicionar, editar ou excluir hosts | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Instale plugins | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Adicionar credenciais (host, instância, vCenter) | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Visualizar o painel de controle e todas as abas | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Inicie o teste gratuito | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Iniciar a descoberta de cargas de trabalho | Não | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Ver informações da licença | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Ativar licença | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Ver hosts | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+6+| *Horários*: 
+
+
+| Ativar horários | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Suspender horários | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+6+| *Políticas e proteção*: 
+
+
+| Veja os planos de proteção | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar, modificar ou excluir planos de proteção | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Restaurar cargas de trabalho | Sim | Não  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Criar, dividir ou excluir clones | Sim | Não  a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Criar, modificar ou excluir política | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Relatórios*: 
+
+
+| Ver relatórios | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar relatórios | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Excluir relatórios | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Importar do SnapCenter e gerenciar o host*: 
+
+
+| Visualizar dados importados do SnapCenter | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Importar dados do SnapCenter | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Gerenciar (migrar) host | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Configurar configurações*: 
+
+
+| Configurar diretório de logs | Sim | Sim  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Associar ou remover credenciais de instância | Sim | Sim  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Buckets*: 
+
+
+| Ver buckets | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar, editar ou excluir bucket | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+|===
+
+
+[[roles-used-for-workload-specific-actions]]
+== Funções usadas para ações específicas da carga de trabalho
+
+A tabela a seguir indica as ações que cada função de NetApp Backup and Recovery pode executar para cargas de trabalho específicas.
+
+
+
+[[kubernetes-workloads]]
+=== Cargas de trabalho do Kubernetes
+
+Esta tabela indica as ações que cada função de NetApp Backup and Recovery pode executar para ações específicas de cargas de trabalho do Kubernetes.
+
+[cols="20,20,15,15a,15a"]
+|===
+| Recurso e ação | Superadministrador de backup e recuperação | Backup e recuperação administrador de backup | Administrador de backup e recuperação de restauração | Visualizador de backup e recuperação 
+
+
+| Visualize clusters, namespaces, classes de armazenamento e recursos da API | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Adicionar novos clusters Kubernetes | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Atualizar configurações do cluster | Sim | Não  a| 
+Não
+ a| 
+Não
+
+
+
+| Remover clusters do gerenciamento | Sim | Não  a| 
+Não
+ a| 
+Não
+
+
+
+| Ver aplicativos | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar e definir novos aplicativos | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Atualize as configurações do aplicativo | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Remover aplicativos do gerenciamento | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Visualize os recursos protegidos e o status do backup | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Crie backups e proteja aplicativos com políticas | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Desproteger aplicativos e excluir backups | Sim | Sim  a| 
+Não
+ a| 
+Não
+
+
+
+| Visualizar pontos de recuperação e resultados do visualizador de recursos | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Restaurar aplicativos a partir de pontos de recuperação | Sim | Não  a| 
+Sim
+ a| 
+Não
+
+
+
+| Visualizar políticas de backup do Kubernetes | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar políticas de backup do Kubernetes | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Atualize as políticas de backup | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Excluir políticas de backup | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Visualizar hooks de execução e fontes de hooks | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Crie ganchos de execução e fontes de gancho | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Atualize os ganchos de execução e as fontes de ganchos | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Excluir hooks de execução e fontes de hooks | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Visualizar modelos de hook de execução | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar modelos de hook de execução | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Atualizar modelos de hook de execução | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Excluir modelos de hook de execução | Sim | Sim  a| 
+Sim
+ a| 
+Não
+
+
+
+| Visualize o resumo da carga de trabalho e os painéis de análise | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+
+
+| Visualize os buckets do StorageGRID e os destinos de storage | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+
+|===

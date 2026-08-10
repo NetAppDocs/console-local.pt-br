@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+A manutenção do sistema operacional no host do agente do Console é de sua responsabilidade (do cliente). Por exemplo, você (cliente) deve aplicar as atualizações de segurança ao sistema operacional no host do agente do Console seguindo os procedimentos padrão da sua empresa para distribuição do sistema operacional.
+
+Observe que você (cliente) não precisa interromper nenhum serviço no host do Console gent ao aplicar atualizações de segurança menores.
+
+Se você (cliente) precisar parar e iniciar novamente a máquina virtual do agente do Console, deverá fazê-lo a partir do console do seu provedor de nuvem ou utilizando os procedimentos padrão para gerenciamento local.

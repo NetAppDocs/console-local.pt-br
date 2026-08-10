@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-roles.html 
+keywords: fleets, access, resources, user roles, iam, identity and access management, folder, organization, permissions, roles, members, access roles, directory users, AD, Active Directory, directory services 
+summary: Gerencie o acesso de membros na sua organização do Console. Atribua funções para definir permissões. Remova membros quando eles saírem. 
+---
+= Gerencie o acesso de membros na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, revise ou altere as funções de um usuário em várias pastas ou frotas, como verificar tudo o que um engenheiro de armazenamento pode acessar, adicionar uma nova função em outra região ou remover o acesso desse usuário quando as responsabilidades mudarem.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pastas ou frotas (para pastas e frotas que estão administrando). link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Você pode visualizar e gerenciar o acesso de duas maneiras, dependendo das suas necessidades. Se você quiser visualizar as funções que um determinado usuário possui em toda a frota da sua organização, use a página *Membros*.
+
+Se você deseja confirmar quem pode acessar uma frota específica, verifique os membros atribuídos a essa frota. link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"].
+
+Para adicionar um novo membro, conta de serviço ou usuário do diretório e atribuir sua primeira função, use a tarefa de integração em vez disso. link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções"].
+
+
+
+[[understand-how-access-is-granted-in-netapp-console]]
+== Entenda como o acesso é concedido no NetApp Console
+
+O NetApp Console utiliza controle de acesso baseado em funções (RBAC) para gerenciar as permissões dos membros. Você pode atribuir funções predefinidas no nível da organização, da pasta ou da frota, dependendo do escopo de acesso que um membro precisa.
+
+
+
+[[using-role-inheritance]]
+[[role-inheritance]]
+=== Utilizando a herança de funções
+
+Uma função que você atribui no nível da organização ou da pasta é herdada pelos escopos filhos abaixo dela, portanto, altere uma atribuição herdada no escopo superior onde você a concedeu originalmente.
+
+link:concept-iam-rbac.html#role-inheritance["Saiba mais sobre herança de funções na implantação local do NetApp Console"].
+
+
+
+[[view-roles-assigned-to-a-member]]
+[[manage-permissions]]
+== Veja as funções atribuídas a um membro
+
+Confirme exatamente quais funções um membro possui e em qual âmbito antes de fazer qualquer alteração. Por exemplo, verifique se um colega de equipe já tem a função de administrador de armazenamento na  `Production-EU-West` frota.
+
+Se você tiver a função de _Administrador de pasta ou frota_, a página exibirá todos os membros da organização. No entanto, você só pode visualizar e gerenciar permissões apenas para as pastas e frotas que administra. link:reference-iam-predefined-roles.html["Saiba mais sobre as ações de administração de pastas ou frotas no NetApp Console implantação local"].
+
+. Na página *Membros*, navegue até um membro na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Ver detalhes*.
+. Na tabela, expanda a linha correspondente à organização, pasta ou frota onde você deseja visualizar a função atribuída ao membro e selecione *Visualizar* na coluna *Função*.
+
+
+
+
+[[assign-or-modify-member-access]]
+== Atribuir ou modificar o acesso de membro
+
+Você pode ajustar o acesso de um membro sempre que as responsabilidades mudarem. Por exemplo, quando um colega de equipe assume as funções de backup para uma segunda região, adicione a função de administrador de Backup e Recovery à frota dessa região sem alterar suas funções de armazenamento existentes.
+
+Se você precisar adicionar um novo membro e atribuir sua primeira função, consulte link:task-iam-manage-members-permissions.html#add-members["Adicione membros e atribua funções"].
+
+
+
+[[add-an-access-role-to-an-existing-member]]
+=== Adicionar uma função de acesso a um membro existente
+
+Atribua a um membro uma função adicional no nível da organização, pasta ou frota quando suas responsabilidades aumentarem. Por exemplo, atribua a um Storage admin a função de Backup and recovery admin no nível da organização para que ele possa gerenciar tarefas de backup e recuperação em todas as frotas sem perder suas permissões de armazenamento existentes.
+
+Você pode atribuir a um membro uma função de acesso para sua organização, pasta ou frota.
+
+Os membros podem ter várias funções dentro da mesma frota e em frotas diferentes. Por exemplo, organizações menores podem atribuir todas as funções de acesso disponíveis ao mesmo usuário, enquanto organizações maiores podem ter usuários que executam tarefas mais especializadas. Alternativamente, você também pode atribuir a um usuário a função de administrador de resiliência a ransomware no nível da organização. Nesse exemplo, o usuário poderá executar tarefas de resiliência a ransomware em todas as frotas da sua organização.
+
+Sua estratégia de funções de acesso deve estar alinhada com a forma como você organizou seus recursos da NetApp.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione uma das abas de membros: *Usuários*, *Usuários do diretório* ou *Contas de serviço*.
+. Selecione o menu de ações image:icon-action.png["um ícone com três pontos verticais"] ao lado do membro ao qual você deseja atribuir uma função e selecione *Adicionar uma função*.
+. Para adicionar uma função, siga os passos indicados na caixa de diálogo:
++
+** *Selecione uma organização, pasta ou frota*: escolha o nível da sua hierarquia de recursos para o qual o membro deve ter permissões.
++
+Se você selecionar a organização ou uma pasta, o membro terá permissões para tudo o que estiver dentro da organização ou pasta.
+
+** *Selecione uma categoria*: escolha uma categoria de função. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"^].
+** Selecione uma *função*: escolha uma função que conceda ao membro permissões para os recursos associados à organização, pasta ou frota que você selecionou.
+** *Adicionar função*: se você deseja conceder acesso a pastas ou frotas adicionais dentro da sua organização, selecione *Adicionar função*, especifique outra pasta, frota ou categoria de função e, em seguida, selecione uma categoria de função e a função correspondente.
+
+
+. Selecione *Adicionar novas funções*.
+
+
+
+
+[[change-a-members-assigned-role]]
+=== Alterar a função atribuída a um membro
+
+Substitua a função atual de um membro por uma diferente quando suas responsabilidades mudarem. Por exemplo, quando um visualizador de armazenamento na `Production-US-East` frota precisar da função de administrador de armazenamento.
+
+
+NOTE: Cada usuário deve ter pelo menos uma função. Você não pode remover todas as funções de um usuário. Se precisar remover todas as funções, exclua o usuário da sua organização.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione uma das abas de membros: *Usuários*, *Usuários do diretório* ou *Contas de serviço*.
+. Na página *Membros*, navegue até um membro na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e, em seguida, selecione *Ver detalhes*.
+. Na tabela, expanda a linha correspondente à organização, pasta ou frota onde você deseja alterar a função atribuída ao membro e selecione *Exibir* na coluna *Função* para visualizar as funções atribuídas a esse membro.
+. Você pode alterar uma função existente para um membro ou remover uma função.
++
+.. Para alterar a função de um membro, selecione *Alterar* ao lado da função que você deseja alterar. Você só pode alterar uma função para outra dentro da mesma categoria de função. Por exemplo, você pode alterar de uma função de serviço de dados para outra. Confirme a alteração.
+.. Para remover a função de um membro, selecione image:icon-delete.png["Um ícone que se assemelha a uma lata de lixo"] ao lado da função para remover a respectiva função do membro. Você será solicitado a confirmar a remoção.
+
+
+
+
+
+
+[[remove-a-member-from-your-organization]]
+=== Remover um membro da sua organização
+
+Remova um membro quando ele deixar a organização ou mudar de função de forma que não precise mais de acesso ao Console. Por exemplo, quando o contrato de um prestador de serviços terminar ou quando um funcionário for transferido para uma equipe fora da sua organização do Console.
+
+[NOTE]
+====
+.Usuários do diretório
+Remover um usuário do seu diretório impede que ele se autentique. Você também deve remover o usuário da sua organização do Console para manter a lista de membros precisa e remover quaisquer funções atribuídas na implantação local do Console.
+
+====
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione uma das abas de membros: *Usuários*, *Usuários do diretório* ou *Contas de serviço*.
+. Na página *Membros*, navegue até um membro na tabela, selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] e depois selecione *Excluir usuário*.
+. Confirme que você deseja remover o membro da sua organização.
+

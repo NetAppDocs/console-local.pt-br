@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: task-add-systems.html 
+keywords: add storage systems, ONTAP, cluster, discover storage, fleet, storage discovery, centralized monitoring, storage management, netapp console local 
+summary: Adicione sistemas de storage à implantação local do NetApp Console. 
+---
+= Adicionar sistemas de storage à implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Adicione sistemas de storage ao NetApp Console implantação local para habilitar o monitoramento, o gerenciamento de inventário e a administração da sua infraestrutura de storage. Após a adição de um sistema de storage, o Console implantação local descobre o sistema e começa a coletar informações que podem ser usadas para tarefas de monitoramento e gerenciamento.
+
+Antes de começar, certifique-se de que você possui as permissões necessárias para adicionar sistemas de storage e que o sistema de storage esteja acessível a partir da implantação local do NetApp Console.
+
+.Passos
+. Selecione *Storage > Management*.
+. Na lista suspensa "Escopo", selecione a frota à qual você deseja adicionar um sistema de storage.
+. Selecione *Adicionar sistema*.
+. Insira os detalhes necessários do sistema de storage, incluindo informações de conexão e credenciais.
+. Revise as informações que você inseriu e selecione *Adicionar*.
++
+O sistema de storage é adicionado à frota selecionada. A implantação local do Console inicia a descoberta e o monitoramento do sistema. Dependendo do ambiente e da conectividade de rede, pode levar alguns minutos para que o sistema apareça como totalmente gerenciado.
+
+
+
+
+NOTE: Você também pode adicionar um sistema de storage na página *Administração > Identidade e acesso*, selecionando *Adicionar sistema* e fornecendo as informações necessárias do sistema.

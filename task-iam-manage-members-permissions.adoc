@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-members-permissions.html 
+keywords: user, directory user, directory users, service account, member, role, permissions, organization, fleet, folder, iam, identity and access management, access roles, add members, grant permissions, AD, Active Directory, directory services 
+summary: Adicione membros e atribua funções para conceder permissões em diferentes níveis da hierarquia de recursos da sua organização. 
+---
+= Adicione membros à sua organização de implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Adicione membros à sua organização de implantação local do NetApp Console e atribua funções para conceder acesso no nível da organização, pasta ou frota para usuários, contas de serviço e usuários do diretório.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pastas ou frotas (para pastas e frotas que estão administrando). link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+
+
+[[before-you-begin]]
+== Antes de começar
+
+* Crie a hierarquia de pastas e frota que corresponda à sua organização. link:task-iam-manage-folders-fleets.html["Aprenda a organizar seus recursos com pastas e frotas"].
+* Associe os recursos às frotas corretas antes de atribuir acesso aos membros. link:task-iam-manage-resources.html["Aprenda a gerenciar recursos em pastas e frotas"].
+* Se você estiver adicionando um usuário ao diretório, integre primeiro o seu serviço de diretório. link:task-iam-active-directory-integrate.html["Aprenda como integrar com o seu serviço de diretório"].
+
+
+
+
+[[understand-how-access-is-granted-in-netapp-console-local-deployment]]
+== Entenda como o acesso é concedido na implantação local do NetApp Console
+
+O NetApp Console utiliza controle de acesso baseado em funções (RBAC) para gerenciar permissões. Atribua funções aos membros para fornecer o acesso necessário. Cada função define as ações permitidas para recursos específicos.
+
+Observe o seguinte sobre a concessão de acesso na implantação local do NetApp Console:
+
+* Você deve adicionar explicitamente cada usuário à sua organização e atribuir pelo menos uma função a ele antes que esse usuário possa acessar os recursos.
+* Uma função que você atribui no nível da organização ou da pasta é herdada pelos escopos filhos, portanto, escolha o escopo de atribuição com cuidado para conceder ao membro acesso somente onde for necessário. link:concept-iam-rbac.html#role-inheritance["Saiba mais sobre herança de funções na implantação local do NetApp Console"].
+
+
+
+
+[[add-members-to-your-organization]]
+[[add-members]]
+== Adicione membros à sua organização
+
+O NetApp Console suporta três tipos de membros: contas de usuário, usuários do diretório e contas de serviço.
+
+
+NOTE: Primeiro, você precisa configurar um servidor de e-mail para usar com a implantação local do Console antes de adicionar usuários. link:task-console-configure-notifications-delivery.html["Aprenda como configurar um servidor de e-mail."]
+
+Os usuários do diretório se autenticam por meio do seu serviço de diretório integrado, mas você ainda precisa adicionar cada usuário do diretório individualmente e atribuir funções na implantação local do Console. Crie contas de serviço diretamente no Console.
+
+Todos os membros devem ter pelo menos uma função explicitamente atribuída a eles para acessar a implantação local do Console.
+
+Ao adicionar um membro, escolha a organização, pasta ou frota à qual o membro precisa de acesso e atribua a função inicial ou funções de que ele precisa.
+
+
+
+[[add-a-user-account]]
+=== Adicionar uma conta de usuário
+
+Você precisa ter a função de administrador da organização, pasta ou frota para adicionar um usuário a uma organização, pasta ou frota para que ele possa acessar os recursos.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione *Adicionar um membro*.
+. Para *Tipo de membro*, mantenha *Usuário* selecionado.
+. Para *E-mail do usuário*, insira o endereço de e-mail do usuário que está associado ao login que ele criou.
+. Use a seção *Selecione uma organização, pasta ou frota* para escolher onde o membro precisa de acesso.
++
+Observe o seguinte:
+
++
+** Você pode selecionar apenas as pastas e frotas para as quais você tem permissões.
+** Ao selecionar uma organização ou pasta, você concede ao membro permissões para todo o seu conteúdo.
+** Você só pode atribuir a função de *Organization admin* no nível da organização.
+
+
+. *Selecione uma categoria* e, em seguida, selecione uma *Função* que conceda ao membro as permissões iniciais necessárias para a organização, pasta ou frota que você selecionou.
++
+link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+. Para conceder acesso a mais pastas, frotas ou funções, selecione *Adicionar função*, escolha a categoria de pasta, frota ou função e selecione uma função.
+. Selecione *Add*.
++
+O Console envia instruções ao usuário por e-mail.
+
+
+
+
+
+[[add-a-service-account]]
+[[service-account]]
+=== Adicionar uma conta de serviço
+
+Adicione uma conta de serviço quando você precisar automatizar tarefas ou se conectar com segurança às APIs do Console. Depois de criar a conta, copie o client ID e o client secret para a integração que irá usá-la.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione *Adicionar um membro*.
+. Em *Tipo de membro*, selecione *Conta de serviço*.
+. Insira um nome para a conta de serviço.
+. Use a seção *Selecione uma organização, pasta ou frota* para escolher onde a conta de serviço precisa de acesso.
++
+Observe o seguinte:
+
++
+** Você só pode selecionar entre as pastas e frotas para as quais você tem permissões.
+** Selecionar uma organização ou pasta concede ao membro permissões para todo o seu conteúdo.
+** Você só pode atribuir a função de *Organization admin* no nível da organização.
+
+
+. Selecione uma *Categoria* e, em seguida, selecione uma *Função* que conceda à conta de serviço as permissões iniciais necessárias para a organização, pasta ou frota que você selecionou.
++
+link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+. Para conceder acesso a mais pastas, frotas ou funções, selecione *Adicionar função*, escolha a categoria de pasta, frota ou função e selecione uma função.
+. Baixe ou copie o client ID e o client secret.
++
+O Console exibe o segredo do cliente apenas uma vez. Copie-o em local seguro; você poderá recriá-lo posteriormente caso o perca.
+
+. Selecione *Fechar*.
+
+
+
+
+[[add-a-directory-user-to-your-organization]]
+== Adicione um usuário de diretório à sua organização
+
+Adicione um usuário do seu serviço de diretório integrado e conceda a ele as primeiras funções. Por exemplo, adicione um novo engenheiro de storage do Active Directory e atribua a função de Storage admin na `Production-US-East` frota para que ele possa trabalhar nessa frota.
+
+Primeiro você precisa configurar o serviço de diretório antes de poder adicionar usuários ao diretório. link:task-iam-active-directory-integrate.html["Aprenda como integrar com o seu serviço de diretório"].
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Members*.
+. Selecione *Adicionar um membro*.
+. Em *Tipo de membro*, selecione *Usuário do diretório*.
+. No campo *E-mail do usuário*, insira o endereço de e-mail do usuário do diretório que você deseja adicionar. Este endereço de e-mail deve corresponder ao endereço de e-mail associado ao login do usuário em seu diretório.
+. Use a seção *Selecione uma organização, pasta ou frota* para escolher onde o usuário do diretório precisa de acesso.
++
+Observe o seguinte:
+
++
+** Você só pode selecionar entre as pastas e frotas para as quais você tem permissões.
+** Selecionar uma organização ou pasta concede ao membro permissões para todo o seu conteúdo.
+** Você só pode atribuir a função de *Organization admin* no nível da organização.
+
+
+. Selecione uma *Categoria* e, em seguida, selecione uma *Função* que conceda ao usuário do diretório as permissões iniciais necessárias para a organização, pasta ou frota que você selecionou.
++
+link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+. Para conceder ao usuário acesso adicional a outras pastas, frotas ou funções, selecione *Adicionar função*, escolha a pasta ou frota, a categoria da função e selecione uma função.
+

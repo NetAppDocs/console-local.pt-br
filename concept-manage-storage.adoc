@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: concept-manage-storage.html 
+keywords: fleet management, folders, fleets, storage management, storage classes, provisioning, netapp console local 
+summary: Saiba como o gerenciamento de frota e o gerenciamento de storage funcionam na implantação local do NetApp Console, incluindo hierarquia, controle de acesso, padrões e métodos de provisionamento. 
+---
+= Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O gerenciamento de frota no NetApp Console em implantação local é a prática de organizar sistemas de storage em grupos lógicos para que você possa aplicar políticas consistentes, controlar o acesso e monitorar a integridade em clusters relacionados. Em vez de gerenciar cada cluster de forma independente, o gerenciamento de frota permite que você trate sua frota como um pool comum de recursos para apoiar seus objetivos de storage.
+
+À medida que seu ambiente de storage cresce, gerenciar clusters individuais torna-se impraticável. O gerenciamento de frota resolve esse problema, oferecendo uma maneira estruturada de agrupar sistemas relacionados, delegar responsabilidades e garantir que todos os clusters operem sob os mesmos padrões.
+
+
+
+[[why-fleet-management-matters]]
+== Por que o gerenciamento de fleet é importante
+
+O gerenciamento de frotas aborda três desafios principais:
+
+* *Simplificação por meio da abstração* - O gerenciamento de frota abstrai a complexidade do gerenciamento de infraestrutura de storage. Em vez de lidar com a configuração cluster por cluster, você gerencia seu ambiente de storage como um todo unificado, reduzindo a sobrecarga operacional e a fadiga de tomada de decisões.
+* *Consistência e escalabilidade* - Sem uma organização clara, diferentes equipes tomam decisões diferentes para cargas de trabalho semelhantes, o que leva a configurações fragmentadas. O gerenciamento de frotas permite que você aplique padrões em dezenas de sistemas ao mesmo tempo, garantindo que novas cargas de trabalho partam da mesma base em todas as equipes e frotas.
+* *Governança e controle* - À medida que as equipes crescem, você precisa de limites claros para quem pode gerenciar o quê. O gerenciamento de frotas fornece esses limites por meio de estrutura organizacional e controle de acesso, garantindo que as decisões de storage permaneçam governadas e auditáveis.
+
+
+
+
+[[how-fleets-organize-your-resources]]
+== Como as frotas organizam seus recursos
+
+A hierarquia de recursos da sua organização consiste em pastas e frotas:
+
+Para uma visão geral detalhada da hierarquia e do modelo de acesso, consulte link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas na implantação local do NetApp Console"].
+
+* *Organização* - o nível mais alto que representa sua empresa.
+* *Pastas* - Ajudam você a organizar frotas relacionadas. Por exemplo, você pode criar uma pasta para cada região ou unidade de negócios, depois criar frotas dentro de cada pasta. As pastas podem conter outras pastas ou frotas. Quando você atribui uma função no nível da pasta, os membros herdam essa função para todas as frotas dentro da pasta.
+* *Frotas* - Agrupe os sistemas de storage que você gerencia. Você associa sistemas de storage a frotas e atribui membros às frotas para conceder acesso a eles.
+
+
+
+NOTE: As pastas são uma ferramenta organizacional e não são visíveis para membros que não possuem permissões do IAM, como as funções de administrador da organização, administrador de pastas ou administrador de frota. Os membros acessam frotas, não pastas.
+
+
+
+[[common-fleet-organization-patterns]]
+== Padrões comuns de organização de frotas
+
+A forma como você organiza suas frotas depende do seu modelo operacional:
+
+* *Por ambiente* - Crie frotas separadas para cargas de trabalho de produção, desenvolvimento e teste. Isso mantém o storage de produção sob políticas mais rigorosas, ao mesmo tempo que permite maior flexibilidade em ambientes de menor criticidade.
+* *Por unidade de negócio* - Agrupe clusters que atendem a um departamento específico, como finanças, engenharia ou RH, em uma frota dedicada. Você pode então atribuir responsabilidades de gerenciamento de storage a membros da equipe dentro dessa unidade de negócio, sem expor outras frotas a eles.
+* *Por localização ou data center* - Quando os clusters estão distribuídos em vários locais, a organização por localização permite monitorar a integridade em nível de site, aplicar políticas específicas da região e acompanhar o consumo de capacidade por site.
+* *Por camada de aplicativos* - Agrupe clusters que hospedam uma classe específica de carga de trabalho, como bancos de dados, compartilhamentos de arquivos ou máquinas virtuais, para que você possa aplicar padrões consistentes ajustados a esse tipo de carga de trabalho em toda a frota.
+
+
+
+TIP: Utilize pastas para adicionar mais um nível de organização. Por exemplo, crie uma pasta para cada região e depois crie frotas baseadas em ambiente dentro de cada pasta regional.
+
+
+
+[[how-fleet-management-enables-access-control]]
+== Como o gerenciamento de fleet possibilita o controle de acesso
+
+Frotas e pastas servem como limites para o acesso do usuário e a responsabilidade administrativa:
+
+* *Acesso em nível de pasta* - Ao atribuir uma função em nível de pasta, o membro herda essa função para todas as frotas e recursos dentro da pasta. Isso permite delegar responsabilidades administrativas sem conceder acesso a toda a organização.
+* *Acesso em nível de frota* - Ao atribuir uma função em nível de frota, o membro terá acesso apenas aos sistemas de storage dentro dessa frota. Isso permite delegar o gerenciamento de storage a membros da equipe ou proprietários de aplicativos sem expor partes não relacionadas da sua infraestrutura.
+
+
+A implantação local do NetApp Console fornece monitoramento de integridade e desempenho em nível de frota, permitindo que você veja o status de todos os clusters em uma frota a partir de uma única visualização, identifique problemas precocemente e aja antes que eles afetem as cargas de trabalho.
+
+
+
+[[how-storage-management-works]]
+== Como o gerenciamento de storage funciona
+
+O gerenciamento de storage é a prática de definir padrões de storage, aplicá-los de forma consistente e operar as cargas de trabalho para que permaneçam alinhadas ao longo do tempo. Na implantação local do NetApp Console, esses padrões são expressos como políticas de classe de storage e classes de storage, com escopo definido para frotas e aplicados por meio de fluxos de trabalho de provisionamento regidos por RBAC e registro de auditoria.
+
+O deployment local do Console conecta quatro conceitos em um único fluxo de trabalho:
+
+* *Frotas* definem o escopo em que você gerencia o storage. Uma frota agrupa sistemas para que você possa controlar o acesso, aplicar padrões de forma consistente e gerenciar recursos como uma unidade.
+* *As políticas de classe de armazenamento* definem padrões como blocos de construção reutilizáveis (desempenho, capacidade, segurança, proteção de dados).
+* *Classes de armazenamento* expressam a intenção da carga de trabalho. Uma classe de armazenamento é um modelo nomeado montado a partir de uma ou mais políticas.
+* *Fluxos de trabalho de provisionamento* criam armazenamento dentro de limites definidos. Diferentes fluxos de trabalho tomam decisões de configuração de maneiras distintas, mas todos podem impor classes de armazenamento e permanecer regidos por RBAC e registro de auditoria.
+
+
+
+
+[[provisioning-approaches]]
+== Abordagens de provisionamento
+
+A implantação local do NetApp Console oferece suporte a três abordagens de provisionamento, todas regidas por RBAC, registro de auditoria e padrões de classe de armazenamento:
+
+* *Provisionamento manual* - Você seleciona o sistema de destino e especifica os detalhes de configuração diretamente. Use esta opção quando você precisar de controle explícito sobre a seleção e configuração do sistema.
+* *Provisionamento automatizado* - Você fornece as informações da carga de trabalho e, opcionalmente, seleciona uma classe de armazenamento. A implantação local no Console recomenda o posicionamento mais adequado e aplica configurações baseadas em classe para reduzir decisões manuais.
+* *Provisionamento assistido por IA (agente)* - você descreve o que precisa em linguagem natural. A implantação local no NetApp Console propõe um plano limitado por RBAC e classes de armazenamento, e só faz o provisionamento depois que você revisa e aprova.
+
+
+
+
+[[where-to-go-next]]
+== Para onde ir a seguir
+
+* Para entender os padrões de storage, consulte link:concept-storage-classes.html["Saiba mais sobre classes e políticas de armazenamento na implantação local do NetApp Console"].
+* Para criar e gerenciar frotas, consulte link:task-iam-manage-folders-fleets.html["Gerencie pastas e frotas"].
+* link:task-provisioning-manual.html["Provisionar storage manualmente"]
+* link:task-provisioning-automated.html["Provisionar storage automaticamente"]
+* link:task-provisioning-agentic.html["Provisione storage com assistência de IA"]
+

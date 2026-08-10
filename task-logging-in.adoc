@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-logging-in.html 
+keywords: logging in, log in, sign in, signing in, user account, MFA, multi-factor authentication, AD, Active Directory, directory services, local user, Console local deployment access 
+summary: Após se inscrever na implantação local do NetApp Console, você pode fazer login no console baseado na Web para começar a gerenciar seus dados e infraestrutura de storage. 
+---
+= Faça login na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode acessar a NetApp Console implantação local depois que o administrador da sua organização convidar você para sua conta de usuário da organização na implantação local do Console. Para fazer login, você usa o endereço de e-mail associado ao seu login.
+
+Se você fizer login, mas não visualizar nenhum recurso, entre em contato com o administrador da sua organização. link:task-user-settings.html#contact-admin["Entre em contato com o administrador da sua organização"].
+
+.Passos
+. Abra um navegador da web e acesse o endereço IP onde a implantação local do NetApp Console está instalada.
+. Na página de *login*, insira o endereço de e-mail que está associado ao seu login.
+. Dependendo do método de autenticação associado ao seu login, você será solicitado a inserir suas credenciais.
++
+** Uma conta da NetApp Console usando seu endereço de e-mail e uma senha
+
+
++
+[NOTE]
+====
+** Se a autenticação multifator (MFA) estiver ativada: após inserir sua senha, você será solicitado a inserir um código TOTP (do seu aplicativo autenticador) ou usar um código de recuperação.
+** Se você estiver fazendo login com códigos de recuperação, use-os na ordem exibida na interface do usuário durante a solicitação do código de recuperação.
+
+
+====
++
+** Uma conta do Active Directory usando seu endereço de e-mail e senha
+
+
+

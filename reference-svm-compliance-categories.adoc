@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: reference-svm-compliance-categories.html 
+keywords: svm compliance, storage vm compliance, security compliance, svm security, compliance categories, netapp console local 
+summary: Referência para categorias de conformidade de segurança de máquinas virtuais de armazenamento e configurações recomendadas na implantação local do NetApp Console. 
+---
+= Categorias de conformidade de segurança de VMs de armazenamento na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use esta referência para analisar as categorias de conformidade de segurança da máquina virtual de armazenamento (SVM) exibidas na implantação local do NetApp Console, incluindo o valor recomendado e se cada categoria afeta o status geral de conformidade.
+
+Essas categorias são baseadas nas verificações de postura de segurança do ONTAP.
+
+[cols="20,50,15,15"]
+|===
+| Categoria | O que a categoria verifica | Valor recomendado | Afeta a conformidade geral 
+
+
+| Registro de auditoria | Indica se o registro de auditoria do SVM está ativado. | Habilitado | Sim 
+
+
+| Configurações SSH inseguras | Se o SSH estiver configurado com cifras inseguras, como cifras que começam com  `cbc`. | Não | Sim 
+
+
+| Banner de login | Indica se um banner de login está configurado para usuários que acessam as SVMs. | Habilitado | Sim 
+
+
+| LDAP criptografia | Se a criptografia LDAP está ativada. | Habilitado | Não 
+
+
+| Autenticação NTLM | Indica se a autenticação NTLM está ativada. | Habilitado | Não 
+
+
+| Assinatura de carga LDAP | Indica se a assinatura de carga LDAP está habilitada. | Habilitado | Não 
+
+
+| Configurações de CHAP | Indica se o CHAP está ativado. | Habilitado | Não 
+
+
+| Kerberos V5 | Indica se a autenticação Kerberos V5 está ativada. | Habilitado | Não 
+
+
+| Autenticação NIS | Se a autenticação NIS está configurada. | Desabilitado | Não 
+
+
+| Status do FPolicy: ativo | Se a FPolicy foi criada e está ativa. | Sim | Não 
+
+
+| Criptografia SMB ativada | Se a assinatura e a selagem SMB estão ativadas. | Sim | Não 
+
+
+| Assinatura SMB ativada | Se a assinatura SMB está ativada. | Sim | Não 
+|===

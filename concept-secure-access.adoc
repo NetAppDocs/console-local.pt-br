@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: concept-secure-access.html 
+keywords: security, access control, MFA, multi-factor authentication, AD, Active Directory, LDAP, LDAPS, directory services, authentication, zero trust, secure access governance, reduce attack surface, netapp console local 
+summary: Saiba mais sobre as opções de segurança disponíveis na implantação local do NetApp Console, incluindo integração com o Active Directory e autenticação multifator. 
+---
+= Saiba mais sobre o acesso seguro ao NetApp Console implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp A implantação local do NetApp Console oferece várias camadas de segurança para proteger seu ambiente de gerenciamento de storage e controlar quem pode acessá-lo.
+
+
+
+[[active-directory-integration]]
+== Integração com o Active Directory
+
+Conecte a implantação local do NetApp Console ao seu Active Directory para que os usuários possam entrar com suas credenciais corporativas existentes. Isso elimina a necessidade de senhas separadas na implantação local do Console e oferece suporte ao login baseado em diretório para os usuários que você adicionar à sua organização.
+
+link:task-iam-active-directory-integrate.html["Integre o Active Directory com o NetApp Console na implantação local"].
+
+
+
+[[multi-factor-authentication]]
+== Autenticação multifator
+
+Os usuários podem habilitar a autenticação multifator (MFA) para uma camada adicional de verificação, a fim de evitar acesso não autorizado, mesmo que as credenciais sejam comprometidas.
+
+link:task-user-settings.html["Habilitar MFA para NetApp Console implantação local"].
+
+
+
+[[identity-and-access-management]]
+== Gerenciamento de identidade e acesso
+
+Após autenticar os usuários, controle e monitore o que eles podem fazer na implantação local do NetApp Console.
+
+Utilize o controle de acesso baseado em funções para definir o que cada membro pode ver e gerenciar. Atribua membros a frotas específicas para que acessem apenas os recursos de storage relevantes para suas responsabilidades.
+
+* link:concept-identity-and-access-management.html["Saiba mais sobre o gerenciamento de identidade e acesso na implantação local do NetApp Console"]
+* link:concept-iam-rbac.html["Saiba mais sobre o NetApp Console implantação local controle de acesso baseado em funções"]
+* link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções na implantação local do NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota na implantação local do NetApp Console"]
+
+
+
+
+[[audit-logging]]
+== Registro de auditoria
+
+Monitore toda a atividade do usuário (incluindo usuários de API e contas de serviço) na implantação local do NetApp Console para fins de conformidade e investigações de segurança.
+
+link:task-audit-console-activity.html["Visualizar registros de auditoria para implantação local do NetApp Console"].

@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: task-manage-member-security.html 
+keywords: member security, password reset, MFA, multi-factor authentication, service account, credentials, netapp console local, AD, Active Directory, directory services 
+summary: Gerencie as configurações de segurança dos membros na implantação local do NetApp Console, incluindo redefinições de senha, gerenciamento de MFA e credenciais de conta de serviço. 
+---
+= Gerencie a segurança dos membros na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Proteja o acesso dos usuários à sua organização de implantação local do NetApp Console gerenciando as configurações de segurança dos membros. Você pode orientar os usuários locais a alterarem suas próprias senhas, gerenciar a autenticação multifator (MFA) dos usuários locais e recriar as credenciais da conta de serviço.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pasta ou frota. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+
+
+[[reset-user-passwords-local-users-only]]
+== Redefinir senhas de usuários (somente usuários locais)
+
+Os administradores não podem redefinir as senhas de usuários locais diretamente.
+
+Oriente os usuários locais a redefinirem suas senhas na página de login da implantação local do Console, selecionando *Esqueceu sua senha?*.
+
+
+NOTE: Esta opção não está disponível para usuários do diretório.
+
+
+
+[[manage-a-local-users-multi-factor-authentication-mfa]]
+== Gerencie a autenticação multifator (MFA) de um usuário local
+
+Se um usuário local perder o acesso ao seu dispositivo MFA, você pode remover ou desativar a configuração de MFA dele.
+
+
+NOTE: A autenticação multifator está disponível apenas para usuários locais. Usuários do diretório não podem habilitar a autenticação multifator por meio da implantação local do Console.
+
+Use estas orientações para escolher a ação correta:
+
+* Selecione *Desativar* quando o usuário perder temporariamente o acesso ao seu dispositivo MFA. Desativar o MFA permite um login sem MFA por oito horas e, em seguida, o MFA é reativado automaticamente.
+* Selecione *Remover* quando o usuário precisar redefinir completamente a MFA. Após remover a MFA, o usuário faz login sem MFA até configurar a MFA novamente.
+
+
+Se um usuário tiver um código de recuperação salvo, ele pode entrar com esse código. Se um usuário não tiver um código de recuperação, desative a autenticação multifator (MFA) para que o usuário possa entrar e recuperar o acesso.
+
+
+NOTE: Para gerenciar a autenticação multifator de um usuário local, você deve ter um endereço de e-mail no mesmo domínio que o usuário afetado.
+
+.Passos
+. Selecione *Administração* > *Identidade e acesso*.
+. Selecione *Members*.
+. Na página de Membros, navegue até um membro na tabela, selecione image:icon-action.png["Um ícone com três pontos"] e depois selecione *Gerenciar autenticação multifator*.
+. Escolha se deseja remover ou desativar a configuração de MFA do usuário.
+
+
+.Depois que você terminar
+Analise o log de auditoria para confirmar quem alterou o acesso MFA, quando a alteração foi feita e se a ação foi bem-sucedida. link:task-audit-console-activity.html["Saiba como auditar a atividade de implantação local do NetApp Console"].
+
+
+
+[[recreate-the-credentials-for-a-service-account]]
+== Recrie as credenciais para uma conta de serviço
+
+Você pode criar novas credenciais para uma conta de serviço caso as perca ou precise atualizá-las.
+
+A criação de novas credenciais exclui as antigas. Você não pode usar as credenciais antigas.
+
+.Passos
+. Selecione *Administração* > *Identidade e acesso*.
+. Selecione *Members*.
+. Na tabela Membros, navegue até uma conta de serviço, selecione image:icon-action.png["Um ícone com três pontos"] e depois selecione *Recriar segredos*.
+. Selecione *Recriar*.
+. Baixe ou copie o client ID e o client secret.
++
+A implantação local do Console exibe o segredo do cliente apenas uma vez. Certifique-se de copiá-lo ou baixá-lo e armazená-lo em local seguro.
+
+

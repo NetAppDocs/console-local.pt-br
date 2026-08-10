@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-predefined-roles.html 
+keywords: predefined roles, iam roles, Organization admin, Folder or fleet admin, Super admin, storage roles, analyst roles, backup and recovery roles, role categories, rbac, identity and access management, access roles, netapp console local 
+summary: NetApp Console o gerenciamento de identidade e acesso para implantação local inclui funções predefinidas que você pode atribuir aos membros da sua organização. 
+---
+= NetApp Console funções de acesso de implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O gerenciamento de identidade e acesso (IAM) na implantação local do NetApp Console fornece funções predefinidas que você pode atribuir aos membros da sua organização em diferentes níveis da sua hierarquia de recursos. Antes de atribuir essas funções, você deve entender as permissões que cada função inclui. As funções se enquadram nas seguintes categorias: plataforma, aplicativo e serviço de dados.
+
+
+
+[[platform-roles]]
+== Funções da plataforma
+
+As funções da plataforma concedem ao NetApp Console permissões de administração da implantação local, incluindo atribuição de funções e gerenciamento de usuários. A implantação local do Console possui diversas funções de plataforma.
+
+[cols="1,2"]
+|===
+| Função da plataforma | Responsabilidades 
+
+
+| link:reference-iam-platform-roles.html#organization-admin-roles["Administrador da organização"] | Permite ao usuário acesso irrestrito a todas as frotas e pastas dentro de uma organização, adicionar membros a qualquer frota ou pasta, bem como executar qualquer tarefa e usar qualquer serviço de dados que não tenha uma função explícita associada a ele. Usuários com essa função gerenciam sua organização criando pastas e frotas, atribuindo funções, adicionando usuários e gerenciando sistemas, desde que possuam as credenciais adequadas. 
+
+
+| link:reference-iam-platform-roles.html#organization-admin-roles["Administrador de pasta ou de fleet"] | Permite ao usuário acesso irrestrito às frotas e pastas atribuídas. Pode adicionar membros às pastas ou frotas que gerencia, bem como executar qualquer tarefa e usar qualquer serviço de dados ou aplicativo nos recursos dentro da pasta ou frota à qual está atribuído. 
+
+
+| link:reference-iam-platform-roles.html#federation-roles["Administração da federação"] | Permite que um usuário crie e gerencie federações de serviços de diretório com o NetApp Console, para que os usuários possam se autenticar com suas credenciais de diretório existentes. 
+
+
+| link:reference-iam-platform-roles.html#federation-roles["Visualizador da federação"] | Permite que um usuário visualize as federações de serviço de diretório existentes no Console. Não permite criar ou gerenciar federações. 
+
+
+| link:reference-iam-platform-roles.html#super-admin-roles["Superadministrador"] | Concede ao usuário todas as funções de administrador. Essa função foi criada para organizações menores que podem não precisar distribuir as responsabilidades do Console entre vários usuários. 
+
+
+| link:reference-iam-platform-roles.html#super-admin-roles["Super visualizador"] | Concede ao usuário todas as funções de visualizador. Essa função foi criada para organizações menores que podem não precisar distribuir as responsabilidades do Console entre vários usuários. 
+|===
+
+
+[[application-roles]]
+== Funções do aplicativo
+
+A seguir, apresentamos uma lista de funções na categoria de aplicativos. Cada função concede permissões específicas dentro do seu escopo designado. Usuários sem a função de aplicativo ou plataforma necessária não podem acessar o respectivo aplicativo.
+
+[cols="1,2"]
+|===
+| Função do aplicativo | Responsabilidades 
+
+
+| link:reference-iam-analyst-roles.html["Analista de suporte operacional"] | Fornece acesso a alertas e ferramentas de monitoramento, como a página Audit. 
+
+
+| link:reference-iam-storage-roles.html["Administrador de storage"] | Administrar as funções de integridade e governança do storage, descobrir recursos de storage, bem como modificar e excluir sistemas existentes. 
+
+
+| link:reference-iam-storage-roles.html["Visualizador de storage"] | Visualize a integridade do storage e as funções de governança, bem como visualize recursos de storage previamente descobertos. Não é possível descobrir, modificar ou excluir sistemas de storage existentes. 
+
+
+| link:reference-iam-storage-roles.html["Especialista em integridade do sistema"] | Administrar as funções de armazenamento, integridade e governança, todas as permissões do administrador de armazenamento, exceto não pode modificar ou excluir sistemas existentes. 
+|===
+
+
+[[data-service-roles]]
+== Funções do serviço de dados
+
+A seguir está uma lista de funções na categoria de serviço de dados. Cada função concede permissões específicas dentro do seu escopo designado. Usuários que não tiverem a função de serviço de dados necessária ou uma função de plataforma não poderão acessar o serviço de dados.
+
+[cols="1,2"]
+|===
+| Função do serviço de dados | Responsabilidades 
+
+
+| link:reference-iam-backup-rec-roles.html["Superadministrador de backup e recuperação"] | Execute quaisquer ações em NetApp Backup and Recovery. 
+
+
+| link:reference-iam-backup-rec-roles.html["Administrador de backup e recuperação"] | Realize backups para snapshots locais, replique para storage secundário e faça backup para storage de objetos. 
+
+
+| link:reference-iam-backup-rec-roles.html["Administrador de backup e recuperação de restauração"] | Restaurar cargas de trabalho no Backup e Recovery. 
+
+
+| link:reference-iam-backup-rec-roles.html["Administrador de clones de backup e recuperação"] | Clone aplicativos e dados no Backup e Recovery. 
+
+
+| link:reference-iam-backup-rec-roles.html["Visualizador de backup e recuperação"] | Veja as informações de Backup and Recovery. 
+
+
+| Visualizador de classificação | Permite que os usuários visualizem os resultados da verificação de NetApp Data Classification. Usuários com essa função podem visualizar informações de conformidade e gerar relatórios para recursos aos quais têm permissão de acesso. Esses usuários não podem habilitar ou desabilitar a verificação de volumes, buckets ou esquemas de banco de dados. Data Classification não possui uma função de administrador. 
+
+
+| Administrador do SnapCenter | Fornece a capacidade de fazer backup de snapshots de clusters ONTAP locais usando o NetApp Backup and Recovery para aplicativos. Um membro com essa função pode realizar as seguintes ações: * Concluir qualquer ação em Backup and Recovery > Applications * Gerenciar todos os sistemas nas frotas e pastas para as quais possui permissões * Usar todos os serviços do NetApp Console SnapCenter não possui função de visualizador. 
+|===
+
+
+[[related-links]]
+== Links relacionados
+
+* link:concept-identity-and-access-management.html["Saiba mais sobre o gerenciamento de identidade e acesso do NetApp Console"]
+* link:task-iam-fleet-mgmt-get-started.html["Comece a usar identidade e acesso no NetApp Console"]
+* link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções em uma organização do NetApp Console"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Saiba mais sobre a API do NetApp Console IAM"^]
+

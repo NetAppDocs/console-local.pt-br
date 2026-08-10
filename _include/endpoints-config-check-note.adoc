@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+[IMPORTANT]
+====
+* Para novas implantações de agentes, NetApp verifica os seguintes endpoints: link:reference-networking-saas-console.html["listado aqui"^]. Essa verificação de configuração falha com um erro se você estiver usando os endpoints anteriores usados para atualizações link:reference-networking-saas-console-previous.html["listado aqui"]. NetApp recomenda atualizar suas regras de firewall para permitir o acesso aos endpoints atuais e bloquear o acesso aos endpoints anteriores assim que possível link:reference-networking-saas-console-previous.html#update-endpoint-list["Aprenda como atualizar sua rede"].
+* Se você atualizar os endpoints do seu firewall, seus agentes existentes continuarão funcionando.
+
+
+====

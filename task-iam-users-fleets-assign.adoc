@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-iam-users-fleets-assign.html 
+keywords: assign members, fleet, folder, access control, roles, storage management, netapp console 
+summary: Audite ou altere as atribuições de acesso de membros para pastas e conjuntos de armazenamento na implantação local do NetApp Console. 
+---
+= Visualize ou altere as atribuições de acesso à frota na NetApp Console implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Audite ou altere as atribuições de acesso de membros para pastas e frotas de armazenamento na implantação local do NetApp Console. Os administradores de pastas e frotas geralmente trabalham a partir dessa visualização, pois ela mostra apenas os escopos que eles administram.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pasta ou frota. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Alternativamente, você pode gerenciar todas as funções de um membro específico em várias pastas ou frotas. link:task-iam-manage-roles.html["Gerencie o acesso de membros"].
+
+
+
+[[how-folder-and-fleet-access-works]]
+== Como funciona o acesso a pastas e frotas
+
+A implantação local do console usa controle de acesso baseado em funções (RBAC). Uma função que você atribui no nível da pasta se aplica a todas as frotas e subpastas dentro dessa pasta; uma função que você atribui no nível da frota se aplica somente aos recursos dessa frota. link:concept-iam-rbac.html#role-inheritance["Saiba mais sobre herança de funções na implantação local do NetApp Console"].
+
+
+NOTE: Não é possível alterar uma função no nível da frota se um membro a herdar de uma pasta ou da organização. Para alterar o acesso herdado, altere a função no escopo superior.
+
+
+
+[[view-members-assigned-to-a-folder-or-fleet]]
+== Veja os membros atribuídos a uma pasta ou frota
+
+Verifique exatamente quem pode gerenciar uma pasta ou frota específica. Por exemplo, antes de associar um novo cluster ONTAP de produção à  `Production-US-East`frota, abra a guia Acesso da frota para confirmar quem tem acesso.
+
+.Passos
+. Selecione *Administração* > *Identidade e acesso*.
+. Selecione *Organization*.
+. Na página Organização, navegue até uma pasta ou frota na tabela, selecione image:icon-action.png["Um ícone com três pontos"] e, em seguida, selecione *Editar pasta* ou *Editar frota*.
+. Selecione *Acesso* para visualizar os membros que têm acesso à pasta ou à frota.
+
+
+
+
+[[modify-member-access-from-a-folder-or-fleet]]
+== Modificar o acesso de membros a partir de uma pasta ou frota
+
+Ajuste as funções dos membros que já pertencem à sua organização, restringindo-as a uma única pasta ou frota. Por exemplo, quando um membro da equipe migrar de uma frota de desenvolvimento para uma frota de produção, promova-o de Storage viewer para Storage admin na frota de produção, sem afetar o acesso dele em outros locais.
+
+Para adicionar um novo membro e atribuir sua primeira função, use a tarefa de integração. link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções"].
+
+.Passos
+. Na página Organização, navegue até uma pasta ou frota na tabela, selecione image:icon-action.png["Um ícone com três pontos"] e, em seguida, selecione *Editar pasta* ou *Editar frota*.
+. Selecione *Acesso* para visualizar a lista de membros que têm acesso.
+. Modificar o acesso de membros:
++
+** *Alterar a função de um membro*: Para qualquer membro com uma função diferente de Organization admin, selecione a função atual e escolha uma nova função. A alteração se aplica somente a este escopo; funções herdadas de um escopo superior não aparecem aqui.
+** *Remover acesso de membro neste escopo*: Para um membro que tenha uma função definida diretamente nesta pasta ou frota, remova a função para revogar o acesso dele neste escopo. Isso não remove o membro da sua organização nem afeta as funções que ele possui em outros escopos.
++
+link:task-iam-manage-roles.html#remove-a-member-from-your-organization["Remover um membro da sua organização"].
+
+
+
+. Selecione *Aplicar*.
+

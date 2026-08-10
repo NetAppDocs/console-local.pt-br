@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: concept-custom-dashboards.html 
+keywords: dashboards, predefined dashboards, custom dashboards, cards, card templates, metrics, KPI, fleet health, performance monitoring, capacity monitoring, storage visibility, netapp console local, monitoring 
+summary: Aprenda como os painéis predefinidos da página inicial e os painéis personalizados funcionam em conjunto na implantação local do NetApp Console. 
+---
+= Saiba mais sobre painéis personalizados na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use painéis personalizados na implantação local do NetApp Console para criar visualizações de monitoramento focadas para equipes, frotas, cargas de trabalho e objetivos operacionais específicos. Os painéis personalizados complementam o painel da página inicial, adicionando visibilidade direcionada ao monitoramento amplo e sempre disponível.
+
+
+
+[[how-dashboard-types-work-together]]
+== Como os tipos de dashboard funcionam juntos
+
+Painel da página inicial:: Painéis de monitoramento prontos para uso para capacidade, alertas, capacidade de desempenho, licenças e status de proteção de dados. As visualizações são pré-configuradas e atualizadas automaticamente. link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"].
+Painéis personalizados:: Visualizações de monitoramento específicas para cada função, criadas a partir de cartões predefinidos, incluindo escopo selecionável, métricas, recursos de destino, e janelas de tempo.
+
+
+Use ambos em conjunto: * Comece na página inicial para monitoramento diário de referência. * Use painéis personalizados para investigação focada por equipe, frota, carga de trabalho ou questão operacional.
+
+Você pode adicionar um painel personalizado à página inicial por vez.
+
+
+
+[[understand-custom-dashboards]]
+== Entenda os painéis personalizados
+
+Um painel personalizado é uma coleção salva de cartões que você organiza em uma grade. Cada cartão é baseado em um modelo predefinido de cartão com uma métrica e um tipo de gráfico. Ao adicionar um cartão, você configura o escopo, os objetos de destino, a agregação e o período de tempo.
+
+Painéis e cartões personalizados são privados para você. Cada cartão exibe dados apenas dos recursos de storage que você está autorizado a visualizar.
+
+Você pode remover o painel personalizado da sua página inicial e adicionar um diferente conforme as prioridades de monitoramento mudam.
+
+
+
+[[monitor-what-matters]]
+== Monitore o que importa
+
+Os modelos de cartão são organizados por tipo de métrica, permitindo que você concentre um painel em uma área operacional específica. Por exemplo, use cartões de capacidade para monitorar um volume que está crescendo mais rápido do que o esperado ou use cartões de alerta para rastrear falhas repetidas em um cluster com alta carga.
+
+Desempenho:: Latência, IOPS, taxa de transferência, utilização e capacidade de desempenho em toda a frota, sistemas, SVMs, volumes e LUNs.
+Capacidade:: Capacidade utilizada, capacidade livre, percentual de capacidade utilizada e capacidade de snapshot em toda a frota, sistemas, SVMs, volumes, LUNs e camadas locais.
+Saúde:: Estado de saúde, contagem de objetos degradados ou críticos, discos com falha, erros de interface de rede e objetos ativos.
+Alertas:: Contagem de alertas críticos, alertas por gravidade, alertas por área de impacto, alertas recentes e tendências de alertas ao longo do tempo.
+
+
+Para um catálogo completo de cartões predefinidos e métricas, consulte link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"].
+
+
+
+[[resource-types]]
+== Tipos de recursos
+
+Você pode definir o escopo dos cartões para qualquer nível da hierarquia de armazenamento do ONTAP: frota, cluster, sistema (nó), SVM, volume, LUN e camada local (agregado). Os tipos de recursos disponíveis dependem do modelo de cartão que você selecionar.
+
+
+
+[[plan-dashboard-views]]
+== Visualizações do painel do plano
+
+Organize painéis personalizados em torno de objetivos de administração de storage, como triagem de desempenho de carga de trabalho, planejamento de capacidade, detecção de riscos e priorização de alertas.
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-dashboard-get-started.html["Comece a usar dashboards na implantação local do NetApp Console"]
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"]
+

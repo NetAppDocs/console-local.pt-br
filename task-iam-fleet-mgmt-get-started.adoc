@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: task-iam-fleet-mgmt-get-started.html 
+keywords: iam, quick start, get started, get started with iam, identity and access management 
+summary: Configure a identidade e o acesso na implantação local do NetApp Console criando sua hierarquia de pastas e frotas, adicionando membros, adicionando recursos e colocando esses recursos nas frotas corretas. 
+---
+= Comece a usar identidade e acesso na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, configure sua hierarquia de pastas e frotas, adicione membros e permissões iniciais e adicione e coloque recursos nas frotas corretas para que as equipes certas possam acessá-los e gerenciá-los.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pasta ou frota. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Você precisa da função de *Organization admin* ou *Super admin* para concluir a configuração inicial. Após a configuração, gerencie recursos, acesso dos membros e acesso à frota conforme sua organização mudar.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Adicionar ou descobrir recursos
+[role="quick-margin-para"]
+Adicione sistemas à implantação local do Console. Durante a configuração inicial, os sistemas geralmente são adicionados enquanto a frota padrão está selecionada.
+
+[role="quick-margin-para"]
+Aprenda como criar ou descobrir recursos:
+
+[role="quick-margin-list"]
+* https://docs.netapp.com/us-en/storage-management-ontap-onprem/index.html["Clusters ONTAP locais"^]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Crie sua pasta e hierarquia de frota
+[role="quick-margin-para"]
+Crie frotas e pastas adicionais que correspondam à hierarquia da sua empresa.
+
+[role="quick-margin-para"]
+link:task-iam-manage-folders-fleets.html["Aprenda a organizar seus recursos com pastas e frotas"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Associe os recursos às frotas corretas
+[role="quick-margin-para"]
+Adicionar ou descobrir um sistema na implantação local do Console associa automaticamente o recurso à frota selecionada no momento. Para disponibilizar um sistema às equipes certas, associe-o às frotas apropriadas em sua hierarquia.
+
+[role="quick-margin-list"]
+* link:task-iam-manage-resources.html["Aprenda a gerenciar recursos em pastas e frotas"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Adicione membros e atribua permissões iniciais
+[role="quick-margin-para"]
+Adicione membros e atribua funções a eles no nível da organização, da pasta ou da frota, com base no que eles gerenciam.
+
+[role="quick-margin-para"]
+link:task-iam-manage-members-permissions.html["Aprenda a gerenciar membros e suas permissões"].
+
+
+
+[[after-initial-setup]]
+== Após a configuração inicial
+
+Após a configuração inicial estar concluída, gerencie o acesso e o posicionamento de recursos conforme sua organização muda:
+
+* link:task-iam-manage-resources.html["Gerencie recursos em pastas e frotas"]
+* link:task-iam-manage-roles.html["Gerencie o acesso de membros em frotas e pastas (centrado no membro)"]
+* link:task-iam-users-fleets-assign.html["Gerencie quem pode acessar uma frota ou pasta específica (centrado na frota)"]
+* link:task-iam-manage-folders-fleets.html#delete-a-folder-or-fleet["Exclua pastas e frotas quando não forem mais necessárias"]
+
+
+.Informações relacionadas
+* link:concept-identity-and-access-management.html["Saiba mais sobre gerenciamento de identidade e acesso no NetApp Console"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Saiba mais sobre a API de identidade e acesso"^]
+

@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: reference-alert-remediation.html 
+keywords: alert remediation, fix-it, guided remediation, automated remediation, ONTAP alerts, storage alerts, compliance alerts, remediate drift, alert actions, netapp console local 
+summary: Informações de referência sobre ações corretivas disponíveis na implantação local do NetApp Console, incluindo alertas relacionados, áreas de impacto e resumos das ações. 
+---
+= Ações de correção de alertas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use esta referência para entender as ações de correção disponíveis em *Corrigir* na NetApp Console implantação local. Para cada ação, a tabela descreve o que a ação faz e o alerta relacionado. Revise os detalhes da ação na caixa de diálogo de confirmação antes de executá-la.
+
+
+
+[[remediation-actions]]
+== Ações corretivas
+
+[cols="20,17,28,12,23"]
+|===
+| Ação corretiva | Nome do alerta | Descrição do alerta | Área de impacto | Resumo da remediação 
+
+
+| *Ativar o crescimento automático do volume* | Volume cheio | O volume está com pouco espaço disponível e está quase atingindo sua capacidade máxima. | Capacidade | Aumenta automaticamente o tamanho de um volume (até um limite configurado) para reduzir o risco de ficar sem espaço. 
+
+
+| *Redimensionar volume* | Volume cheio | O volume está com pouco espaço disponível e está quase atingindo sua capacidade máxima. | Capacidade | Aumenta o tamanho de um volume para proporcionar mais espaço imediatamente. 
+
+
+| *Colocar volume online* | Volume off-line | O volume está off-line e não está fornecendo dados. | Disponibilidade | Coloca um volume off-line online para que ele possa retomar o fornecimento de dados. 
+
+
+| *Coloque o agregado online* | Agregado off-line | O agregado não está online e os volumes nele hospedados podem estar indisponíveis. | Disponibilidade | Coloca um agregado off-line online para restaurar o acesso aos volumes que ele hospeda. 
+
+
+| *Coloque a LUN online* | LUN off-line | O LUN está off-line e o acesso do host está indisponível. | Disponibilidade | Coloca um LUN off-line em funcionamento para que os hosts possam retomar o acesso e as operações de E/S. 
+
+
+| *Remover restrição de volume* | Volume restrito | O volume está em estado restrito e pode não servir I/O normalmente. | Disponibilidade | Restaura um volume restrito ao estado online para que os clientes possam acessá-lo novamente. 
+
+
+| *Colocar o namespace NVMe online* | O namespace NVMe está off-line | O namespace NVMe está off-line e o acesso do host está indisponível. | Disponibilidade | Coloca um namespace NVMe off-line em funcionamento para restaurar o acesso do host. 
+
+
+| *Ativar LIF entre clusters* | LIF entre clusters inativa | Uma LIF entre clusters está inativa e a comunicação entre clusters pode ser afetada. | Conectividade | Ativa uma LIF entre clusters para restaurar a conectividade entre clusters usada para replicação. 
+
+
+| *Reativar o MetroCluster AUSO* | MetroCluster switchover automática não planejada desativada | O switchover não planejado automático está desativado neste cluster. | Disponibilidade | Reativa o switchover automático não planejado (AUSO) para que a proteção do MetroCluster funcione conforme o esperado. 
+
+
+| *Configurar a rede do Service Processor* | O Service Processor não está configurado | A rede do Service Processor (SP) não está configurada. | Gerenciabilidade | Configura as definições de rede do SP para permitir o acesso de gerenciamento fora da banda. 
+
+
+| *Atribuir discos não atribuídos* | Discos não atribuídos detectados | Existem discos não atribuídos e a capacidade disponível pode não estar sendo utilizada. Atribua os discos a um nó para que possam ser usados para storage. | Disponibilidade | Atribui discos atualmente não atribuídos a um nó para que possam ser usados para storage. 
+
+
+| *Recuperação do espaço do volume raiz* | Espaço do volume raiz do nó baixo | O espaço disponível no volume raiz do nó é baixo e pode afetar o funcionamento normal do sistema. | Saúde do sistema | Libera espaço no volume raiz do nó excluindo o maior snapshot ou o maior arquivo de despejo de memória. As exclusões são permanentes. 
+|===

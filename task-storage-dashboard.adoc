@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: task-storage-dashboard.html 
+keywords: storage dashboard, home page, fleet health, capacity monitoring, IOPS, performance metrics, alerts, storage KPIs, monitoring, netapp console local 
+summary: Na implantação local do NetApp Console, você pode visualizar métricas na página inicial. 
+---
+= Visualize as métricas da página inicial na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use o painel da página inicial na implantação local do NetApp Console como seu ponto de partida padrão para monitorar a integridade e o desempenho do storage. Ele fornece métricas de alto nível para integridade da frota, alertas, segurança, uso da capacidade, latência, taxa de transferência e IOPS.
+
+O painel da página inicial é automaticamente configurado para exibir apenas as frotas e os sistemas que você está autorizado a visualizar. Você também pode adicionar um painel personalizado à página inicial para monitoramento específico da sua função.
+
+Use os cartões como um fluxo de trabalho de triagem em camadas. Comece com *Saúde da frota* e *Alertas* para encontrar pontos críticos de risco. Use *Status de saúde do sistema* e *Remediações recomendadas* para identificar os recursos afetados. Use *Uso de capacidade*, *Latência*, *Taxa de transferência* e *IOPS* para investigar as causas principais.
+
+
+
+[[fleet-health]]
+== Saúde da frota
+
+O cartão *Saúde da Frota* exibe um resumo de alto nível do status das cinco principais frotas, incluindo contagens de sistemas, capacidade utilizada, conformidade de segurança e alertas críticos. Use este cartão para identificar quais frotas precisam de atenção imediata. Selecione o nome da frota para visualizar um painel somente da frota selecionada.
+
+
+
+[[recommended-remediations]]
+== Remediações recomendadas
+
+O cartão *Remediações recomendadas* lista problemas ativos e ações sugeridas. O cartão prioriza as remediações com base na pressão sobre a capacidade, recursos offline e riscos relacionados à proteção.
+
+
+
+[[alerts]]
+== Alertas
+
+O cartão *Alertas* resume o volume de alertas no período selecionado e os agrupa por gravidade. Use este cartão para entender a carga atual de incidentes e identificar mudanças recentes em alertas críticos, de aviso ou informativos.
+
+
+
+[[security]]
+== Segurança
+
+O cartão *Segurança* resume as métricas de conformidade e proteção, como a conformidade do sistema e os controles relacionados a ransomware. Use esta visualização para monitorar as tendências de segurança em seus recursos.
+
+
+
+[[capacity-usage]]
+== Utilização da capacidade
+
+O cartão *Utilização da capacidade* exibe as tendências de utilização projetadas e históricas em frotas ou sistemas selecionados. Use este cartão para identificar padrões de crescimento e planejar capacidade adicional.
+
+
+
+[[latency]]
+== Latência
+
+O cartão *Latência* monitora o comportamento do tempo de resposta ao longo do tempo nos sistemas selecionados. Use essa tendência para detectar atrasos de desempenho emergentes e comparar a latência entre os recursos.
+
+
+
+[[throughput]]
+== Capacidade de processamento
+
+O cartão *Throughput* exibe as taxas de transferência de dados ao longo do tempo para sistemas selecionados. Use este cartão para entender a intensidade da carga de trabalho e monitorar as mudanças na demanda de throughput.
+
+
+
+[[iops]]
+== IOPS
+
+O cartão *IOPS* exibe as taxas de operação de entrada/saída ao longo do tempo. Use este cartão para comparar os níveis de atividade entre sistemas e identificar a demanda de E/S contínua ou intermitente.
+
+
+
+[[dashboard-card-example-metric-card]]
+== Cartão do dashboard (exemplo de cartão de métrica)
+
+A área inferior do *Dashboard* pode conter um dashboard personalizado selecionado por você, como a latência média para um escopo de produção selecionado. Use esses cards para monitoramento direcionado por equipe, carga de trabalho ou objetivo.
+
+
+
+[[system-health-status]]
+== Estado de saúde do sistema
+
+O cartão *Estado de integridade do sistema* lista os sistemas individuais com seu estado de integridade atual. Use este cartão para identificar rapidamente sistemas com problemas e correlacionar as alterações de estado com alertas e sinais de desempenho.
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"]
+

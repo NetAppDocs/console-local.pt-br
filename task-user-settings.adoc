@@ -1,0 +1,127 @@
+---
+sidebar: sidebar 
+permalink: task-user-settings.html 
+keywords: user profile, mfa, change password, role, login, multi-factor, authentication, dark mode, read-only mode, contact admin, AD, Active Directory, directory services 
+summary: 'Você pode modificar seu perfil do Console, incluindo alterar sua senha, ativar a autenticação multifator (MFA) e ver quem é o administrador do seu Console.' 
+---
+= Gerencie as configurações de usuário da sua implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, você pode modificar seu perfil de implantação local do Console, incluindo alterar sua senha, ativar a autenticação multifator (MFA) e ver quem é o administrador do seu Console.
+
+
+
+[[change-your-display-name]]
+== Altere seu nome de exibição
+
+Você pode alterar o nome de exibição da sua implantação local do NetApp Console, que identifica você para outros usuários. Você não pode alterar seu nome de usuário ou endereço de e-mail.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito da implantação local do NetApp Console para visualizar o painel de configurações do usuário.
+. Selecione o ícone *Editar* ao lado do seu nome.
+. Insira seu novo nome de exibição no campo *Nome*.
+
+
+
+
+[[configure-multi-factor-authentication]]
+[[task-user-mfa]]
+== Configurar autenticação multifator
+
+Configure a autenticação multifator (MFA) para melhorar a segurança, exigindo um segundo método de verificação ao fazer login na implantação local do NetAppConsole.
+
+Usuários que acessam a conta pelo NetApp Support Site não podem ativar a MFA. Se isso se aplica a você, você não verá a opção para ativar a MFA nas configurações do seu perfil.
+
+Não habilite MFA se sua conta de usuário for usada para acesso à API. A autenticação multifator impede o acesso à API quando habilitada para uma conta de usuário. Use contas de serviço para todo o acesso à API.
+
+
+NOTE: Não é possível configurar MFA para sua conta por meio da implantação local do Console se sua conta usar o Active Directory ou outro serviço de diretório integrado para autenticação.
+
+.Antes de começar
+* Você já deve ter baixado um aplicativo de autenticação, como o Google Authenticator ou o Microsoft Authenticator, para o seu dispositivo.
+* Você precisará da sua senha para configurar a autenticação multifator (MFA).
+
+
+
+NOTE: Se você não tiver acesso ao seu aplicativo de autenticação ou perder seu código de recuperação, entre em contato com o administrador do seu Console para obter ajuda.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito do NetApp Console para visualizar o painel de configurações do usuário.
+. Selecione *Configurar* ao lado do cabeçalho *autenticação multifator*.
+. Siga as instruções para configurar a autenticação multifator (MFA) para sua conta.
+. Ao concluir, você será solicitado a salvar seus códigos de recuperação. Escolha copiar os códigos ou baixar um arquivo de texto contendo os códigos. Guarde esses códigos em um local seguro. Você precisará dos códigos de recuperação caso perca o acesso ao seu aplicativo de autenticação.
++
+
+NOTE: Se você precisar iniciar sessão com um código de recuperação, use-os na ordem exibida na interface do usuário durante a solicitação do código de recuperação.
+
++
+Após configurar a MFA, a implantação local do Console solicitará que você insira um código único do seu aplicativo de autenticação sempre que fizer login.
+
+
+
+
+
+[[regenerate-your-mfa-recovery-code]]
+== Regenerar seu código de recuperação MFA
+
+Você só pode usar um código de recuperação uma vez. Se você perder o seu, crie um novo.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito da implantação local do NetApp Console para visualizar o painel de configurações do usuário.
+. Selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] ao lado do cabeçalho *Autenticação Multifator*.
+. Selecione *Regenerar código de recuperação*.
+. Copie os códigos de recuperação gerados e guarde-os em um local seguro.
+
+
+
+
+[[delete-your-mfa-configuration]]
+== Exclua sua configuração de MFA
+
+Ao excluir a autenticação multifator (MFA), você remove a segunda etapa de verificação para seu próximo login. Para usar a MFA novamente, você precisa configurá-la novamente nas suas configurações de usuário.
+
+
+NOTE: Caso não consiga acessar seu aplicativo de autenticação ou código de recuperação, você precisará entrar em contato com o administrador da sua organização para redefinir sua configuração de MFA.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito da implantação local do NetApp Console para visualizar o painel de configurações do usuário.
+. Selecione image:icon-action.png["Um ícone que consiste em três pontos lado a lado"] ao lado do cabeçalho *Autenticação Multifator*.
+. Selecione *Delete*.
+
+
+
+
+[[contact-your-organization-administrator]]
+[[contact-admin]]
+== Entre em contato com o administrador da sua organização
+
+Se precisar entrar em contato com o administrador da sua organização, você pode enviar um e-mail diretamente do NetApp Console. O administrador gerencia as contas de usuário e as permissões dentro da sua organização.
+
+
+NOTE: Você precisa ter um aplicativo de e-mail padrão configurado no seu navegador para usar o recurso *Contatar administradores*.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito da implantação local do NetApp Console para visualizar o painel de configurações do usuário.
+. Selecione *Contatar administradores* para enviar um e-mail ao administrador da sua organização.
+. Selecione o aplicativo de e-mail que você deseja usar.
+. Finalize o e-mail e selecione *Enviar*.
+
+
+
+
+[[configure-dark-mode-dark-theme]]
+== Configurar modo escuro (tema escuro)
+
+Você pode configurar a implantação local do Console para ser exibida no modo escuro.
+
+.Passos
+. Selecione o ícone de perfil no canto superior direito da implantação local do NetApp Console para visualizar o painel de configurações do usuário.
+. Mova o controle deslizante *Tema escuro* para ativá-lo.
+

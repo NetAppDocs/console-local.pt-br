@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: task-customize-dashboard-cards.html 
+keywords: add card, dashboard card, card template, widget, preview, netapp console local 
+summary: Personalize os cartões do painel de controle na implantação local do NetApp Console, definindo escopo, modelos, recursos e janelas de tempo. 
+---
+= Personalize os cartões na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, personalize os cartões do painel quando você precisar direcionar os operadores para os sinais que mais importam, como risco de SLA, pressão de capacidade ou ruído de alertas recorrentes. Use este tópico para estruturar as visualizações do painel em torno das decisões operacionais que sua equipe precisa tomar.
+
+
+
+[[before-you-begin]]
+== Antes de começar
+
+* Crie ou abra um painel onde você deseja colocar os cartões.
+* Analise os modelos disponíveis e as métricas em link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"].
+
+
+
+
+[[add-cards-while-refining-an-existing-dashboard]]
+== Adicione cartões enquanto aprimora um painel existente
+
+Use esta opção quando você estiver aprimorando um painel existente e precisar adicionar rapidamente cartões que respondam a uma pergunta operacional específica.
+
+.Passos
+. Abra o painel ao qual você deseja adicionar um cartão.
+. Selecione *Adicionar cartão*.
+. Selecione o *Tipo de recurso* para o cartão, como frota, sistema ou volume e então escolha os recursos na lista de recursos disponíveis.
+. Selecione *Próximo* para continuar para escolher uma métrica e um tipo de cartão.
+. Selecione uma métrica para exibir. Você pode filtrar as métricas disponíveis por tipo: o *Tipo de Métrica*: *Desempenho*, *Capacidade*, *Saúde* ou *Alertas*, ou pesquisar uma métrica específica pelo nome. As métricas disponíveis dependem do tipo de recurso que você selecionou.
++
+link:reference-dashboard-card-templates.html#metrics-list["Saiba mais sobre as métricas disponíveis."]
+
+. Selecione um cartão para incluir no painel e selecione *Avançar*.
++
+Você só pode selecionar um cartão por vez. A pré-visualização do cartão mostra dados em tempo real para a métrica e o tipo de recurso selecionados.
+
+. Dê um nome ao seu cartão. O nome deve ser único no painel de controle.
+. Revise a prévia do cartão, insira um nome e uma descrição para o cartão e selecione *Adicionar*.
+. Repita estas etapas para os cartões adicionais.
+. Salve o dashboard.
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:task-dashboard-create.html["Crie um painel personalizado"]
+* link:task-dashboard-manage.html["Gerencie painéis personalizados"]
+* link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"]
+

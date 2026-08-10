@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: task-storage-class-drift-remediate.html 
+keywords: storage class drift, drift remediation, compliance, fix-it, guided remediation, automated remediation, drift detection, storage governance, storage standards, netapp console local 
+summary: Encontre, analise e corrija desvios de classe de armazenamento na implantação local do NetApp Console. 
+---
+= Corrigir a discrepância de classe de armazenamento na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, encontre alertas relacionados a desvios, analise as descobertas sobre desvios e corrija as cargas de trabalho que não correspondem mais à intenção da classe de armazenamento.
+
+.Funções necessárias
+Administrador de storage
+
+
+NOTE: Você só pode visualizar e corrigir cargas de trabalho em frotas nas quais você tem permissão.
+
+
+
+[[remediate-drift]]
+== Corrigir a deriva
+
+Quando uma carga de trabalho deixa de corresponder à sua intenção de classe de armazenamento, a implantação local do NetApp Console gera um alerta. Use o alerta para analisar a discrepância e aplicar a remediação recomendada.
+
+Você pode aplicar algumas correções diretamente do alerta. Para outros problemas, atualize a configuração da carga de trabalho ou atribua uma classe de armazenamento diferente para restaurar a conformidade. O fluxo de trabalho de correção mostra o impacto esperado antes de você aplicar as alterações.
+
+.Passos
+. Selecione *Armazenamento > Classes de armazenamento*.
++
+Um resumo da variação de classe de armazenamento aparece na seção *Variações por classe de armazenamento*. A lista completa aparece na tabela.
+
+. Na coluna *Desvios*, selecione *Exibir* para a classe de armazenamento relevante.
++
+A página *Alertas > Visão geral* é aberta com filtros aplicados.
+
+. Selecione um alerta para abrir a página de detalhes do alerta.
+. Selecione *Analyze*.
+. Analise os resultados no *Workload analyzer*.
++
+Para identificar desvios de configuração, compare as configurações pretendidas e as reais para determinar o que mudou.
+
+. Selecione a ação corretiva recomendada, como *Fix it*.
+. Analise as alterações propostas e aplique a remediação.
+. Retorne a *Armazenamento > Classes de armazenamento* e verifique se a carga de trabalho não aparece mais como desalinhada.
++
+As avaliações de conformidade podem levar vários minutos para refletir as alterações de configuração recentes. Se a carga de trabalho ainda estiver listada como desalinhada, retorne à página de detalhes do alerta e selecione *Analisar* para revisar quaisquer descobertas restantes.
+
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:concept-storage-classes.html#storage-class-drift-and-compliance["Saiba mais sobre desvio de classe de armazenamento e conformidade na implantação local do NetApp Console"]
+* link:concept-console-alerts.html["Saiba mais sobre alertas de storage"]
+* link:task-alerts-monitor.html["Ver alertas"]
+

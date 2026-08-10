@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-platform-roles.html 
+keywords: predefined roles, iam roles, Organization admin, Folder or fleet admin, Super admin, Federation admin, platform roles, role, iam, identity and access management, netapp console local 
+summary: Atribua funções de plataforma aos usuários para conceder permissões para gerenciar o NetApp Console implantação local, atribuir funções, adicionar usuários e gerenciar federações. 
+---
+= NetApp Console funções de acesso à plataforma de implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Atribua funções de plataforma aos usuários para conceder permissões para gerenciar a implantação local do NetApp Console, atribuir funções, adicionar usuários, criar frotas e gerenciar autenticação.
+
+.Exemplo de funções organizacionais para uma grande organização multinacional
+A XYZ Corporation organiza o acesso ao storage por região — América do Norte, Europa e Ásia-Pacífico — proporcionando controle regional com supervisão centralizada.
+
+O *Administrador da organização* na implantação local do Console da XYZ Corporation cria uma organização inicial e pastas separadas para cada região. O *Administrador de pastas ou frotas* de cada região organiza as frotas (com os recursos associados) dentro da pasta da região.
+
+Os administradores regionais com a função de *Administrador de pastas ou frotas* gerenciam ativamente suas pastas, adicionando recursos e usuários. Esses administradores regionais também podem adicionar, remover ou renomear pastas e frotas que gerenciam. O *Administrador da organização* herda permissões para quaisquer novos recursos, mantendo a visibilidade do uso de storage em toda a organização.
+
+Dentro da mesma organização, um usuário recebe a função de *Federation admin* para gerenciar a federação da organização com seu IdP corporativo. Esse usuário pode adicionar ou remover organizações federadas, mas não pode gerenciar usuários ou recursos dentro da organização. O *Organization admin* atribui a um usuário a função de *Federation viewer* para verificar o status da federação e visualizar as organizações federadas.
+
+As tabelas a seguir indicam as ações que cada função da plataforma de implantação local do NetApp Console pode executar.
+
+
+
+[[organization-administration-roles]]
+[[organization-admin-roles]]
+== Funções de administração organizacional
+
+[cols="2,1,1"]
+|===
+| Tarefa | Administrador da organização | Administrador de pasta ou de fleet 
+
+
+| Criar, modificar ou excluir sistemas da implantação local do NetApp Console (adicionar ou descobrir sistemas) | Sim | Sim 
+
+
+| Criar pastas e frotas, incluindo a exclusão | Sim | Não 
+
+
+| Renomeie pastas e frotas existentes | Sim | Sim 
+
+
+| Atribua funções e adicione usuários | Sim | Sim 
+
+
+| Associe recursos a pastas e frotas | Sim | Sim 
+
+
+| Cadastre-se para receber suporte e envie solicitações pelo Console | Sim | Sim 
+
+
+| Utilize serviços de dados que não estejam associados a uma função de acesso explícita | Sim | Sim 
+
+
+| Veja a página Audit e as notificações | Sim | Sim 
+|===
+
+
+[[federation-roles]]
+== Funções da federação
+
+[cols="2,1,1"]
+|===
+| Tarefa | Administração da federação | Visualizador da federação 
+
+
+| Criar e atualizar integrações de serviço de diretório | Sim | Não 
+
+
+| Veja as federações e seus detalhes | Sim | Sim 
+|===
+
+
+[[super-admin-and-viewer-roles]]
+[[super-admin-roles]]
+== Funções de superadministrador e visualizador
+
+A função *Superadministrador* oferece acesso completo para gerenciar os recursos do NetApp Console, o storage e os serviços de dados. Essa função é adequada para quem supervisiona a administração e a governança. Em contrapartida, a função *Supervisualizador* oferece acesso somente leitura, ideal para auditores ou partes interessadas que precisam de visibilidade sem fazer alterações.
+
+As organizações devem usar o acesso de *Super admin* com parcimônia para minimizar os riscos de segurança e estar em conformidade com o princípio do menor privilégio. A maioria das organizações deve atribuir funções com permissões específicas, concedendo apenas as permissões necessárias para reduzir riscos e melhorar a auditabilidade.
+
+.Exemplo de super roles
+A ABC Corporation possui uma pequena equipe de cinco pessoas que utiliza o NetApp Console para serviços de dados e gerenciamento de storage. Em vez de distribuir várias funções, eles atribuem a função de *Super admin* a dois membros seniores da equipe, que cuidam de todas as tarefas administrativas, incluindo gerenciamento de usuários e configuração de recursos. Os três membros restantes da equipe recebem a função de *Super viewer*, o que lhes permite monitorar a integridade do storage e o status do serviço de dados sem a possibilidade de modificar as configurações.
+
+[cols="2,1"]
+|===
+| Papel | Papéis herdados 
+
+
+ a| 
+Superadministrador
+ a| 
+* Administrador da organização
+* Administrador de pasta ou de fleet
+* Superadministrador de backup e recuperação
+* Administrador de storage
+
+
+
+
+ a| 
+Super visualizador
+ a| 
+* Visualizador de organização
+* Visualizador de backup
+* Visualizador de storage
+
+
+|===

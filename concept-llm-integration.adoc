@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: concept-llm-integration.html 
+keywords: LLM, AI, artificial intelligence, AI-assisted management, large language model, proxy, openai-compatible, netapp console 
+summary: Saiba como a implantação local do NetApp Console se integra aos modelos OpenAI e compatíveis com OpenAI, incluindo decisões sobre provedor, proxy e segurança. 
+---
+= Saiba mais sobre a integração do LLM na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console implantação local se conecta a um large language model (LLM) para gerenciamento de storage com assistência de IA. Após a configuração, você pode usar linguagem natural para provisionar storage, investigar alertas e obter orientações sobre storage.
+
+
+NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+
+O gerenciamento assistido por IA permite que os usuários descrevam as solicitações em linguagem simples, enquanto a implantação local do NetApp Console aplica suas políticas de storage.
+
+A implantação local no NetApp Console envia solicitações LLM somente para o endpoint que você configurar.
+
+
+
+[[what-you-can-do-with-ai-assisted-storage-management]]
+== O que você pode fazer com gerenciamento de storage assistido por IA
+
+Ao ativar a integração com o LLM, a implantação local do Console oferece três funcionalidades por meio do assistente do Console:
+
+* *Provisionamento de storage* Descreva os requisitos da carga de trabalho em linguagem simples. A implantação local no NetApp Console recomenda e executa um plano de provisionamento com base nas suas classes de storage.
+* *Resposta ao alerta* Peça para a implantação local do NetApp Console investigar um alerta ativo. Ela analisa o problema e sugere ou executa uma ação com base nas permissões atribuídas.
+* *Pesquisa e orientação* Faça perguntas sobre seu ambiente de storage ou administração do ONTAP. A implantação local do NetApp Console retorna respostas contextuais da documentação e do estado atual da frota.
+
+
+
+
+[[choose-read-only-or-readwrite-access-for-the-console-assistant]]
+== Escolha acesso somente leitura ou leitura/gravação para o assistente do NetApp Console
+
+Os usuários escolhem um modo de acesso ao assistente com base no resultado que desejam:
+
+* Modo *somente leitura* para orientação e investigação sem fazer alterações na infraestrutura.
+* Modo *leitura/gravação* para execução guiada. A implantação local no console exibe a ação proposta, solicita confirmação e, em seguida, executa a alteração.
+
+
+
+
+[[understand-what-controls-console-assistant-actions]]
+== Entenda o que controla as ações do assistente do NetApp Console
+
+A implantação local do Console controla as ações do assistente do Console por meio do mesmo modelo de governança usado em toda a plataforma:
+
+* Os controles de acesso baseados em funções limitam o que cada usuário pode ver e fazer.
+* As políticas de storage restringem o provisionamento e as ações relacionadas.
+* O assistente do NetApp Console requer confirmação antes de executar ações que alteram o storage.
+
+
+
+
+[[choose-an-llm-provider-path]]
+== Escolha um caminho de provedor de LLM
+
+NetApp Console a implantação local oferece suporte a estes tipos de provedores LLM:
+
+* *OpenAI* para acesso direto ao modelo OpenAI.
+* *Compatível com OpenAI* para um endpoint compatível, como um gateway corporativo ou serviço de proxy.
+* Anthropic para os modelos Claude da Anthropic.
+
+
+A disponibilidade do modelo depende do endpoint que você configurar. Selecione um modelo na lista em implantação local do NetApp Console.
+
+Para obter detalhes sobre os modelos compatíveis, consulte link:reference-llm-supported-models.html["Saiba mais sobre os provedores e modelos de LLM compatíveis na implantação local do NetApp Console"].
+
+
+
+[[understand-where-llm-requests-go]]
+== Entenda para onde vão os pedidos de LLM
+
+O fluxo de dados depende do caminho do endpoint que você escolher:
+
+* Se você configurar um endpoint da OpenAI, a implantação local do NetApp Console enviará prompts e contexto para o endpoint da OpenAI.
+* Se você configurar um endpoint compatível com OpenAI, a implantação local do Console enviará prompts e contexto para o endpoint compatível que sua organização configurar.
+
+
+
+
+[[protect-llm-credentials-and-control-admin-access]]
+== Proteja as credenciais do LLM e controle o acesso administrativo
+
+Proteja a integração com estes controles:
+
+* Trate a chave da API como uma credencial privilegiada e faça a rotação dela de acordo com a política da sua organização.
+* Analise o uso e os alertas do lado do provedor para detectar atividades inesperadas.
+
+
+
+
+[[connect-your-llm]]
+== Conecte seu LLM
+
+Após tomar essas decisões, continue com link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+
+Se a conexão ou as verificações de tempo de execução falharem, consulte link:task-llm-troubleshoot-integration.html["Solução de problemas de integração do LLM"].

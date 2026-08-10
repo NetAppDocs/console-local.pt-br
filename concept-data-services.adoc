@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: concept-data-services.html 
+keywords: data services, data protection, data mobility, backup, replication, netapp console 
+summary: Saiba mais sobre como usar o NetApp Backup and Recovery na implantação local do NetApp Console para proteger e gerenciar seus dados. 
+---
+= Saiba mais sobre o NetApp Backup and Recovery na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O NetApp Backup and Recovery é um serviço de dados que fornece proteção de dados eficiente, segura e econômica para todas as suas cargas de trabalho do ONTAP, incluindo volumes, bancos de dados, máquinas virtuais e cargas de trabalho do Kubernetes.
+
+Uma carga de trabalho é um agrupamento lógico de recursos dentro de um sistema, gerenciado como uma única unidade para proteção, governança, detecção e recuperação. Em Backup e Recovery, uma carga de trabalho é a unidade que você protege. Seu significado depende da fonte de dados: para Kubernetes uma carga de trabalho é um aplicativo, para ambientes de máquina virtual é uma máquina virtual, e para ambientes de banco de dados é um banco de dados.
+
+O suporte para backup e recuperação já está integrado a todos os sistemas ONTAP, portanto não há necessidade de hardware adicional ou gateways de mídia. Isso torna as operações de backup simples e econômicas. O NetApp Console simplifica a implementação de qualquer estratégia de backup, incluindo toda a gama de variantes de backup 3-2-1, sem a necessidade de múltiplos gerentes de recursos ou pessoal especializado.
+
+
+NOTE: NetApp Backup and Recovery está em modo de pré-visualização para implantação local no NetApp Console. O serviço ainda não está disponível para o público em geral e os recursos e funcionalidades estão sujeitos a alterações.
+
+link:https://docs.netapp.com/us-en/data-services-backup-recovery/index.html["Saiba mais sobre o NetApp Backup and Recovery."^].

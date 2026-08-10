@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: task-console-configure-notifications-delivery.html 
+keywords: console local, SMTP, email server, webhook,  notifications delivery, alert routing, incident response, operational awareness, third-party integration, SIEM 
+summary: Configure os canais de entrega de notificações para a implantação local do NetApp Console. 
+---
+= Configure os canais de entrega de notificações na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, você pode configurar vários canais para notificações de alerta, incluindo e-mail e webhooks.
+
+.Funções de acesso necessárias
+Superadministrador ou administrador da organização. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Por padrão, a implantação local do Console exibe notificações por meio de seu sistema de notificações incorporado. Configurar canais de entrega adicionais permite que você receba notificações da maneira que melhor se adapte ao seu fluxo de trabalho.
+
+Você pode enviar todas as notificações pelos mesmos canais ou usar canais diferentes para diferentes tipos de notificação. Por exemplo, você pode enviar alertas urgentes de storage por e-mail enquanto direciona outros alertas para uma ferramenta de monitoramento de terceiro por meio de um webhook.
+
+Após configurar os canais de entrega de notificações, você pode configurar as regras de notificação e atribuí-las a diferentes canais link:task-alert-rules-manage.html["Aprenda como configurar regras de notificação"].
+
+
+
+[[configure-an-email-server]]
+== Configurar um servidor de e-mail
+
+Ao configurar um servidor de e-mail, a implantação local do Console envia notificações, alertas e convites de usuários por meio dele. A implantação local do Console é compatível com servidores de e-mail SMTP, que podem ser seu servidor de e-mail corporativo existente ou um serviço de e-mail de terceiro.
+
+.Passos
+. Selecione *Administração > Console*.
+. Selecione *Configuração* para abrir a página de configurações do sistema.
+. Na seção *Servidor de e-mail*, selecione *Configurar*.
+. Insira os detalhes de conexão do seu servidor de e-mail:
++
+** Adicione um nome de remetente e um endereço de e-mail do remetente.
+** O *host SMTP*: nome do host ou endereço IP do seu servidor SMTP. Para vários servidores, insira o principal.
+** Selecione o protocolo de conexão na lista suspensa *Segurança da conexão*. A porta já está configurada para você e é somente leitura: 25 para SMTP com STARTTLS, ou 465 para SMTPS.
++
+SMTPS (porta 465) estabelece uma conexão criptografada imediatamente e é recomendado para ambientes sensíveis à segurança. STARTTLS (porta 25) faz upgrade a partir de uma conexão não criptografada e pode voltar à transmissão não criptografada se a negociação de criptografia falhar.
+
+
+
+. Selecione *E-mail de teste* para enviar um e-mail de teste para um destinatário que você especificar.
+. Após o teste ser bem-sucedido, selecione *Salvar* para salvar a configuração.
++
+Se o teste falhar, verifique novamente as configurações inseridas e certifique-se de que a implantação local do Console tenha acesso à rede ao servidor de e-mail.
+
+
+
+
+
+[[update-an-email-server-configuration]]
+=== Atualizar a configuração de um servidor de e-mail
+
+Você pode atualizar a configuração de um servidor de e-mail existente se desejar usar um servidor de e-mail diferente.
+
+.Passos
+. Selecione *Administração > Console*.
+. Selecione *Configuração* para abrir a página de configurações do sistema.
+. Na seção *Servidor de e-mail*, selecione *Configurar*.
+. Selecione *Limpar campos* para limpar a configuração existente.
+. Insira os novos detalhes de conexão para o seu servidor de e-mail.
+. Selecione *E-mail de teste* para enviar um e-mail de teste para um destinatário que você especificar.
+. Após o teste ser bem-sucedido, selecione *Salvar* para salvar a nova configuração.
++
+Se o teste falhar, verifique novamente as configurações inseridas e certifique-se de que a implantação local do Console tenha acesso à rede ao servidor de e-mail.
+
+
+
+
+
+[[remove-an-email-server-configuration]]
+=== Remover uma configuração de servidor de e-mail
+
+Você pode remover a configuração do servidor de e-mail se não quiser mais que a implantação local do NetApp Console envie e-mails.
+
+.Passos
+. Selecione *Administração > Console*.
+. Selecione *Configuração* para abrir a página de configuração do sistema.
+. Na seção *Servidor de e-mail*, selecione *Configurar*.
+. Selecione *Limpar campos* para limpar a configuração existente.
+. Selecione *Salvar* para salvar a configuração limpa, o que remove a configuração do servidor de e-mail da implantação local do Console.
+
+
+
+
+[[configure-a-webhook]]
+== Configurar um webhook
+
+Configure webhooks para enviar notificações da implantação local do Console para outras ferramentas ou serviços. Você pode configurar vários webhooks, cada um apontando para um endpoint diferente. Por exemplo, um para um SIEM e outro para um serviço de paginação de plantão.
+
+Após criar um webhook, os usuários com a função de administrador de armazenamento podem atribuí-lo a regras de alerta específicas. Por exemplo, eles podem enviar alertas críticos por e-mail enquanto enviam todos os alertas para uma ferramenta de monitoramento de terceiro por meio de um webhook.
+
+
+NOTE: A implantação local do Console não impõe controle de acesso aos endpoints do webhook. Qualquer usuário ou sistema que consiga acessar a URL do endpoint recebe os dados de alerta. Certifique-se de que o acesso ao aplicativo receptor seja restrito a usuários autorizados por meio dos controles de acesso do próprio aplicativo.
+
+.Antes de começar
+Confirme se a implantação local do Console consegue alcançar o aplicativo receptor pela rede e colete o URL do endpoint, o método HTTP e quaisquer detalhes de autenticação ou certificado exigidos por esse aplicativo.
+
+.Passos
+. Selecione *Administração > Console*.
+. Selecione *Configuração* para abrir a página de configurações do sistema.
+. Na seção *Integração de Webhook*, selecione *Configurar*.
+. Insira os detalhes necessários para o webhook:
++
+** Um nome descritivo para o webhook.
+** A URL do endpoint fornecida pelo aplicativo receptor.
+** Método HTTP
+** Opcional: um certificado autoassinado em formato PEM.
+** Quaisquer cabeçalhos ou segredos necessários (credenciais de autenticação).
+** O formato a ser usado ao enviar o webhook. JSON e OTEL (OpenTelemetry) são suportados.
++
+Use JSON para webhooks de uso geral e endpoints REST personalizados. Use OTEL para plataformas de observabilidade que consomem sinais OpenTelemetry nativamente, como o Grafana ou outros coletores compatíveis com OpenTelemetry.
+
+
+
+. Selecione *Test webhook* para testar a conexão do webhook e garantir que a implantação local do Console possa enviar mensagens com sucesso para o aplicativo receptor.
+. Após o teste ser bem-sucedido, selecione *Salvar* para criar o webhook.
++
+Após salvar o webhook, ele fica disponível para os usuários selecionarem onde os webhooks são suportados, como nas opções de entrega de alertas. link:task-alert-rules-manage.html["Aprenda como criar regras de alerta e atribuir webhooks para entrega de alertas."]
+
+

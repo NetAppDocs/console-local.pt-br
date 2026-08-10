@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-get-started.html 
+keywords: dashboards, quick start, get started, custom dashboards, predefined dashboards, monitoring, netapp console local 
+summary: Comece a usar dashboards na implantação local do NetApp Console, revisando a página inicial e os dashboards predefinidos, criando dashboards personalizados e mantendo-os atualizados. 
+---
+= Comece a usar dashboards na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, siga este fluxo de trabalho para monitorar desde visões amplas até visões mais específicas: revise o painel da página inicial, revise os painéis predefinidos, crie painéis personalizados e mantenha os painéis atualizados.
+
+.Funções de acesso necessárias
+Todas as funções. Os painéis mostram apenas os recursos que você está autorizado a visualizar. Se você não vir um recurso na lista de recursos disponíveis, você não tem permissão para visualizá-lo.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Verifique o estado geral de saúde na página inicial
+[role="quick-margin-para"]
+Utilize o painel de controle da página inicial para analisar a capacidade, alertas, desempenho e o status da proteção de dados em nível organizacional.
+
+[role="quick-margin-list"]
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+* link:concept-monitor-storage.html["Saiba mais sobre o monitoramento de armazenamento na implantação local do NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Analise outros painéis predefinidos
+[role="quick-margin-para"]
+Abra *Armazenamento > Painéis* para revisar os painéis predefinidos e obter visualizações adicionais específicas para cada função.
+
+[role="quick-margin-list"]
+* link:task-dashboard-manage.html["Gerencie painéis na implantação local do NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Crie painéis personalizados para monitoramento direcionado
+[role="quick-margin-para"]
+Crie painéis personalizados quando precisar de visualizações específicas para recursos, métricas e períodos de tempo selecionados.
+
+[role="quick-margin-list"]
+* link:task-dashboard-create.html["Crie um painel personalizado"]
+* link:task-customize-dashboard-cards.html["Personalize os cartões do painel de controle na implantação local do NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"] Mantenha os painéis atualizados
+[role="quick-margin-para"]
+Atualize os painéis conforme as prioridades mudam, editando, duplicando ou excluindo painéis personalizados.
+
+[role="quick-margin-list"]
+* link:task-dashboard-manage.html["Gerencie painéis na implantação local do NetApp Console"]
+* link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"]
+
+
+.Informações relacionadas
+* link:concept-custom-dashboards.html["Saiba mais sobre painéis personalizados na implantação local do NetApp Console"]
+* link:task-storage-dashboard.html["Visualize as métricas da página inicial na implantação local do NetApp Console"]
+

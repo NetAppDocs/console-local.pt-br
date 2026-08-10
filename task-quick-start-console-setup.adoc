@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start-console-setup.html 
+keywords: quick start, setup, set up, console local, admin setup, getting started, folders, fleets, rbac, members, data services, netapp console 
+summary: Configure o NetApp Console para implantação local instalando o software, planejando e criando sua organização, configurando integrações e configurando os serviços de dados. 
+---
+= Guia rápido para configurar o NetApp Console na implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Após instalar o NetApp Console localmente, configure sua organização para que as equipes certas possam gerenciar com segurança os recursos de storage certos. Use esta lista de verificação para planejar sua estrutura, organizar recursos, adicionar membros, configurar integrações e habilitar serviços de dados.
+
+.Funções de acesso necessárias
+Superadministrador ou administrador da organização. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Instalar o NetApp Console implantação local
+[role="quick-margin-list"]
+* Analise o fluxo de trabalho de instalação para compreender o processo de implantação. link:concept-deploy-netapp-console-local.html["Saiba mais sobre o fluxo de trabalho de instalação para implantação local do NetApp Console"].
+* Instale a implantação local do NetApp Console no seu vCenter. link:task-install-agent-on-prem-ova.html["Instale a implantação local do NetApp Console"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Planeje sua organização
+[role="quick-margin-list"]
+* Aprenda como pastas e frotas organizam seus recursos. link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas"].
+* Entenda como o controle de acesso baseado em funções (RBAC) concede aos membros o acesso de que precisam. link:concept-iam-rbac.html["Saiba mais sobre o controle de acesso baseado em funções na implantação local do NetApp Console"].
+* Analise o fluxo de trabalho de gerenciamento de identidade e acesso. link:task-iam-fleet-mgmt-get-started.html["Comece a usar o IAM para gerenciamento de recursos e de frotas"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Configure sua organização
+[role="quick-margin-list"]
+* Adicione seus sistemas de armazenamento ao NetApp Console implantação local. link:task-add-systems.html["Adicionar sistemas de armazenamento"].
+* Crie a hierarquia de pastas e frota que corresponda à estrutura da sua empresa. link:task-iam-manage-folders-fleets.html["Crie pastas e frotas"].
+* Associe os recursos às pastas e frotas corretas. link:task-iam-manage-resources.html["Associe recursos a pastas e frotas"].
+* Adicione membros e atribua suas funções iniciais. link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Configure integrações e serviços
+[role="quick-margin-list"]
+* Integre com o Active Directory para que os usuários do diretório possam acessar a implantação local do Console link:task-iam-active-directory-integrate.html["Integrar com o Active Directory"].
+* Conecte seu modelo de linguagem amplo (LLM) para habilitar o assistente do NetApp Console e o gerenciamento assistido por IA. link:task-llm-connect.html["Conecte seu LLM"].
+* Configure como a implantação local do NetApp Console entrega notificações. link:task-console-configure-notifications-delivery.html["Configurar o envio de notificações"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Configurar o NetApp Backup and Recovery
+[role="quick-margin-list"]
+* link:https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-byol-license["Obtenha uma licença para o NetApp Backup and Recovery"^]. Você pode pular esta etapa se não desejar ter acesso aos serviços avançados de backup e recuperação.
+* Adicione a licença do NetApp Backup and Recovery à implantação local do NetApp Console. link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html["Adicione a licença ao NetApp Console implantação local"^].
+* link:https://docs.netapp.com/us-en/data-services-backup-recovery/br-rbac-setup.html["Conceda aos usuários acesso ao NetApp Backup and Recovery"].
+

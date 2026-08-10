@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: reference-local-known-limitations.html 
+keywords: console local deployment, known limitations, unsupported platforms, unsupported devices, unsupported functions, IP range 
+summary: Referência para limitações conhecidas na implantação local do NetApp Console. 
+---
+= Limitações conhecidas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+As limitações conhecidas identificam plataformas, dispositivos ou funções que não são compatíveis com esta versão do produto ou que não interoperam corretamente com ela. Analise estas limitações cuidadosamente.
+
+Essas limitações são específicas da configuração do NetApp Console e da administração: o agente, a plataforma de software como serviço (SaaS) e outros.
+
+
+
+[[console-vm-limitations]]
+== Limitações da VM do NetApp Console
+
+
+
+[[possible-conflict-with-ip-addresses-in-the-10-42-0-016-and-10-43-0-016-ranges]]
+=== Possível conflito com endereços IP nos intervalos 10.42.0.0/16 e 10.43.0.0/16
+
+NetApp Console local deployment utiliza um espaço de endereçamento fixo para a comunicação entre serviços. Os intervalos de endereço IP 10.42.0.0/16 e 10.43.0.0/16 são usados para a rede interna. Antes de implantar o Console local deployment, certifique-se de que esses intervalos de endereço IP não estejam atribuídos a outras VMs, escopos DHCP, registros DNS ou pools de VIP de balanceadores de carga nas VLANs disponibilizadas para o Console local deployment.
+
+Consulte o artigo da Knowledge Base Agent IP conflict with existing network para obter instruções sobre como alterar o endereço IP das interfaces do agente.
+
+
+
+[[shared-linux-hosts-are-not-supported]]
+=== Hosts Linux compartilhados não são suportados
+
+O agente não é compatível com uma máquina virtual que é compartilhada com outros aplicativos. A máquina virtual deve ser dedicada ao software do agente.
+
+
+
+[[third-party-agents-and-extensions]]
+=== Agentes e extensões de terceiros
+
+Agentes de terceiros ou extensões de VM não são suportados na VM do agente.

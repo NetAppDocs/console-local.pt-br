@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: concept-deploy-netapp-console-local.html 
+keywords: deploy, install, vCenter, Linux, high availability, deployment options, netapp console local 
+summary: Saiba mais sobre as opções de implantação para a implantação local do NetApp Console, incluindo vCenter e instalações em Linux. 
+---
+= Opções de implantação para implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Instale o NetApp Console em uma implantação local no seu ambiente vCenter.
+
+
+
+[[install-in-your-vcenter-environment]]
+=== Instale em seu ambiente vCenter
+
+Implante o NetApp Console localmente como um appliance virtual no seu ambiente vCenter VMware usando uma imagem OVA pré-configurada.
+
+link:task-install-agent-on-prem-ova.html["Instale o NetApp Console em uma implantação local no seu ambiente vCenter"].
+
+
+
+[[next-steps]]
+== Próximos passos
+
+Após a implantação, conclua as seguintes tarefas para começar:
+
+* link:task-add-systems.html["Adicionar sistemas de storage à implantação local do NetApp Console"]
+* link:task-iam-manage-members-permissions.html["Adicione membros e atribua funções na implantação local do NetApp Console"]
+

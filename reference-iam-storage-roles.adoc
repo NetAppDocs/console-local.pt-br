@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-storage-roles.html 
+keywords: storage roles, Storage admin, Storage viewer, System health specialist, ONTAP management, storage governance, identity and access management, access roles, rbac, netapp console local 
+summary: Você pode atribuir as seguintes funções aos usuários para conceder a eles acesso aos recursos de gerenciamento de storage no NetApp Console em implantação local. Você pode atribuir aos usuários uma função administrativa para gerenciar storage ou uma função de visualizador para monitoramento. 
+---
+= Funções de acesso ao storage para NetApp Console implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode atribuir as seguintes funções aos usuários para conceder a eles acesso aos recursos de gerenciamento de storage no NetApp Console em implantação local. Você pode atribuir aos usuários uma função administrativa para gerenciar storage ou uma função de visualizador para monitoramento.
+
+Os administradores podem atribuir funções de armazenamento aos usuários para os seguintes recursos de storage e funcionalidades:
+
+Recursos de storage:
+
+* Clusters ONTAP locais
+
+
+Serviços e funcionalidades do NetApp Console:
+
+* Funções de integridade de storage
+
+
+.Exemplo de funções de armazenamento no NetApp Console em implantação local
+A XYZ Corporation, uma empresa multinacional, possui uma grande equipe de engenheiros de storage e administradores de storage. Eles permitem que essa equipe gerencie os ativos de storage de suas regiões, enquanto limitam o acesso a tarefas essenciais de implantação local do Console, como gerenciamento de usuários e gerenciamento de licenças.
+
+Em uma equipe de 12 pessoas, dois usuários recebem a função de *Storage viewer*, que permite a eles monitorar os recursos de storage associados às frotas de implantação local do Console às quais estão atribuídos. Os nove restantes recebem a função de *Storage admin*, que inclui a capacidade de gerenciar atualizações de software, acessar o ONTAP System Manager por meio da implantação local do Console, assim como descobrir recursos de storage (adicionar sistemas). Uma pessoa da equipe recebe a função de *System health specialist*, para que possa gerenciar a integridade dos recursos de storage em sua região, mas não pode modificar ou excluir nenhum sistema. Essa pessoa também pode realizar atualizações de software nos recursos de storage das frotas às quais está atribuída.
+
+A organização possui dois usuários adicionais com a função de *Organization admin*, que podem gerenciar todos os aspectos da implantação local do Console, incluindo o gerenciamento de usuários e o gerenciamento de licenças, bem como vários usuários com a função de *Folder or fleet admin*, que podem executar tarefas de administração da implantação local do Console para as pastas e frotas às quais estão atribuídos.
+
+A tabela a seguir mostra as ações que cada função de storage executa.
+
+[cols="40,20a,20a,20a"]
+|===
+| Recurso e ação | Administrador de storage | Especialista em integridade do sistema | Visualizador de storage 
+
+
+4+| *Gerenciamento de storage*: 
+
+
+| Descobrir novos recursos (adicionar sistemas)  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Veja os sistemas adicionados  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Excluir sistemas do NetApp Console  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Modificar sistemas  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+4+| *Acesso do System Manager* 
+
+
+| Pode inserir credenciais  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+|===

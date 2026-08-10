@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: task-iam-active-directory-integrate.html 
+keywords: AD, Active Directory, LDAP, directory services, directory users, authentication, user management, netapp console 
+summary: Integre a implantação local do NetApp Console com o Active Directory para login baseado em diretório e pesquisa de usuários. 
+---
+= Integre a implantação local do NetApp Console com o Active Directory
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Integre a implantação local do NetApp Console com o Active Directory para login e pesquisa de usuários baseados em diretório. Use seu serviço de diretório para autenticar usuários e, em seguida, atribua acesso a esses usuários na implantação local do NetApp Console.
+
+.Funções de acesso necessárias
+Superadministrador ou administrador da organização. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Ao integrar com o Active Directory, a implantação local do Console autentica os usuários por meio do seu diretório existente. Depois de adicionar um usuário ao diretório, atribua funções de acesso ao Console para controlar o que esse usuário pode acessar.
+
+A integração com o Active Directory também ajuda você a atender aos requisitos de conformidade, aplicando seus controles, trilhas de auditoria e políticas existentes ao acesso de implantação local do Console.
+
+[NOTE]
+====
+* A integração com o Active Directory não cria grupos federados, não sincroniza atribuições de diretório-grupo e não concede acesso automaticamente. Os administradores ainda adicionam usuários do diretório à organização e atribuem funções na implantação local do Console.
+* Apenas uma integração com o Active Directory é suportada por vez. Depois que uma integração é configurada, o botão *Adicionar integração* fica desabilitado. Para alternar para um diretório diferente, desabilite ou exclua a integração existente primeiro.
+* Os usuários do diretório não configuram nem utilizam autenticação multifator (MFA). A implantação local do console oferece suporte à MFA somente para usuários locais. link:task-manage-member-security.html["Aprenda a gerenciar as configurações de segurança dos membros"].
+
+
+====
+
+
+[[before-you-begin]]
+== Antes de começar
+
+Antes de integrar com o Active Directory, confirme se você possui:
+
+* Um domínio do Active Directory e credenciais que podem consultar o diretório
+* O endereço do servidor LDAP e o nome diferenciado (DN) base para a árvore de diretórios
+* Acesso à rede a partir da implantação local do Console para o seu servidor LDAP na porta 389 (LDAP) ou 636 (LDAPS)
+* Certificados SSL/TLS, caso você planeje usar LDAPS
+
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Serviços de diretório* para abrir a página Federações.
+. Selecione *Adicionar integração*.
+. Insira os detalhes de conexão do seu servidor Active Directory:
++
+** Um nome descritivo para a integração.
+** O *host LDAP*: nome do host ou endereço IP do seu servidor LDAP. Para vários servidores, insira o primário.
+** A porta: 389 para LDAP ou 636 para LDAPS.
+** O *tempo limite de conexão* em milissegundos. O padrão é 1000 ms.
+
+
+. Selecione *Usar SSL/TLS* para usar LDAPS. Confirme se o seu servidor LDAP é compatível com LDAPS e se o NetApp Console pode acessar os certificados necessários.
+. Teste a conexão. Se falhar, verifique o host LDAP, a porta, a conectividade de rede e os certificados SSL/TLS.
+. Após o teste ser bem-sucedido, insira o diretório e os detalhes do usuário:
++
+** *Associação DN base*: Insira o nome diferenciado de associação para a conta LDAP/AD que este aplicativo usará para se conectar ao diretório e insira a credencial (senha) para essa conta. O NetApp Console usa esses detalhes para se associar ao servidor LDAP e validar a conexão.
+** *DN do usuário*: uma conta de usuário com permissão para consultar o diretório. Por exemplo,  `CN=ldap-reader,OU=Service Accounts,DC=example,DC=com`.
+
+
+. Selecione *Adicionar* para salvar a integração.
+
+
+.Depois que você terminar
+Após salvar a integração, adicione usuários do diretório à sua organização e atribua funções. Você deve configurar e habilitar pelo menos uma integração com o Active Directory antes de poder adicionar usuários do diretório. link:task-iam-manage-members-permissions.html["Aprenda como adicionar usuários ao diretório e atribuir funções"].
+
+
+
+[[disable-or-enable-an-active-directory-integration]]
+== Desativar ou ativar a integração com o Active Directory
+
+Desative uma integração para suspender temporariamente a autenticação baseada em diretório sem excluir a configuração. Ao desativar um serviço de diretório, os usuários do diretório não poderão fazer login por meio do diretório.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Serviços de diretório* para abrir a página Federações.
+. Na lista de integrações, localize a integração e selecione o menu de ações para essa linha.
+. Selecione *Desativar* para suspender a integração ou *Ativar* para restaurá-la.
+
+
+
+
+[[delete-an-active-directory-integration]]
+== Excluir uma integração com o Active Directory
+
+Exclua uma integração para remover permanentemente a configuração do serviço de diretório. Antes de excluir, revise quaisquer avisos sobre usuários do diretório vinculados à integração, pois o acesso deles será afetado.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Serviços de diretório* para abrir a página Federações.
+. Na lista de integrações, localize a integração e selecione o menu de ações para essa linha.
+. Selecione *Excluir* e confirme a exclusão.
+

@@ -1,0 +1,15 @@
+= 
+:allow-uri-read: 
+
+
+. Selecione *Administração > Credenciais*.
+. Selecione *Credenciais da organização*.
+. Selecione *Adicionar credenciais* e siga os passos do assistente.
++
+.. *Localização das credenciais*: selecione *Amazon Web Services > Agente.
+.. *Definir credenciais*: Insira uma chave de acesso e uma chave secreta da AWS.
+.. *Assinatura do Marketplace*: associe uma assinatura do Marketplace a estas credenciais, assinando agora ou selecionando uma assinatura existente.
+.. *Revisar*: confirme os detalhes das novas credenciais e selecione *Adicionar*.
+
+
+

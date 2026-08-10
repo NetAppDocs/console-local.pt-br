@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: task-iam-switch-fleets.html 
+keywords: switch fleets, fleets, navigate between fleets, fleet navigation, iam, identity and access management, netapp console local 
+summary: Se a sua organização inclui várias frotas e você tem acesso a elas, você pode alternar entre elas a qualquer momento. 
+---
+= Alternar entre frotas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, se você tiver acesso a várias frotas, poderá alternar entre elas a qualquer momento.
+
+
+NOTE: Você não pode alternar para outra frota enquanto estiver visualizando qualquer uma das páginas de *Identidade e acesso*.
+
+.Passos
+. No cabeçalho superior da implantação local do Console, selecione *Scope*.
+. Navegue pelas frotas da sua organização, selecione a frota que você deseja e, em seguida, selecione *Switch*.
++
+image:screenshot-iam-switch-projects-select.png["Uma captura de tela do menu Scope, onde você pode selecionar uma nova fleet."]
+
+

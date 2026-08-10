@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: concept-administer-netapp-console-local.html 
+keywords: administer Console local deployment, audit, audit log, compliance, SIEM, webhook, VM maintenance, access management, demonstrate compliance, operational visibility, netapp console local 
+summary: Aprenda como administrar e monitorar a implantação local do NetApp Console, incluindo atividades de auditoria, assinaturas, manutenção, solução de problemas e acesso de membros. 
+---
+= Saiba mais sobre administração e monitoramento na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Após implantar a implementação local do NetApp Console, use as ferramentas de administração e monitoramento para revisar a atividade, manter a VM e gerenciar o acesso dos membros.
+
+
+
+[[audit-activity]]
+== Atividade de auditoria
+
+Analise a atividade do usuário e da API, acompanhe o status das operações do Console, baixe os registros de auditoria e exporte os registros para ferramentas externas quando você precisar de maior retenção ou análise adicional.
+
+* link:task-audit-console-activity.html["Audite a atividade de implantação local do NetApp Console"]
+* link:task-console-configure-notifications-delivery.html["Configure os canais de entrega de notificações na implantação local do NetApp Console"]
+
+
+
+
+[[licenses-and-subscriptions]]
+== Licenses and subscriptions
+
+Utilize as informações de licenciamento e assinaturas para entender os direitos de serviço e o status da assinatura do seu ambiente do Console.
+
+link:https://docs.netapp.com/us-en/console-licenses-subscriptions/index.html["Saiba mais sobre Licenses and subscriptions"^].
+
+
+
+[[maintain-and-troubleshoot-the-console-local-deployment-vm]]
+== Manter e solucionar problemas da VM de implantação local do Console
+
+Realizar a manutenção da máquina virtual que hospeda a implantação local do Console, revisar as configurações de rede e do sistema, acessar ferramentas de diagnóstico e solucionar problemas quando o serviço ou o agente não se comportam como esperado.
+
+link:task-console-local-vm-config.html["Mantenha seu vCenter ou host ESXi para implantação local do Console"].
+
+
+
+[[manage-users-and-access]]
+== Gerenciar usuários e acessos
+
+Analise o acesso de membros em toda a sua organização, ajuste o acesso no nível da frota e gerencie configurações de segurança, como recuperação de MFA e credenciais de contas de serviço.
+
+* link:task-iam-manage-roles.html["Gerencie o acesso de membros no NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Visualize ou altere as atribuições de acesso à frota na NetApp Console implantação local"]
+* link:task-manage-member-security.html["Gerencie a segurança dos membros na implantação local do NetApp Console"]
+

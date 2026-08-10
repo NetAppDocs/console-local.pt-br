@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: concept-iam-rbac.html 
+keywords: roles, permissions, role-based access control, rbac, iam, identity and access management, least privilege, access control, NetApp Console local access, organization access, folder access, fleet access, resource access, directory users, AD, Active Directory, directory services 
+summary: 'Gerencie o acesso do usuário à implantação local da NetApp Console com controle de acesso baseado em funções (RBAC), atribuindo funções predefinidas no nível da organização, pasta ou frota. Cada função concede permissões específicas que definem quais ações os usuários podem executar dentro do escopo atribuído.' 
+---
+= Saiba mais sobre o controle de acesso baseado em funções na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gerencie o acesso do usuário à implantação local da NetApp Console com controle de acesso baseado em funções (RBAC), atribuindo funções predefinidas no nível da organização, pasta ou frota. Cada função concede permissões específicas que definem quais ações os usuários podem executar dentro do escopo atribuído.
+
+NetApp projeta funções de implantação local do Console com privilégios mínimos, de forma que cada função inclua apenas as permissões necessárias para suas tarefas. Essa abordagem aumenta a segurança ao limitar o acesso ao que cada membro precisa.
+
+Depois de organizar os recursos em pastas e frotas, atribua aos membros da organização uma função ou funções para pastas ou frotas específicas, que permitam que eles executem apenas suas responsabilidades.
+
+Por exemplo, você pode atribuir a um membro a função de administrador de Backup e Recovery para um nível de frota específico, permitindo que ele execute operações de Backup e Recovery para recursos dentro dessa frota, sem conceder a ele acesso mais amplo a toda a organização. Esse mesmo usuário pode receber a função para várias frotas dentro da sua organização.
+
+Você pode atribuir várias funções a membros para o mesmo escopo ou para escopos diferentes, dependendo de suas responsabilidades. Por exemplo, uma organização menor pode atribuir ao mesmo membro as funções de Storage admin e Backup and Recovery admin no nível da organização, enquanto uma organização maior pode ter membros diferentes atribuídos a cada função no nível da fleet.
+
+
+
+[[types-of-console-organization-members]]
+== Tipos de membros da organização Console
+
+NetApp Console a implantação local oferece suporte aos seguintes tipos de membros:
+
+* _Usuários_: Usuários individuais podem ser usuários locais que você adiciona à implantação local do NetApp Console e que usam credenciais locais, ou usuários de diretório que se autenticam por meio do seu serviço integrado de Active Directory ou LDAP. Ambos os tipos de usuários podem receber funções na implantação local do NetApp Console para acessar recursos.
+* _Contas de serviço_: Contas não humanas que aplicativos ou serviços usam para interagir com a implantação local do NetApp Console por meio de APIs. Você pode adicionar contas de serviço diretamente à sua organização de implantação local do Console.
+
+
+link:task-iam-manage-members-permissions.html#add-members["Aprenda como adicionar membros à sua organização."]
+
+
+
+[[predefined-roles-in-netapp-console-local-deployment]]
+== Funções predefinidas na implantação local do NetApp Console
+
+A implantação local do NetApp Console inclui funções predefinidas que você pode atribuir a membros da organização. Cada função inclui permissões que especificam quais ações um membro pode realizar dentro de seu escopo atribuído (organização, pasta ou frota).
+
+NetApp Console funções de implantação local usam princípios de privilégio mínimo que garantem que os membros tenham apenas as permissões necessárias para suas tarefas e categorizam as funções pelo tipo de acesso que fornecem:
+
+* Funções da plataforma: conceder permissões de administração de implantação local do Console
+* Funções de serviços de dados: conceder permissões para gerenciar serviços de dados específicos, como Resiliência a Ransomware e Backup e Recuperação
+* Funções do aplicativo: fornecem permissões para gerenciar o storage, além de auditar eventos e alertas de implantação local do NetApp Console
+
+
+Você pode atribuir várias funções a um membro com base em suas responsabilidades. Por exemplo, você pode atribuir a um membro tanto a função de administrador de storage quanto a função de administrador de backup e recuperação para uma frota específica.
+
+Para definir o nível de acesso de um membro, associe a categoria da função às responsabilidades do membro e, em seguida, atribua a função no escopo (organização, pasta ou frota) que corresponda à abrangência do acesso que o membro deve ter. link:concept-folders-fleets-overview.html#organization-design-examples["Saiba como diferentes organizações estruturam funções e escopo na implantação local do NetApp Console"].
+
+link:reference-iam-predefined-roles.html["Saiba mais sobre as funções predefinidas que você pode atribuir aos membros na implantação local do NetApp Console"].
+
+
+
+[[how-role-inheritance-works]]
+[[role-inheritance]]
+== Como funciona a herança de funções
+
+Ao atribuir uma função no nível da organização ou da pasta, essa função é herdada pelos escopos filhos dentro dessa parte da hierarquia. Isso significa que as funções no nível da organização se aplicam a toda a organização, as funções no nível da pasta se aplicam a todas as pastas e frotas filhas dessa pasta, e as funções no nível da frota se aplicam somente aos recursos dessa frota.
+
+Use o escopo que corresponda ao acesso que você deseja que o membro mantenha. Por exemplo, atribua uma função no nível da pasta quando o membro precisar do mesmo acesso em várias frotas em uma região. Atribua a função no nível da frota quando o membro precisar acessar apenas uma frota.
+
+Não é possível sobrescrever o acesso herdado em um escopo inferior. Se um membro herdar uma função da organização ou de uma pasta, altere essa atribuição no escopo superior onde você a concedeu originalmente.
+
+link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas na implantação local do NetApp Console"]. link:task-iam-manage-roles.html["Gerencie o acesso de membros"]. link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"].

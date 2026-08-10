@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: concept-storage-fleets.html 
+keywords: storage fleets, fleet management, storage organization, folders, ONTAP, clusters, storage systems, resource grouping, delegated administration, fleet design, netapp console local 
+summary: Uma frota de storage agrupa os sistemas de storage que você gerencia juntos na implantação local do NetApp Console. Use pastas para agrupar frotas relacionadas. Você pode aplicar políticas, conceder acesso e monitorar a integridade no escopo necessário. 
+---
+= Saiba mais sobre frotas de armazenamento na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Uma frota de storage agrupa os sistemas de storage que você gerencia juntos na implantação local do NetApp Console. Use pastas para agrupar frotas relacionadas. Você pode aplicar políticas, conceder acesso e monitorar a integridade no escopo necessário.
+
+
+
+[[why-fleets-matter]]
+== Por que as frotas são importantes
+
+À medida que os ambientes de storage crescem, gerenciar clusters individuais de forma isolada torna-se impraticável. Os Fleets oferecem uma maneira estruturada de agrupar sistemas de storage relacionados, permitindo que você aja sobre eles como uma unidade. Em vez de configurar políticas ou controles de acesso cluster por cluster, você os aplica uma única vez no nível do Fleet. Isso reduz o trabalho administrativo repetitivo e garante que todos os clusters em um Fleet operem sob os mesmos padrões.
+
+
+
+[[how-folders-and-fleets-organize-your-resources]]
+== Como pastas e frotas organizam seus recursos
+
+A hierarquia de recursos da sua organização consiste em pastas e frotas. As pastas agrupam frotas relacionadas e as frotas agrupam sistemas de storage.
+
+* *Organização* é o nível mais alto da hierarquia e representa sua empresa.
+* *Pastas* ajudam você a organizar frotas relacionadas. Por exemplo, você pode criar uma pasta para cada região ou unidade de negócios e, em seguida, criar frotas dentro de cada pasta. As pastas podem conter outras pastas ou frotas, mas não podem ter sistemas de storage diretamente associados a elas. Quando você atribui uma função a um membro no nível da pasta, o membro herda essa função para todas as frotas dentro da pasta.
+* *Frotas* agrupam os sistemas de storage que você gerencia juntos. Você associa sistemas de storage a frotas e atribui membros às frotas para conceder acesso a eles.
+
+
+
+NOTE: As pastas são uma ferramenta organizacional e não são visíveis para membros que não possuem permissões do IAM, como as funções de administrador da organização, administrador de pasta ou administrador de frota. Os membros acessam frotas, não pastas.
+
+
+
+[[fleet-examples]]
+== Exemplos de fleet
+
+A forma como você organiza suas frotas depende do seu modelo operacional. As abordagens comuns incluem:
+
+* *Por ambiente* Crie frotas separadas para cargas de trabalho de produção, desenvolvimento e teste. Isso mantém o storage de produção sujeito a políticas de desempenho e capacidade mais rigorosas, enquanto permite mais flexibilidade em ambientes inferiores.
+* *Por unidade de negócio* Agrupe clusters que atendem a um departamento específico—finanças, engenharia ou RH—em uma frota dedicada. Você pode então atribuir as responsabilidades de gerenciamento de storage aos membros da equipe dentro dessa unidade de negócio, sem expor outras frotas a eles.
+* *Por localização ou data center* Quando os clusters estão distribuídos em vários locais, a organização por localização permite que você monitore a integridade em nível de site, aplique políticas de tiering específicas da região e acompanhe o consumo de capacidade por site.
+* *Por camada de aplicativos* Agrupe clusters que hospedam uma classe específica de carga de trabalho — bancos de dados, compartilhamentos de arquivos ou máquinas virtuais — para que você possa aplicar uma classe de armazenamento otimizada para o perfil de desempenho dessa carga de trabalho em toda a frota.
+
+
+
+TIP: Utilize pastas para adicionar mais um nível de organização. Por exemplo, crie uma pasta para cada região e depois crie frotas baseadas em ambiente dentro de cada pasta regional.
+
+
+
+[[how-fleets-connect-to-storage-classes]]
+== Como as frotas se conectam às classes de storage
+
+Ao associar uma classe de armazenamento a uma frota, a implantação local do Console aplica as políticas dessa classe a todo provisionamento de storage dentro da frota. As cargas de trabalho provisionadas dentro da frota herdam automaticamente as regras de desempenho, capacidade e hierarquização definidas na classe de armazenamento, sem exigir que os administradores selecionem ou verifiquem as configurações de política no momento do provisionamento. Isso torna as frotas a principal maneira de impor um comportamento de storage consistente em clusters que servem a um propósito comum.
+
+
+
+[[how-folders-and-fleets-support-access-control-and-visibility]]
+== Como pastas e frotas auxiliam o controle de acesso e a visibilidade
+
+Pastas e frotas servem como limites para o acesso do usuário:
+
+* Ao atribuir uma função no nível da *pasta*, o membro herda essa função para todas as frotas e recursos dentro da pasta. Isso permite que os administradores da organização deleguem responsabilidades administrativas criando pastas e atribuindo uma função de administrador de pasta ou de frota. Esses administradores podem então gerenciar todas as frotas dentro de sua pasta sem acesso à organização inteira.
+* Ao atribuir uma função no nível da *frota*, o membro tem acesso apenas aos sistemas de storage dentro dessa frota.
+
+
+Isso permite que você delegue o gerenciamento de storage a membros da equipe ou proprietários de aplicativos sem conceder a eles visibilidade de partes não relacionadas da sua infraestrutura. A implantação local do NetApp Console fornece monitoramento de integridade e desempenho em nível de frota, para que você possa visualizar o status de todos os clusters em uma frota a partir de uma única tela, identificar problemas precocemente e agir antes que eles afetem as cargas de trabalho.

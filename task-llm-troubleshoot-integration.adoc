@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: task-llm-troubleshoot-integration.html 
+keywords: LLM, AI, troubleshooting, openai, openai-compatible, proxy, endpoint, api key, netapp console 
+summary: Solucione problemas de integração do LLM na implantação local do NetApp Console com um fluxo de triagem rápido para configuração, disponibilidade do assistente, erros de tempo de execução e problemas de credencial. 
+---
+= Solucione problemas de integração do LLM na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilize este fluxo de triagem rápida para diagnosticar e resolver problemas comuns de integração do LLM na implantação local do NetApp Console.
+
+
+NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+
+Se você ainda não concluiu a configuração, consulte link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+
+
+
+[[triage-llm-integration-issues-quickly]]
+== Solucione rapidamente problemas de integração do LLM
+
+. Valide a configuração das Ferramentas de IA em *Administração > Ferramentas de IA*.
++
+Confirme o tipo de provedor, URL do endpoint, chave da API, modelo selecionado e acesso à rede de saída.
+
+. Valide a disponibilidade do assistente no painel de controle.
++
+Confirme se o botão *Assistente do Console* aparece para os usuários e organizações esperados.
+
+. Valide o comportamento em tempo de execução.
++
+Execute uma solicitação simples de leitura e confirme a acessibilidade do endpoint do provedor, a disponibilidade do modelo e a integridade do serviço do provedor.
+
+
+
+
+
+[[troubleshoot-by-symptom]]
+== Solução de problemas por sintoma
+
+[cols="1,1,2,2"]
+|===
+| Sintoma | Causa provável | O que verificar | Próxima ação 
+
+
+| Salvar ou testar falha em Ferramentas de IA | Incompatibilidade de configuração ou conectividade | Tipo de provedor, URL do endpoint, formato da chave da API, modelo selecionado e acesso de saída | Corrija o valor que não passou na validação e salve novamente 
+
+
+| O botão *Console assistant* está faltando. | Status de integração inadequado, incompatibilidade organizacional ou incompatibilidade de RBAC | Salvamento bem-sucedido das ferramentas de IA, status de integração, organização atual e função de acesso esperada | Atualize a sessão e verifique com uma conta de administrador conhecida e válida 
+
+
+| O assistente abre, mas a solicitação falha | Problema com o provedor ou caminho de runtime | Acessibilidade do endpoint, disponibilidade do modelo nesse endpoint, limites do provedor e status temporário do provedor | Tente novamente após corrigir problemas de incompatibilidade de endpoint/modelo ou de limite do lado do provedor 
+
+
+| A resposta do assistente está lenta ou inconsistente | Tamanho do prompt, desempenho do endpoint ou instabilidade da rede/proxy | Teste rápido, integridade do serviço do provedor e estabilidade da rede/proxy | Use um prompt mais curto, tente outro modelo compatível e estabilize o roteamento de rede ou proxy 
+|===
+
+
+[[respond-to-llm-credential-exposure-or-misuse]]
+== Responder à exposição ou uso indevido de credenciais de LLM
+
+Se você suspeitar de exposição ou uso não autorizado da chave de API:
+
+. Revogue a chave de API existente no sistema do seu provedor.
+. Crie uma nova chave de API.
+. Atualize a chave em *Administração > Ferramentas de IA*.
+. Verifique se a reconexão foi bem-sucedida com um teste de assistente somente leitura.
+

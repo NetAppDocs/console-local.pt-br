@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: task-audit-console-activity.html 
+keywords: administer, monitor, timeline, notifications, alerts, events, notification center, email, audit page, audit action 
+summary: 'Você pode auditar a atividade do usuário (iniciada tanto pela interface do usuário quanto pela API) na página de Auditoria e monitorar o status das operações que o Console está executando para verificar se há algum problema que você precise resolver. Você pode visualizar o status na página de Auditoria ou configurar os logs de auditoria para serem enviados ao seu próprio servidor syslog.' 
+---
+= Audite a atividade de implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode auditar a atividade do usuário iniciada tanto pela interface do usuário quanto pela API na página de auditoria, e pode monitorar o status das operações na implantação local do NetApp Console e o usuário que as iniciou.
+
+.Funções necessárias
+Super admin, administrador da organização, administrador de pastas e frotas, analista de suporte operacional, super viewer, visualizador da organização ou visualizador de pastas e frotas. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Você pode visualizar a atividade de auditoria na implantação local do Console, baixar um arquivo CSV do log de auditoria ou configurar o log de auditoria para ser enviado ao seu próprio servidor syslog usando um webhook.
+
+
+
+[[audit-user-activity-from-the-audit-page]]
+== Audite a atividade do usuário na página Audit.
+
+Utilize a página de Auditoria para identificar quem realizou uma ação ou seu status.
+
+A página de Auditoria mostra as ações que os usuários realizaram em sua organização. Por exemplo, você pode verificar quem adicionou um membro à organização ou se uma frota foi excluída com sucesso, além de ver outras ações de gerenciamento de storage realizadas pelos usuários em sua organização.
+
+Os logs de auditoria mostram a atividade dos seguintes serviços:
+
+* Tenancy: ações relacionadas ao gerenciamento da sua organização, como adicionar usuários, criar frotas e associar recursos.
+* Gerenciamento de storage: ações relacionadas ao gerenciamento de seus recursos de storage.
+* Federação: ações relacionadas ao gerenciamento de federações, como criar federações e adicionar ou remover organizações federadas.
+
+
+.Passos
+. Selecione *Administração > Auditoria*.
+. Use os filtros acima da tabela para alterar quais ações são exibidas na tabela.
++
+Por exemplo, você pode usar o filtro *Serviço* para exibir ações relacionadas a um serviço específico ou pode usar o filtro *Usuário* para exibir ações relacionadas a uma conta de usuário específica.
+
+
+
+
+
+[[filter-audit-logs-for-identity-and-access-management-actions]]
+=== Filtre os logs de auditoria para ações de gerenciamento de identidade e acesso
+
+Para visualizar apenas as ações relacionadas ao gerenciamento da sua organização, como adicionar membros, criar frotas ou excluir recursos, filtre o log de auditoria pelo serviço Tenancy.
+
+.Passos
+. Selecione *Administração > Auditoria*.
+. Use os filtros para refinar os resultados. Selecione *Serviço* e depois selecione *Locação*.
+. Utilize qualquer um dos outros filtros para refinar ainda mais os resultados.
++
+Por exemplo, use o filtro *Usuário* para exibir as ações do IAM realizadas por uma conta de usuário específica.
+
+
+
+
+
+[[download-audit-logs-from-the-audit-page]]
+=== Faça o download dos logs de auditoria na página de Auditoria
+
+Você pode baixar os logs de auditoria da página Auditoria para um arquivo CSV. Isso permite que você mantenha um registro das ações que os usuários realizam em sua organização. O arquivo CSV baixado inclui todas as colunas do log de auditoria, independentemente dos filtros ou colunas exibidas na página Auditoria.
+
+.Passos
+. Na página *Audit*, selecione o ícone de download no canto superior direito da tabela.
+

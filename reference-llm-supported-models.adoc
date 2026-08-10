@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: reference-llm-supported-models.html 
+keywords: LLM, supported models, OpenAI, OpenAI-compatible, model selection, netapp console 
+summary: Analise os tipos e modelos de provedores LLM que você pode usar na implantação local do NetApp Console. 
+---
+= Fornecedores e modelos LLM suportados na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console local deployment oferece suporte aos tipos de provedor OpenAI, compatíveis com OpenAI e Anthropic LLM. Os modelos que você pode selecionar dependem do tipo de provedor e do endpoint que você configurar.
+
+
+NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+
+Escolha um modelo que corresponda aos seus requisitos de desempenho, custo e governança.
+
+
+
+[[see-how-provider-type-affects-model-availability]]
+== Veja como o tipo de provedor afeta a disponibilidade do modelo
+
+O tipo de provedor que você escolher determina quais modelos aparecem na lista de modelos de implantação local do NetApp Console:
+
+* *OpenAI* — fornece modelos para integração direta com o OpenAI.
+* *Compatível com OpenAI* — fornece modelos que o endpoint compatível da sua organização expõe.
+* *Anthropic* — fornece modelos para integração direta com o Anthropic.
+
+
+Os modelos que você vê podem variar de acordo com a configuração do endpoint, o comportamento do proxy ou gateway e a política organizacional. Os tipos de provedor diferem pelo endpoint ao qual você se conecta e pelos modelos que esse endpoint expõe, não pelo protocolo de transporte.
+
+
+
+[[supported-openai-models]]
+== Modelos OpenAI suportados
+
+* GPT-5.4
+* GPT-5.5
+
+
+
+
+[[supported-anthropic-models]]
+== Modelos Anthropic suportados
+
+* Claude Sonnet 4.6
+* Claude Opus 4.6, 4.7 e 4.8
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+* link:concept-llm-integration.html["Saiba mais sobre a integração do LLM na implantação local do NetApp Console"].
+

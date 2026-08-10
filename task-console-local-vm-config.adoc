@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: task-console-local-vm-config.html 
+keywords: Console local VM, vcenter, esxi, increase cpu, increase ram, vm maintenance, Console local maintenance, Console local operating system, Console local host 
+summary: Você pode fazer alterações no seu vCenter ou host ESXi existente após implantar o Console local deployment. Por exemplo, você pode aumentar a CPU ou a RAM da instância de VM que hospeda o Console local deployment. 
+---
+= Mantenha seu vCenter ou host ESXi para implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, você pode fazer alterações no seu VCenter ou host ESXi existente após implantar o Console local deployment. Por exemplo, você pode aumentar a CPU ou a RAM da instância de VM que hospeda o Console local deployment.
+
+Execute essas tarefas de manutenção usando o console web da VM:
+
+* Aumentar o tamanho do disco
+* Reinicie a implantação local do NetApp Console
+* Atualizar rotas estáticas
+* Atualizar domínios de pesquisa
+
+
+.Limitações
+Você só pode visualizar (e não atualizar) informações sobre o endereço IP, DNS e gateways através do console de manutenção.
+
+
+
+[[access-the-vm-maintenance-console]]
+== Acesse o console de manutenção da VM
+
+Você pode acessar o console de manutenção a partir do cliente VSphere.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+
+
+
+
+[[change-the-maint-user-password]]
+=== Alterar a senha do usuário de manutenção
+
+Você pode alterar a senha do usuário  `maint`.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `1` para ver o  `System Configuration` menu.
+. Digite `1` para alterar a senha do usuário de manutenção e siga as instruções na tela.
+
+
+
+
+[[increase-the-cpu-or-ram-of-the-vm-instance]]
+=== Aumente a CPU ou a RAM da instância da máquina virtual
+
+Você pode aumentar a CPU ou a RAM da instância da máquina virtual que hospeda a implantação local do Console.
+
+Edite as configurações da instância da máquina virtual no seu vCenter ou host ESXi e, em seguida, use o Console de manutenção para aplicar as alterações.
+
+.Etapas no cliente VSphere
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Clique com o botão direito do mouse na instância da máquina virtual e selecione *Editar configurações*.
+. Aumente o espaço em disco rígido usado para /opt ou para a partição /var.
++
+.. Selecione *Disco Rígido 2* para aumentar o espaço em disco rígido usado para /opt.
+.. Selecione *Disco Rígido 3* para aumentar o espaço em disco rígido usado para /var.
+
+
+. Salve suas alterações.
+
+
+.Etapas no console de manutenção
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `1 to view the `System Configuration`menu.
+. Digite  `2` e siga as instruções na tela. O console verifica se há novas configurações e aumenta o tamanho das partições.
+
+
+
+
+[[view-network-settings-for-the-console-local-deployment-vm]]
+=== Visualize as configurações de rede da VM de implantação local do NetApp Console
+
+Visualize as configurações de rede da VM de implantação local do Console no cliente VSphere para confirmar ou solucionar problemas de rede. Você só pode visualizar (e não atualizar) as seguintes configurações de rede: endereço IP e detalhes de DNS.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `2` para ver o  `Network Configuration` menu.
+. Digite um número entre 1 e 6 para visualizar as configurações de rede correspondentes.
+
+
+
+
+[[update-the-static-routes-for-the-console-local-deployment-vm]]
+=== Atualize as rotas estáticas para a VM de implantação local do Console
+
+Adicione, atualize ou remova rotas estáticas para a VM de implantação local do Console conforme necessário.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `2` para ver o  `Network Configuration` menu.
+. Digite `7` para atualizar as rotas estáticas e siga as instruções na tela.
+. Pressione Enter.
+. Opcionalmente, faça alterações adicionais.
+. Digite  `9` para confirmar as suas alterações.
+
+
+
+
+[[update-domain-search-settings-for-the-console-local-deployment-vm]]
+=== Atualize as configurações de pesquisa de domínio para a VM de implantação local do NetApp Console
+
+Você pode atualizar as configurações do domínio de pesquisa para a VM de implantação local do Console.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `2`` para ver o  `Network Configuration` menu.
+. Digite  `8` para atualizar as configurações de pesquisa de domínio e siga as instruções na tela.
+. Pressione Enter.
+. Opcionalmente, faça alterações adicionais.
+. Digite  `9` para confirmar as suas alterações.
+
+
+
+
+[[access-the-console-local-deployment-diagnostic-tools]]
+[[connect-vcenter-host]]
+=== Acesse as ferramentas de diagnóstico de implantação local do NetApp Console.
+
+Acesse as ferramentas de diagnóstico para solucionar problemas com a implantação local do Console. NetApp Support pode pedir que você faça isso ao solucionar problemas.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite `3` para visualizar o menu Suporte e Diagnóstico.
+. Digite  `1` para acessar as ferramentas de diagnóstico e siga as instruções na tela.
+
+
+
+
+[[access-the-console-local-deployment-diagnostic-tools-remotely]]
+=== Acesse remotamente as ferramentas de diagnóstico de implantação local do Console.
+
+Você pode acessar ferramentas de diagnóstico remotamente com uma ferramenta como o PuTTY. Habilite o acesso SSH à VM de implantação local do Console atribuindo uma senha de uso único.
+
+O acesso SSH permite funcionalidades avançadas do terminal, como copiar e colar.
+
+.Passos
+. Abra o cliente VSphere e faça login no seu vCenter.
+. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
+. Selecione *Launch Web Console*.
+. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
+. Digite  `3` para ver o  `Support and Diagnostics` menu.
+. Digite  `2` para acessar as ferramentas de diagnóstico e siga as instruções na tela para configurar uma senha de uso único que expira em 24 horas.
+. Utilize uma ferramenta SSH como o Putty para se conectar à VM de implantação local do Console usando o nome de usuário `diag` e a senha de uso único que você configurou.
+

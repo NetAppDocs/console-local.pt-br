@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: concept-storage-classes.html 
+keywords: storage classes, storage class policies, standardize, fleet management, provisioning, netapp console local 
+summary: Aprenda como as classes de armazenamento e as políticas de classes de armazenamento na implantação local do NetApp Console definem padrões, governam o provisionamento e oferecem suporte ao monitoramento de desvios. 
+---
+= Saiba mais sobre classes e políticas de armazenamento na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Uma classe de armazenamento é um modelo reutilizável que define como o armazenamento deve se comportar. Ao provisionar armazenamento usando uma classe de armazenamento, a implantação local do NetApp Console aplica automaticamente os padrões codificados nessa classe, sem exigir que os administradores tomem decisões de configuração individuais para cada carga de trabalho.
+
+As classes de armazenamento são construídas a partir de políticas de classe de armazenamento, que definem dimensões individuais do comportamento do armazenamento. Juntas, elas permitem que você capture os padrões de armazenamento da sua organização uma única vez e os aplique de forma consistente em toda a sua frota.
+
+
+
+[[what-storage-class-policies-are]]
+== O que são as políticas de classe de armazenamento
+
+Uma política de classe de armazenamento define uma dimensão do comportamento do armazenamento. As políticas são blocos de construção reutilizáveis que você combina para criar classes de armazenamento.
+
+Os tipos de políticas mais comuns incluem:
+
+* *Políticas de desempenho* - Defina metas de latência, IOPS ou requisitos de taxa de transferência.
+* *Políticas de capacidade* - Defina o modo de provisionamento, alertas de limite ou limites de crescimento.
+* *Políticas de segurança* - Defina os requisitos de criptografia, conformidade ou controle de acesso.
+* *Políticas de proteção de dados* - Defina cronogramas de snapshots, destinos de replicação ou períodos de retenção.
+
+
+Você define as políticas de forma independente e, em seguida, as combina ao criar uma classe de storage. Isso permite reutilizar a mesma política de desempenho em várias classes ou atualizar uma política de capacidade em um único local e aplicar essa alteração a todas as classes que a utilizam.
+
+
+
+[[what-storage-classes-are]]
+== O que são classes de armazenamento
+
+Uma classe de armazenamento é um modelo nomeado, composto por uma ou mais políticas. Ela representa os padrões de storage da sua organização para um tipo específico de carga de trabalho.
+
+Por exemplo, você pode criar uma classe de storage *Production Database* que combine alto desempenho, alta disponibilidade e políticas rigorosas de proteção de dados, ou uma classe de storage *Development File Share* que combine desempenho moderado, capacidade flexível e políticas básicas de proteção de dados.
+
+Os administradores de armazenamento definem classes de armazenamento para codificar requisitos empresariais. Todas as atividades de provisionamento, sejam elas manuais, por meio de fluxos de trabalho guiados ou automatizadas, utilizam a biblioteca de classes aprovadas por esses administradores.
+
+
+
+[[how-storage-classes-enforce-standards]]
+== Como as classes de armazenamento impõem padrões
+
+Ao provisionar storage, você seleciona uma classe de storage em vez de configurar definições individuais. A implantação local do NetApp Console usa as políticas dessa classe para identificar quais clusters em sua frota têm a capacidade e o desempenho necessários para suportar a carga de trabalho, recomendar a melhor opção de posicionamento e aplicar automaticamente as configurações baseadas na classe durante o provisionamento.
+
+Após o provisionamento, a implantação local do Console avalia continuamente cada carga de trabalho em relação aos padrões de sua classe de storage.
+
+
+
+[[storage-class-drift-and-compliance]]
+== Desvio e conformidade da storage class
+
+Quando uma carga de trabalho deixa de corresponder à sua intenção de classe de armazenamento, a implementação local do Console a sinaliza para investigação e correção.
+
+Os problemas se dividem em duas categorias:
+
+* *Desvio de configuração*: As configurações de storage regidas pela política de classe de storage deixam de corresponder à configuração pretendida. Isso pode ocorrer quando as alterações são feitas diretamente no cluster ONTAP ou fora dos fluxos de trabalho de provisionamento padrão.
+* *Não conformidade de desempenho*: o comportamento de tempo de execução da carga de trabalho não atende mais à intenção de desempenho da classe de armazenamento (por exemplo, pressão sustentada próxima a um limite de QoS ou latência de cauda elevada).
+
+
+Uma visualização de análise explica o que mudou e por quê. Ações de remediação guiadas (por exemplo, *Corrigir*) podem estar disponíveis para ajudar você a restaurar a conformidade. Algumas remediações podem ser aplicadas no local, enquanto outras podem exigir alinhar a carga de trabalho a uma classe de storage diferente para restaurar o comportamento pretendido.
+
+.Onde investigar
+Normalmente, você pode investigar desvios e não conformidades a partir de um destes locais (a disponibilidade depende da sua implementação e permissões):
+
+* *Classes de armazenamento:* Deriva / Conformidade
+* *Alertas:* analisar
+
+
+Para obter instruções passo a passo, consulte xref:task-storage-class-drift-remediate.adoc[Corrigir a deriva da storage class].
+
+
+
+[[end-to-end-workflow]]
+== Fluxo de trabalho de ponta a ponta
+
+Os passos a seguir descrevem o processo de utilização de classes de storage para padronizar e governar o storage em seu ambiente:
+
+. *Criar políticas de classe de armazenamento* - As políticas definem as dimensões individuais do comportamento do storage (metas de desempenho, configurações de capacidade, requisitos de segurança, cronogramas de proteção de dados). Crie políticas antes de criar uma classe de armazenamento.
+. *Criar uma classe de armazenamento* - Monte uma classe de armazenamento combinando uma política de cada categoria aplicável. Você pode usar uma classe de armazenamento predefinida ou criar uma personalizada de acordo com os padrões da sua organização.
+. *Associe a classe de armazenamento a uma frota* - Depois de criar uma classe de armazenamento, associe-a à frota onde ela será usada para provisionamento e monitoramento de conformidade.
+. *Provisionar storage usando a classe de storage* - Ao provisionar um volume ou LUN, selecione uma classe de storage em vez de configurar definições individuais. A implementação local do NetApp Console usa a classe para recomendar o posicionamento de cluster mais adequado e, em seguida, provisiona com as configurações definidas na classe.
+. *Monitore cargas de trabalho para detecção de desvios* - A implantação local do NetApp Console avalia continuamente cada carga de trabalho em relação aos padrões codificados em sua classe de storage. Se ocorrer desvio de configuração ou não conformidade de desempenho, o sistema sinaliza o problema e pode gerar um alerta.
+. *Corrigir desvios para restaurar a conformidade* - Quando desvios ou não conformidades de desempenho são detectados, você pode seguir etapas guiadas para corrigir o problema manualmente, deixar que a implantação local do Console resolva automaticamente as condições comuns de desvio ou desassociar uma carga de trabalho de sua classe de armazenamento caso precise alterar suas configurações.
+
+
+
+
+[[how-storage-classes-work-with-fleets]]
+== Como as classes de armazenamento funcionam com frotas
+
+As classes de armazenamento são associadas a frotas. Quando você associa uma classe de armazenamento a uma frota, essa classe fica disponível para todo o provisionamento dentro da frota. Isso garante que todas as cargas de trabalho provisionadas na frota sigam os mesmos padrões, tornando as frotas a principal maneira de impor storage consistente em clusters relacionados.
+
+Para obter detalhes sobre como organizar frotas, consulte link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
+
+
+
+[[where-to-go-next]]
+== Para onde ir a seguir
+
+* Para entender a organização da frota, consulte link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
+* Para criar políticas e classes de armazenamento, consulte link:task-storage-class-manage.html["Gerenciar classes de storage e políticas"].
+* link:task-provisioning-manual.html["Provisionar storage manualmente"]
+* link:task-provisioning-automated.html["Provisionar storage automaticamente"]
+* link:task-provisioning-agentic.html["Provisione storage com assistência de IA"]
+* Para analisar e remediar a deriva, consulte link:task-storage-class-drift-remediate.html["Corrigir a deriva da storage class"]
+

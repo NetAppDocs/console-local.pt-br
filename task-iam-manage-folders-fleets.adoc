@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-folders-fleets.html 
+keywords: folders, fleets, resource hierarchy, create folders, create fleets, iam, identity and access management, fleet id, initial iam setup, fleet hierarchy design, folder hierarchy configuration, rbac setup, tenancy setup, organizational onboarding, team structure alignment, delegated administration model, access governance planning, operational readiness 
+summary: Adicione pastas e frotas para corresponder à estrutura da sua empresa. Depois de criar pastas e frotas, você pode associar recursos a elas e gerenciar o acesso dos membros a essas frotas. 
+---
+= Adicione pastas e frotas à sua organização de implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Crie pastas e frotas que correspondam à estrutura da sua empresa, controle o acesso e organize os recursos na implantação local do NetApp Console.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização ou administrador de pasta ou frota. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+A implantação local do NetApp Console cria uma frota padrão quando você cria uma organização. Você pode adicionar mais frotas e agrupá-las em pastas. link:concept-identity-and-access-management.html["Saiba mais sobre a hierarquia de recursos no NetApp Console"].
+
+
+
+[[using-folders-and-fleets-to-organize-resources]]
+== Utilizando pastas e frotas para organizar recursos
+
+Pastas e frotas são os dois elementos fundamentais que você usa para moldar sua organização de forma que ela reflita a maneira como suas equipes realmente trabalham. Por exemplo, uma pasta por região, com uma frota de produção e uma de desenvolvimento dentro de cada uma.
+
+* As pastas agrupam frotas relacionadas e oferecem suporte à administração delegada e à herança de funções.
+* As frotas são onde você associa recursos para gerenciamento e como você concede acesso operacional aos usuários.
+
+
+Você pode criar pastas e frotas primeiro e adicionar recursos e acesso de membros depois. Isso permite que você planeje sua hierarquia de recursos antes de adicionar usuários e recursos na implantação local do Console. Se sua estrutura já estiver definida, você pode adicionar recursos e atribuir acesso ao criar a frota. Você pode atualizar as frotas a qualquer momento.
+
+Por exemplo, coloque os clusters de produção em uma frota de Produção e os clusters de teste em uma frota de Teste, e conceda a cada equipe acesso apenas à frota que ela possui.
+
+
+
+[[folders]]
+=== Pastas
+
+As pastas organizam as frotas por estrutura de negócios, como unidade de negócios, região ou equipe. Você pode aninhar pastas para refletir sua organização.
+
+As funções atribuídas no nível de uma pasta são herdadas pelas subpastas e frotas. Você também pode usar uma pasta para delegar tarefas de atribuição de frota a um administrador de pasta ou de frota para essa parte da hierarquia.
+
+
+NOTE: Os membros trabalham em frotas, não em pastas. Um recurso associado apenas a uma pasta não pode ser gerenciado pelos membros até que seja associado a uma frota.
+
+Por exemplo, uma empresa regional poderia usar pastas para organizar o ONTAP por unidade de negócios e carga de trabalho. Ela poderia criar uma pasta de nível superior para North America, subpastas para Production e Development, e frotas para clusters ONTAP que hospedam SAP, VMware e volumes de backup. Os administradores de armazenamento atribuídos à pasta North America herdam acesso a todas as frotas filhas, enquanto as equipes de aplicativos têm acesso apenas às frotas que gerenciam.
+
+
+
+[[fleets]]
+=== Frotas
+
+Associe recursos a frotas para que os membros possam gerenciá-los. Uma frota pode existir diretamente sob a organização ou dentro de uma pasta.
+
+Por exemplo, uma empresa de saúde utiliza o ONTAP storage em frotas separadas para produção e desenvolvimento. A frota de produção executa aplicativos clínicos e bancos de dados de prontuário de pacientes, enquanto a frota de desenvolvimento oferece suporte a testes e validação. Essa separação protege os dados ativos, impõe um acesso mais restrito à produção, oferece suporte à auditabilidade e aos controles de menor privilégio, e permite que as equipes de desenvolvimento trabalhem sem impactar as cargas de trabalho voltadas para o paciente.
+
+Os usuários navegam entre as frotas atribuídas na página *Sistemas* para gerenciar os recursos associados a cada frota.
+
+
+
+[[add-a-folder-or-fleet]]
+== Adicione uma pasta ou frota
+
+Adicione uma frota sempre que precisar de um novo limite para recursos e acesso de membros, e adicione uma pasta quando quiser agrupar frotas relacionadas e delegar sua administração. Por exemplo, adicione uma  `Production` pasta contendo uma  `Production-US-East` frota e uma  `Production-EU-West` frota, em seguida, atribua a um líder regional a função de administrador da pasta ou da frota apenas para a frota dele.
+
+Você pode criar até sete níveis hierárquicos.
+
+Você pode adicionar recursos e atribuir acesso a membros ao criar uma frota ou pasta, ou pode fazer isso depois.
+
+.Passos
+. Selecione *Administração > Identidade e acesso*.
+. Selecione *Organization*.
+. Na página *Organização*, selecione *Adicionar pasta ou frota*.
+. Selecione *Pasta* ou *Frota*.
+. Em *Nome e localização*: insira um nome e escolha uma localização para a pasta ou frota.
+
+
+[[associate-resource-folder]]
+. Opcional: expanda a seção *Recursos* para associar recursos à frota ou pasta.
++
+.. Marque a caixa de seleção ao lado do recurso que você deseja associar e selecione *Associar à frota*. Se você ainda não adicionou sistemas à implantação local do Console, pode fazer isso mais tarde.
++
+
+NOTE: Os membros não podem acessar os recursos em uma pasta até que esses recursos sejam atribuídos a uma fleet.
+
+
+
+. Opcional: expanda a seção *Acesso* para atribuir acesso aos membros. Selecione *Adicionar um membro* para atribuir acesso e uma função. Por padrão, o usuário que cria a frota tem acesso a ela.
++
+link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+. Selecione *Add*.
+
+
+
+
+[[rename-a-folder-or-fleet]]
+== Renomear uma pasta ou fleet
+
+Renomeie uma pasta ou frota conforme necessário. A renomeação não afeta os recursos associados nem o acesso dos membros.
+
+.Passos
+. Na página *Organização*, navegue até uma frota ou pasta na tabela, selecione image:icon-action.png["Um ícone com três pontos"] e, em seguida, selecione *Editar pasta* ou *Editar frota*.
+. Na página *Editar*, insira um novo nome e selecione *Aplicar*.
+
+
+
+
+[[delete-a-folder-or-fleet]]
+== Excluir uma pasta ou frota
+
+Exclua pastas e frotas que você não precisa mais, como após uma reestruturação da equipe ou conclusão da frota.
+
+Antes de excluir uma pasta ou frota, realize as seguintes verificações:
+
+* Verifique se a pasta ou frota não contém recursos. link:task-iam-manage-resources.html#remove-resource["Aprenda como remover associações de recursos"].
+* Analise os membros que ainda têm acesso à pasta ou à frota. link:task-iam-users-fleets-assign.html["Visualizar atribuições de acesso de membros"].
+* Remova ou atualize o acesso de membros conforme necessário. link:task-iam-users-fleets-assign.html["Modificar atribuições de acesso de membros"].
+* Se você estiver excluindo uma frota, primeiro transfira recursos para a frota de destino. link:task-iam-manage-resources.html["Saiba como mover recursos entre frotas"].
+
+
+.Passos
+. Na página *Organização*, navegue até uma frota ou pasta na tabela, selecione image:icon-action.png["Um ícone com três pontos"] e, em seguida, selecione *Excluir*.
+. Confirme que você deseja excluir a pasta ou a frota.
+
+
+
+
+[[manage-fleets-and-folders-in-netapp-console-local-deployment]]
+== Gerencie frotas e pastas na implantação local do NetApp Console
+
+Após a configuração inicial, você pode fazer o seguinte:
+
+* *Gerencie associações de recursos para pastas e frotas*: link:task-iam-manage-resources.html["Aprenda como associar recursos a frotas e pastas"].
+* *Visualizar ou atualizar o acesso a uma pasta ou frota*: link:task-iam-users-fleets-assign.html["Aprenda como conceder acesso de usuários às frotas"].
+* *Gerencie um membro em várias pastas e frotas*: link:task-iam-manage-roles.html["Aprenda como gerenciar o acesso de membros"].
+* *Adicione membros adicionais e atribua permissões iniciais*: link:task-iam-manage-members-permissions.html["Aprenda a gerenciar membros e permissões"].
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:concept-identity-and-access-management.html["Saiba mais sobre identidade e acesso no NetApp Console"]
+* link:task-iam-fleet-mgmt-get-started.html["Comece a usar identidade e acesso no NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Saiba mais sobre a API de identidade e acesso"^]
+

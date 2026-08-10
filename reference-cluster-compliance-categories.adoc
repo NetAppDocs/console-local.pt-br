@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: reference-cluster-compliance-categories.html 
+keywords: cluster compliance, security compliance, cluster security, ontap cluster security, compliance categories, netapp console local 
+summary: Referência para categorias de conformidade de segurança de cluster e configurações recomendadas na implantação local do NetApp Console. 
+---
+= Categorias de conformidade de segurança de cluster na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use esta referência para analisar as categorias de conformidade de segurança do cluster exibidas na implantação local do NetApp Console, incluindo o valor recomendado e se cada categoria afeta o status geral de conformidade.
+
+Essas categorias são baseadas nas verificações de postura de segurança do ONTAP.
+
+[cols="20,50,15,15"]
+|===
+| Categoria | O que a categoria verifica | Valor recomendado | Afeta a conformidade geral 
+
+
+| FIPS global | Indica se o modo FIPS 140-2 está ativado. Quando ativado, TLSv1 e SSLv3 são desativados e apenas TLSv1.1 e TLSv1.2 são permitidos. | Habilitado | Sim 
+
+
+| Telnet | Se o acesso Telnet está habilitado. O SSH é o método de acesso remoto seguro recomendado. | Desabilitado | Sim 
+
+
+| Configurações SSH inseguras | Se o SSH estiver configurado com cifras inseguras, como cifras que começam com  `cbc`. | Não | Sim 
+
+
+| Banner de login | Indica se um banner de login está configurado para acesso ao sistema. | Habilitado | Sim 
+
+
+| Peer de cluster | Indica se a comunicação entre clusters emparelhados é criptografada. A criptografia deve estar habilitada tanto no cluster de origem quanto no de destino. | Criptografado | Sim 
+
+
+| Protocolo de Tempo de Rede | Se um ou mais servidores NTP estão configurados para o cluster. NetApp recomenda pelo menos três servidores NTP para maior resiliência. | Configurado | Sim 
+
+
+| OCSP | Indica se a validação do Online Certificate Status Protocol está habilitada para validação de certificados SSL/TLS. | Habilitado | Não 
+
+
+| Registro de auditoria remota | Se o encaminhamento de logs (syslog) é criptografado. | Criptografado | Sim 
+
+
+| AutoSupport transporte HTTPS | Indica se o HTTPS é usado como protocolo de transporte padrão para AutoSupport mensagens. | Habilitado | Sim 
+
+
+| Usuário administrador padrão | Indica se a conta de administrador padrão incorporada está desativada. | Desabilitado | Sim 
+
+
+| Usuários SAML | Se o SAML está configurado para single sign-on e autenticação compatível com MFA. | Não | Não 
+
+
+| Usuários do Active Directory | Se a autenticação do Active Directory está configurada para acesso ao cluster. | Não | Não 
+
+
+| Usuários LDAP | Se a autenticação LDAP está configurada para acesso ao cluster. | Não | Não 
+
+
+| Usuários de certificado | Se os usuários baseados em certificado estão configurados para login no cluster. | Não | Não 
+
+
+| Usuários locais | Se os usuários locais estão configurados para login no cluster. | Não | Não 
+
+
+| Shell remoto | Se o RSH está habilitado. O SSH é preferido para acesso remoto seguro. | Desabilitado | Sim 
+
+
+| MD5 em uso | Se as contas de usuário do ONTAP ainda utilizam hash MD5 em vez de hashes mais robustos, como SHA-512. | Não | Sim 
+
+
+| Tipo de emissor de certificado | O tipo de emissor de certificado usado pelo cluster. | Assinado pela CA | Não 
+|===

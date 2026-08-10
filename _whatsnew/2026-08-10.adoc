@@ -1,0 +1,10 @@
+= Apresentando a implantação local do NetApp Console
+:allow-uri-read: 
+
+
+
+
+[[introducing-netapp-console-local-deployment]]
+=== Apresentando a implantação local do NetApp Console
+
+https://docs.netapp.com/us-en/console-local/netapp-console-local.html["Saiba como implantar localmente o NetApp Console"].

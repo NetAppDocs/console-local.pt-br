@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: reference-storage-class-policies.html 
+keywords: storage class policies, performance policy, capacity policy, security policy, data protection policy, netapp console 
+summary: Consulte as políticas de classe de armazenamento definidas pelo sistema disponíveis na NetApp Console implantação local. 
+---
+= Analise as políticas de classe de armazenamento predefinidas na NetApp Console implantação local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console local inclui políticas definidas pelo sistema em todos os quatro tipos de política. Use esta referência para identificar qual política melhor se adapta aos requisitos da sua carga de trabalho ao criar ou personalizar uma classe de armazenamento.
+
+
+
+[[performance-policies]]
+== Políticas de desempenho
+
+Desempenho Extremo:: Use para cargas de trabalho de HPC, IA/ML e análise que exigem alto IOPS em rajadas e latência baixa previsível.
+Extremo para dados de banco de dados:: Use para volumes de dados de transação de banco de dados que exigem IOPS elevado e sustentado e latência inferior a um milissegundo.
+Extreme para logs de banco de dados:: Use para volumes de log de transação de banco de dados que exigem o maior piso de IOPS para evitar gargalos de gravação.
+Extremo para dados compartilhados de banco de dados:: Use para volumes de banco de dados compartilhados acessados por vários hosts que exigem alta taxa de transferência e latência consistente.
+Desempenho:: Use para aplicações virtualizadas e empresariais que exigem desempenho confiável sem demandas extremas de IOPS.
+Valor:: Use para cargas de trabalho com restrições de custo, como diretórios pessoais, compartilhamentos de arquivos e arquivos de arquivamento.
+
+
+
+
+[[capacity-policies]]
+== Políticas de capacidade
+
+Capacidade de autogrow:: Utilize para cargas de trabalho de produção que precisam se expandir automaticamente para evitar falhas por falta de espaço.
+
+
+
+
+[[security-policies]]
+== Políticas de segurança
+
+Criptografia em repouso:: Utilize em cargas de trabalho de produção onde a criptografia é exigida para conformidade.
+Proteção contra ransomware:: Utilize para cargas de trabalho que contenham dados essenciais aos negócios e que exijam proteção ativa contra ransomware.
+Segurança padrão:: Utilize para cargas de trabalho em que o comportamento de segurança padrão da plataforma seja aceitável.
+
+
+
+
+[[data-protection-policies]]
+== Políticas de proteção de dados
+
+padrão:: Utilize para cargas de trabalho padrão que exigem pontos de recuperação de curto prazo sem a sobrecarga de retenção de longo prazo.
+3 meses por hora:: Utilize para cargas de trabalho regulamentadas ou críticas para os negócios que exigem pontos de recuperação intradia granulares e três meses de retenção histórica.
+Recuperação de 30 dias:: Utilize para cargas de trabalho padrão que exigem pontos de recuperação de curto prazo sem a sobrecarga de retenção de longo prazo.
+Recuperação de 90 dias:: Utilize para cargas de trabalho regulamentadas ou críticas para os negócios que exigem pontos de recuperação intradia granulares e três meses de retenção histórica.
+

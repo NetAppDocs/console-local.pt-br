@@ -1,0 +1,178 @@
+---
+sidebar: sidebar 
+permalink: task-alert-rules-manage.html 
+keywords: notifications, alerts, notification rules, alert rules, severity, impact area, email, webhook, mute, netapp console local 
+summary: Configure as regras de notificação na implantação local do NetApp Console para controlar quais alertas geram notificações, quem as recebe e como elas são entregues. 
+---
+= Configure regras de notificação para alertas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Configure as regras de notificação na implantação local do NetApp Console para controlar quais alertas geram notificações, quem as recebe e como elas são entregues.
+
+.Funções de acesso necessárias
+Superadministrador, administrador da organização, administrador de storage, analista de suporte de operações ou qualquer uma das funções administrativas do NetApp Backup and Recovery. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+
+Use regras de notificação para encaminhar os alertas certos para as pessoas certas pelos canais adequados ao seu ambiente, enquanto reduz o ruído de alertas que não são relevantes para você. As regras de notificação complementam a página de Alertas: você investiga ou resolve o alerta no fluxo de trabalho de Alertas e, em seguida, usa regras para controlar como alertas semelhantes são entregues no futuro.
+
+Uma regra de notificação corresponde a alertas com base em condições definidas por você, como serviço, gravidade e área de impacto, e então envia uma notificação pelos canais que você selecionar. A implantação local do NetApp Console inclui regras de notificação padrão que você pode visualizar e ajustar, e você pode criar suas próprias regras personalizadas. Você também pode silenciar regras para suprimir temporariamente as notificações durante eventos planejados, como janelas de manutenção.
+
+* link:https://docs.netapp.com/us-en/ontap-ems/acp-auto-events.html["Saiba mais sobre o ONTAP EMS e os alertas disponíveis."^]
+
+
+
+
+[[before-you-begin]]
+== Antes de começar
+
+* Para enviar notificações por e-mail, o administrador da sua organização deve configurar um servidor de e-mail na implantação local do Console. Para enviar notificações para um sistema externo, o administrador da sua organização deve configurar um webhook. Para obter as etapas, consulte link:task-console-configure-notifications-delivery.html["Configurar o envio de notificações"].
+* O Centro de Notificações da implantação local do Console exibe notificações por padrão, portanto, nenhuma configuração adicional é necessária para notificações no console.
+
+
+
+
+[[view-notification-rules]]
+== Ver regras de notificação
+
+A página de regras de notificação é o local central para revisar e gerenciar todas as regras aplicáveis à sua organização. Cada regra exibe seus principais atributos para que você possa avaliar e ajustar rapidamente o comportamento dos seus alertas.
+
+.Passos
+. Na barra de navegação à esquerda, selecione *Saúde > Alertas*.
+. Selecione *Configurações de notificação*.
+. Analise as regras na lista. Cada regra mostra seu status ativo, nome, os serviços e níveis de gravidade que monitora, as funções autorizadas a receber notificações, os canais de entrega habilitados, quando foi modificada pela última vez e qualquer período de silenciamento programado.
+. Para encontrar uma regra específica, use os controles de filtro e pesquisa para filtrar por status ativo, serviço, gravidade, função, canal ou status de silenciamento.
+
+
+
+
+[[create-a-notification-rule]]
+== Criar uma regra de notificação
+
+Crie uma regra de notificação para definir as condições que acionam uma notificação e como essa notificação é entregue.
+
+
+NOTE: Não é possível definir regras de notificação para frotas. Você só pode defini-las para sistemas específicos. Em ambientes grandes com muitos sistemas, considere criar regras mais abrangentes por gravidade, em vez de duplicar regras por sistema. Por exemplo, uma regra Crítica que abranja todos os sistemas funciona como uma regra geral, com regras adicionais direcionadas para sistemas que precisam de roteamento ou destinatários diferentes.
+
+.Exemplo de regra de notificação para alertas críticos em todos os sistemas
+Suponha que você queira garantir que nenhum alerta crítico passe despercebido, independentemente do sistema de origem. Você pode criar uma regra abrangente que encaminhe todos os alertas críticos para a Central de Notificações do NetApp Console para administradores de storage.
+
+Neste exemplo, você cria uma regra com as seguintes configurações:
+
+* *Serviços*: todos
+* *Gravidade*: crítica
+* *Função do IAM*: Administrador de armazenamento
+* *Sistema*: (Deixe este campo em branco para aplicar a todos os sistemas)
+* *Método de entrega*: Central de Notificações do Console
+
+
+Com essa regra implementada, os administradores de storage veem uma notificação no NetApp Console para cada alerta crítico em todos os sistemas. Essa regra serve como base, que você pode complementar com regras mais específicas.
+
+.Exemplo de uma regra de notificação direcionada para alertas de capacidade de administrador de storage
+Suponha que seus administradores de storage precisem responder imediatamente a problemas críticos de capacidade em um sistema de produção específico, mas você não queira que alertas de menor gravidade inundem suas caixas de entrada. Você pode criar uma regra direcionada que envie e-mails aos administradores de storage somente quando um alerta crítico de capacidade for acionado nesse sistema.
+
+Neste exemplo, você cria uma regra com as seguintes configurações:
+
+* *Serviços*: gerenciamento do ONTAP
+* *Gravidade*: crítica
+* *Área de impacto*: Capacidade
+* *Função do IAM*: Administrador de armazenamento
+* *Sistema*: <system_name>
+* *Método de entrega*: e-mail
+
+
+Com essa regra em vigor, a implantação local do NetApp Console envia e-mails para todos os administradores de storage do sistema especificado quando ocorre um alerta de capacidade crítica. Alertas com menor gravidade, como aviso ou informativo, não geram e-mail, assim a equipe pode se concentrar nos problemas que exigem atenção urgente.
+
+.Passos
+. Na barra de navegação à esquerda, selecione *Saúde > Alertas*.
+. Selecione *Configurações de notificação* e, em seguida, selecione *Adicionar regra*.
+. Defina as condições que a regra corresponde:
++
+** *Nome da regra*: insira um nome conciso e descritivo. Este campo é obrigatório.
+** *Descrição da regra*: opcionalmente, insira contexto adicional sobre o propósito da regra.
+** *Serviços*: selecione um ou mais serviços ONTAP ou de plataforma aos quais a regra se aplica.
+** *Funções*: selecione as funções de acesso que os usuários devem ter para receber notificações quando a regra for acionada.
+** *Níveis de gravidade*: selecione quais níveis de gravidade a regra monitora, como Crítico, Aviso, Erro ou Informação.
+** *Área de impacto*: selecione as áreas operacionais para corresponder, como Capacidade ou Desempenho.
+** *Nome do alerta*: selecione os tipos de alerta específicos que acionam a regra.
+** *Sistema*: selecione o contexto do sistema ao qual a regra se aplica.
+
+
+. Selecione os canais de entrega para a notificação:
++
+** *E-mail*: envia e-mails de alerta para usuários que possuem as funções selecionadas. Requer um servidor de e-mail configurado.
+** *Webhook*: envia dados de alerta para um sistema externo. Requer selecionar uma integração de webhook configurada.
+** *Central de Notificações do Console*: exibe alertas em tempo real para usuários que possuem as funções selecionadas.
+
+
+. Opcionalmente, para suprimir as notificações desta regra durante um período planejado, como uma janela de manutenção, defina um agendamento *Silenciar notificações* e escolha uma recorrência se você quiser que o período de silenciamento se repita. Você pode adicionar várias janelas de silenciamento por regra, o que é útil para ciclos de manutenção recorrentes, como a aplicação de patches semanais.
+. Selecione *Criar*.
+
+
+
+
+[[enable-or-disable-a-notification-rule]]
+== Ativar ou desativar uma regra de notificação
+
+Ative ou desative regras de notificação individuais para controlar quais condições geram notificações. Desative regras que não são relevantes para o seu ambiente para reduzir o ruído e ative regras para voltar a receber suas notificações.
+
+.Passos
+. Na barra de navegação à esquerda, selecione *Saúde > Alertas*.
+. Selecione *Configurações de notificação*.
+. Localize a regra que você deseja alterar.
+. Ative ou desative a opção *Ativo* da regra. A alteração entra em vigor imediatamente.
+
+
+
+
+[[mute-a-notification-rule]]
+== Silenciar uma regra de notificação
+
+Silencie uma regra de notificação para suprimir o envio de alertas durante um evento planejado, como uma janela de manutenção, sem desativar a regra. Os alertas continuam a aparecer na página de Alertas durante o período de silenciamento; apenas as notificações por e-mail, webhook e no console são suprimidas. Quando o período de silenciamento expira, as notificações são retomadas automaticamente.
+
+Você pode adicionar várias janelas de silenciamento a uma única regra e configurar cada uma para se repetir em uma programação.
+
+.Exemplos de janelas silenciosas
+* *Janela de manutenção única*: você está executando uma atualização de firmware em um sistema de storage na noite de sábado e deseja suprimir os alertas esperados durante essa janela. Defina uma janela de silenciamento de sábado, às 22h, até domingo, às 2h, sem recorrência. Quando a janela expirar, as notificações serão retomadas automaticamente.
+* *Janela de atualização semanal recorrente*: Sua equipe aplica patches nos sistemas todos os domingos, da meia-noite às 4:00. Adicione uma janela de silenciamento com recorrência semanal para que as notificações sejam suprimidas automaticamente a cada semana sem intervenção manual. Se um segundo sistema tiver seu próprio cronograma de aplicação de patches em um horário diferente, adicione uma segunda janela de silenciamento à mesma regra com seu próprio horário de início e recorrência.
+
+
+.Passos
+. Na barra de navegação à esquerda, selecione *Saúde > Alertas*.
+. Selecione *Regras de notificação*.
+. Na lista de regras, localize a regra que você deseja silenciar e selecione o menu de ações para essa regra.
+. Selecione *Editar*.
+. Na seção *Silenciar notificações*, defina a data e a hora de início e término do período de silêncio.
+. Opcionalmente, selecione uma recorrência para repetir a janela em um cronograma.
+. Para adicionar mais janelas silenciadas, selecione *Adicionar janela silenciada* e repita os passos anteriores.
+. Selecione *Salvar*.
+
+
+
+
+[[delete-a-notification-rule]]
+== Excluir uma regra de notificação
+
+Exclua uma regra de notificação se você não precisar mais dela. Excluir uma regra a remove permanentemente, portanto, você não poderá recuperá-la.
+
+.Passos
+. Na barra de navegação à esquerda, selecione *Saúde > Alertas*.
+. Selecione *Configurações de notificação*.
+. Na lista de regras, localize a regra que você deseja excluir e selecione o menu de ações para essa regra.
+. Selecione *Excluir* no menu de ações.
+
+
+
+
+[[related-information]]
+== Informações relacionadas
+
+* link:task-console-configure-notifications-delivery.html["Configurar o envio de notificações"]
+* link:concept-console-alerts.html["Saiba mais sobre os alertas do Console"]
+* link:task-alerts-monitor.html["Ver alertas"]
+

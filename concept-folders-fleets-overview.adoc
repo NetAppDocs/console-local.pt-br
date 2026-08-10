@@ -1,0 +1,183 @@
+---
+sidebar: sidebar 
+permalink: concept-folders-fleets-overview.html 
+keywords: folders, fleets, organization, resource hierarchy, access control, IAM, roles, members, netapp console local 
+summary: Aprenda a usar pastas e conjuntos de armazenamento para organizar recursos e controlar o acesso na implantação local do NetApp Console. 
+---
+= Saiba mais sobre pastas e frotas na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Na implantação local do NetApp Console, use pastas e storage fleets para organizar seus recursos do NetApp e controlar o acesso de acordo com a estrutura da sua empresa, seja por local, departamento ou tipo de carga de trabalho.
+
+Use esta página para estratégia de hierarquia e padrões de design de frota. Para um modelo IAM completo de membros, funções e escopo de recursos, link:concept-identity-and-access-management.html["Saiba mais sobre gerenciamento de identidade e acesso na implantação local do NetApp Console"].
+
+Você organiza os recursos em uma hierarquia: a organização está no topo, seguida pelas pastas (que podem conter outras pastas ou frotas) e, por fim, as frotas, que contêm os sistemas de storage. Atribua funções de acesso no nível da organização, da pasta ou da frota para que os usuários tenham o acesso correto aos recursos.
+
+
+NOTE: Você precisa ter a função de administrador da organização, da pasta ou da frota para gerenciar pastas e frotas na implantação local do NetApp Console.
+
+
+
+[[organizational-components]]
+== Componentes organizacionais
+
+Os componentes organizacionais — organização, pastas e frotas — formam uma hierarquia que determina como os recursos são agrupados e como o acesso é delegado.
+
+Organização:: Uma organização é o nível mais alto da hierarquia de implantação local do NetApp Console e normalmente representa sua empresa. Sua organização consiste em pastas, frotas, membros, funções e recursos. Os recursos são associados às frotas e os membros recebem funções no nível da organização, da pasta ou da frota.
+Pastas:: As pastas agrupam frotas relacionadas para organizá-las por local, site ou unidade de negócios. Você não pode associar sistemas de storage diretamente às pastas, mas atribuir uma função a um membro no nível da pasta concede a ele acesso a todas as frotas dessa pasta.
++
+--
+
+NOTE: Os administradores da organização podem adicionar um recurso a uma pasta para delegar a tarefa de associar o recurso às frotas a um administrador da pasta ou da frota link:task-iam-manage-resources.html["Associe recursos a pastas e frotas"].
+
+--
+Frotas:: As frotas agrupam sistemas de storage. Atribua recursos às frotas e conceda acesso aos membros no nível da frota. Os recursos podem pertencer a várias frotas. Os membros com acesso à frota podem gerenciar os recursos dessa frota.
++
+--
+Por exemplo, você pode associar um sistema ONTAP local a uma única frota ou a todas as frotas da sua organização, dependendo das suas necessidades.
+
+link:task-iam-manage-folders-fleets.html["Aprenda como criar pastas e frotas de armazenamento"].
+
+--
+
+
+
+
+[[resources]]
+== Recursos
+
+Um recurso é um sistema de storage que a implantação local do Console reconhece e que pode ser atribuído a uma frota. Associe um recurso a uma frota para que os usuários com acesso à frota possam gerenciar o recurso.
+
+Por exemplo, você pode associar um ONTAP cluster a uma frota ou a todas as frotas da sua organização. A forma como você associa um recurso depende das necessidades da sua organização.
+
+link:task-iam-manage-resources.html["Aprenda como associar recursos a frotas"].
+
+
+
+[[members-and-roles]]
+== Membros e funções
+
+Os membros são os usuários e as contas de serviço da sua organização. As funções definem quais ações eles podem executar e em qual nível da hierarquia: organização, pasta ou frota.
+
+Membros:: Os membros da sua organização são contas de usuário ou contas de serviço. Uma conta de serviço é normalmente usada por um aplicativo para concluir tarefas específicas sem intervenção humana.
++
+--
+Usuários com a função de administrador da organização podem adicionar novos membros à sua organização. Todos os usuários (incluindo contas de serviço e usuários do Active Directory) devem ser adicionados explicitamente e receber pelo menos uma função para acessar a implantação local do Console.
+
+--
+
+
+link:task-iam-manage-members-permissions.html["Aprenda como adicionar membros à sua organização"].
+
+Funções de acesso:: A implantação local do Console fornece funções de acesso que você pode atribuir aos membros da sua organização.
++
+--
+Ao associar um membro a uma função, você pode conceder essa função para toda a organização, uma pasta específica ou uma frota específica. A função que você selecionar concede ao membro permissão para os recursos na parte selecionada da hierarquia.
+
+A implantação local do NetApp Console fornece funções granulares que seguem o princípio do menor privilégio, o que significa que as funções de acesso são projetadas para dar aos membros acesso apenas ao que eles precisam.
+
+Os usuários podem desempenhar múltiplas funções à medida que suas responsabilidades se expandem.
+
+--
+
+
+
+
+[[role-inheritance]]
+=== Herança de funções
+
+Ao atribuir uma função no nível da organização ou da pasta, as subpastas, frotas e recursos subordinados herdam essa função, então o design da sua pasta e frota determina a abrangência de cada atribuição.
+
+link:concept-iam-rbac.html#role-inheritance["Saiba mais sobre herança de funções na implantação local do NetApp Console"].
+
+
+
+[[organization-design-examples]]
+== Exemplos de design organizacional
+
+A estrutura organizacional ideal depende do tamanho da sua organização e de como suas equipes estão organizadas. Os exemplos a seguir mostram como diferentes organizações podem usar a hierarquia de pastas e de frotas para gerenciar o acesso de forma eficaz.
+
+
+
+[[small-organization-strategy]]
+=== Estratégia para pequenas organizações
+
+Para organizações com menos de 50 usuários e gerenciamento centralizado de storage, considere uma abordagem simplificada usando as funções de Super admin e Super viewer.
+
+*Exemplo: ABC Corporation (equipe de 5 pessoas)*
+
+* *Estrutura*: Organização única com 3 frotas (Produção, Desenvolvimento, Backup)
+* *Funções*:
++
+** 2 membros seniores: função de super admin para acesso administrativo completo
+** 3 membros da equipe: função de supervisualizador para monitoramento sem direitos de modificação
+
+
+* *Benefícios*: administração simplificada, complexidade de funções reduzida, adequado para equipes que necessitam de amplo acesso
+
+
+
+
+[[multi-regional-enterprise-strategy]]
+=== Estratégia empresarial multirregional
+
+Para grandes organizações com operações regionais e equipes especializadas, implemente uma abordagem hierárquica com pastas representando limites geográficos ou de unidades de negócios.
+
+*Exemplo: XYZ Corporation (empresa multinacional)*
+
+* *Estrutura*: Organização > Pastas regionais (North America, Europe, Asia-Pacific) > Frotas por região
+* *Funções da plataforma*:
++
+** 1. Admin de organização: supervisão global e gerenciamento de políticas
+** 3 Administradores de pastas ou frotas: controle regional (um por região)
+** 1. Administrador da federação: integração do serviço de diretório corporativo
+
+
+* *Funções de storage por região*:
++
+** Administrador de armazenamento: descubra e gerencie sistemas de armazenamento em regiões atribuídas
+** Visualizador de armazenamento: monitore recursos de storage em diferentes regiões
+** Especialista em saúde do sistema: gerencie a saúde do storage sem modificações no sistema
+
+
+* *Benefícios*: Segurança reforçada por meio da segregação de funções, autonomia regional e conformidade com as regulamentações locais
+
+
+
+
+[[departmental-specialization-strategy]]
+=== Estratégia de especialização departamental
+
+Para organizações com equipes especializadas que exigem acesso específico, utilize atribuições de funções direcionadas com base em responsabilidades funcionais.
+
+*Exemplo: TechCorp (empresa de tecnologia de médio porte)*
+
+* *Estrutura*: Organização > Pastas de departamento (TI, Segurança, Desenvolvimento) > Recursos específicos da frota
+* *Funções especializadas*:
++
+** Equipe de segurança: funções de administrador de resiliência a ransomware e visualizador de classificação
+** Equipe de backup: superadministrador de backup e recuperação para operações de backup abrangentes
+** Equipe de desenvolvimento: administrador de storage para gerenciamento de ambiente de teste
+** Equipe de conformidade: analista de suporte operacional para monitoramento e gerenciamento de casos de suporte
+
+
+* *Benefícios*: controle de acesso personalizado, maior eficiência operacional e responsabilidade clara por tarefas especializadas
+
+
+
+
+[[next-steps]]
+== Próximos passos
+
+* link:task-iam-manage-folders-fleets.html["Crie pastas e frotas de storage"]
+* link:task-iam-manage-resources.html["Associe recursos a pastas e frotas"]
+* link:task-iam-users-fleets-assign.html["Gerencie as atribuições de acesso à frota"]
+* link:task-audit-console-activity.html["Monitore ou audite as ações de implantação local do NetApp Console"]
+
