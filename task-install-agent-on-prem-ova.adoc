@@ -63,7 +63,7 @@ NetApp oferece suporte à instalação do NetApp Console para implantação loca
 
 Baixe o OVA.
 
-. Faça o download do software de implantação local do Console no NetApp Support Site.
+. Faça o download do software de implantação local do Console a partir do link:https://mysupport.netapp.com/site/products/all/details/ncl/downloads-tab["NetApp site de suporte"^].
 
 
 

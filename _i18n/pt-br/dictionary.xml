@@ -897,7 +897,6 @@
   <block id="371acb072fb244306a15b7ff5193bce9" category="list-text"><block ref="371acb072fb244306a15b7ff5193bce9" category="inline-link-macro-rx"></block></block>
   <block id="d0be151a63fab72d6333774c4ad643bb" category="inline-link">Saiba mais sobre a API do NetApp Console IAM</block>
   <block id="d7726716920c51dac9e8d3b944fb1d9c" category="list-text"><block ref="d7726716920c51dac9e8d3b944fb1d9c" category="inline-link-rx"></block></block>
-  <block id="823d0c76da1241a2b4bacad6a700ad94" category="summary">Saiba como a implantação local do NetApp Console se integra aos modelos OpenAI e compatíveis com OpenAI, incluindo decisões sobre provedor, proxy e segurança.</block>
   <block id="aaa31fb12388ee6f380920310c04b753" category="doc">Saiba mais sobre a integração do LLM na implantação local do NetApp Console</block>
   <block id="345b50b0707634d277d7a44851e59fe4" category="paragraph">NetApp Console implantação local se conecta a um large language model (LLM) para gerenciamento de storage com assistência de IA. Após a configuração, você pode usar linguagem natural para provisionar storage, investigar alertas e obter orientações sobre storage.</block>
   <block id="4f9d5100edf765a8f2ae1c53a1a257cc" category="paragraph">O gerenciamento assistido por IA permite que os usuários descrevam as solicitações em linguagem simples, enquanto a implantação local do NetApp Console aplica suas políticas de storage.</block>
@@ -920,7 +919,6 @@
   <block id="fcc55126fd45a515695466fda4602164" category="paragraph">NetApp Console a implantação local oferece suporte a estes tipos de provedores LLM:</block>
   <block id="873109553cafbb3e957f0cc91186aa99" category="list-text">*OpenAI* para acesso direto ao modelo OpenAI.</block>
   <block id="fee6af50bc6105fefb846f7e518fb7cf" category="list-text">*Compatível com OpenAI* para um endpoint compatível, como um gateway corporativo ou serviço de proxy.</block>
-  <block id="9b5550554d175b4703c9783519160fad" category="list-text">Anthropic para os modelos Claude da Anthropic.</block>
   <block id="7de1d980a668ed0c9d00649c3750c5d1" category="paragraph">A disponibilidade do modelo depende do endpoint que você configurar. Selecione um modelo na lista em implantação local do NetApp Console.</block>
   <block id="64c716e8b3c375cb10518555f2cc559d" category="inline-link-macro">Saiba mais sobre os provedores e modelos de LLM compatíveis na implantação local do NetApp Console</block>
   <block id="42e3047ea36dd2b663d0f3f5d7b20152" category="paragraph">Para obter detalhes sobre os modelos compatíveis, consulte <block ref="1a3a7e8df14b08dab1953f3a058a454f" category="inline-link-macro-rx"></block>.</block>
@@ -3169,7 +3167,6 @@
   <block id="3730b696052b51ae22af2269ff6edfbd" category="paragraph">NetApp oferece suporte à instalação do NetApp Console para implantação local em seu ambiente vCenter. O arquivo OVA inclui uma imagem de máquina virtual pré-configurada que você pode implantar em seu ambiente VMware.</block>
   <block id="15e605ee974fa55f027726848cc8afff" category="section-title">Baixe o OVA ou copie o URL</block>
   <block id="0581616b53582ac26aae5d26a64dd995" category="paragraph">Baixe o OVA.</block>
-  <block id="e1a2daca3267d204edcee05245d2283c" category="list-text">Faça o download do software de implantação local do Console no NetApp Support Site.</block>
   <block id="fbf739c4dddaccc70b331772ffa91a55" category="section-title">Implante o NetApp Console local no seu vCenter</block>
   <block id="2dc9f6815a8338fe4cef7c144fd9501e" category="paragraph">Faça login no seu ambiente vCenter para implantar a implantação local do Console.</block>
   <block id="19070c8313a6999045690aa5c39cd703" category="list-text">Faça o upload do certificado autoassinado para seus certificados confiáveis, caso seu ambiente exija. Você pode substituir este certificado após a instalação.</block>
@@ -3218,7 +3215,6 @@
   <block id="336e4351e57a856f458961abc5062751" category="list-text">Sua decisão quanto ao tipo de provedor: OpenAI ou compatível com OpenAI. <block ref="78f935c14127e9543a594b2e8112c798" category="inline-link-macro-rx"></block></block>
   <block id="d8bd49d8fe4a0de7a2b03c1aec99e88b" category="list-text">Uma chave de API válida para o caminho do provedor que você selecionar.</block>
   <block id="12415726cf97af159e3e05710842f040" category="list-text">A URL do endpoint para o caminho do seu provedor.</block>
-  <block id="761c475526d6aca6a6c425ee949f082a" category="list-text">A URL do seu proxy ou gateway, caso sua organização exija uma.</block>
   <block id="0a3c869dbd390ca2cdefafd338d2cf3d" category="list-text">Seu nome de usuário ou ID de single sign-on (SSO) para a conta do provedor de LLM, se necessário.</block>
   <block id="cfe024af8356a3decd0f09b47eff88fa" category="list-text">Acesso à rede a partir da implantação local do NetApp Console para o endpoint selecionado.</block>
   <block id="1f3d7608a574b42ba681dcef64704661" category="list-text">Classes de armazenamento e controles de acesso baseados em funções para as ações do assistente que você planeja permitir.</block>
@@ -3633,7 +3629,6 @@
   <block id="bfd15aa26ba0ced782240c4a8b7e517e" category="sidebar">Gerenciamento de storage</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">Blogs e comunidade</block>
   <block id="fae210aa9f9d8906ee39264d97001f11" category="sidebar">NetApp Console implantação local</block>
-  <block id="cc58d3a9b2264c4fd8cb1d3f61b90bdc" category="sidebar">NetApp Data Services</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">Comunidade NetApp</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notas de lançamento</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">O que há de novo</block>
@@ -3756,4 +3751,8 @@
   <block id="5ceffe99385ecce35b5a538a16ca57cb" category="paragraph"><block ref="dc7c11e9da585b9fa1e35ca44da95ccc" category="inline-link-rx"></block>.</block>
   <block id="f64bf1d04df251b82d06554b478f9ae4" category="paragraph"><block ref="f64bf1d04df251b82d06554b478f9ae4" category="inline-link-macro-rx"></block></block>
   <block id="955bb7127a670884e7aac906d810238a" category="sidebar">Referência da API de implantação local do console</block>
+  <block id="c88543bdef944177133ea29faedf50df" category="summary">Saiba como a implantação local do NetApp Console se integra ao OpenAI e a modelos compatíveis com OpenAI, incluindo decisões de provedor e segurança.</block>
+  <block id="7886cf4f03a683503e8235a0eef59e73" category="list-text">*Anthropic* para os modelos Claude da Anthropic.</block>
+  <block id="dc666edc3ed6edcb6babcae67d26fcd2" category="list-text">Faça o download do software de implantação local do Console a partir do <block ref="5574d9b8352359225831a51c7e6c17ee" category="inline-link-macro-rx"></block>.</block>
+  <block id="ad8f5be1c708f8e891508a0a9c643e0a" category="sidebar">NetApp Trust Center</block>
 </blocks>

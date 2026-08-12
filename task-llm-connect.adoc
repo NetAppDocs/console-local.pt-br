@@ -40,7 +40,6 @@ Antes de conectar seu LLM, reúna o seguinte:
 * Sua decisão quanto ao tipo de provedor: OpenAI ou compatível com OpenAI. link:concept-llm-integration.html["Conheça as opções de provedores."]
 * Uma chave de API válida para o caminho do provedor que você selecionar.
 * A URL do endpoint para o caminho do seu provedor.
-* A URL do seu proxy ou gateway, caso sua organização exija uma.
 * Seu nome de usuário ou ID de single sign-on (SSO) para a conta do provedor de LLM, se necessário.
 * Acesso à rede a partir da implantação local do NetApp Console para o endpoint selecionado.
 * Classes de armazenamento e controles de acesso baseados em funções para as ações do assistente que você planeja permitir.
