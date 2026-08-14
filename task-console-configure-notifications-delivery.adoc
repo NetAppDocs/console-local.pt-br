@@ -75,21 +75,6 @@ Se o teste falhar, verifique novamente as configurações inseridas e certifique
 
 
 
-[[remove-an-email-server-configuration]]
-=== Remover uma configuração de servidor de e-mail
-
-Você pode remover a configuração do servidor de e-mail se não quiser mais que a implantação local do NetApp Console envie e-mails.
-
-.Passos
-. Selecione *Administração > Console*.
-. Selecione *Configuração* para abrir a página de configuração do sistema.
-. Na seção *Servidor de e-mail*, selecione *Configurar*.
-. Selecione *Limpar campos* para limpar a configuração existente.
-. Selecione *Salvar* para salvar a configuração limpa, o que remove a configuração do servidor de e-mail da implantação local do Console.
-
-
-
-
 [[configure-a-webhook]]
 == Configurar um webhook
 

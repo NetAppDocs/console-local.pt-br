@@ -644,7 +644,6 @@
   <block id="651199ccd6df9afe47c1a01cb2014b9a" category="summary">Saiba como os alertas de armazenamento na implantação local do NetApp Console ajudam você a monitorar a integridade dos seus clusters ONTAP locais em toda a sua organização e frotas.</block>
   <block id="46dd71654e83b60d5a2b63a64c91c06b" category="doc">Saiba mais sobre alertas na implantação local do NetApp Console</block>
   <block id="96753cfc199c67944d48d5550d8a331e" category="paragraph">NetApp Console local gera alertas que identificam problemas de integridade em seus clusters ONTAP locais e para operações de NetApp Backup and Recovery.</block>
-  <block id="0f666f93d79761d7ae4fe8424d7a778b" category="paragraph">A implantação local do Console consolida alertas de clusters ONTAP e operações de Backup and Recovery em uma única visualização. A página de alertas inclui um painel, uma lista de alertas e uma visualização de sistemas, para que você possa revisar alertas em toda a organização ou restringi-los a uma frota ou sistema específico. Cada alerta identifica o sistema afetado, sua gravidade e sua área de impacto.</block>
   <block id="0855169a6f83f70eb10d05419bbd0b1b" category="paragraph">Utilize alertas na implantação local do Console para:</block>
   <block id="df580541dc1d5961973ae67dcad8ac67" category="list-text">Detectar problemas de capacidade, conectividade, proteção de dados, desempenho e segurança.</block>
   <block id="a412e02ff5572e68270492382a758d4c" category="list-text">Priorize os alertas por gravidade e área de impacto.</block>
@@ -653,27 +652,20 @@
   <block id="9b9ee1193cec05dc2a41ed3e6ece1ea0" category="list-text">Exporte a lista de alertas para um arquivo CSV para análise offline.</block>
   <block id="5992368e63ad83386054845741a8a33e" category="section-title">Gravidade do alerta e áreas de impacto</block>
   <block id="af16cc6229a519a3b6fda7956cf3bbb6" category="paragraph">Cada alerta inclui uma classificação de gravidade e uma área de impacto:</block>
-  <block id="a9c60291ee333f9f8b30a1d56049f2e3" category="list-text">*Gravidade* indica a urgência, da mais alta para a mais baixa: Crítica, Grave, Leve, Aviso e Informativa.</block>
-  <block id="8746c2cdf631ab24a14a3cef70775b09" category="list-text">*Área de impacto* identifica o domínio afetado: capacidade, conectividade, proteção de dados, desempenho e segurança.</block>
   <block id="b464c96719ac8e689bf809558b1fbfb1" category="section-title">Fontes e âmbito dos alertas</block>
-  <block id="6c6025ea2f97b33e2c486828e0d64c65" category="list-text">*Os alertas do ONTAP* têm origem no ONTAP Event Management System (EMS) nos clusters locais que a implantação local do Console descobriu. <block ref="9e05df594689e3a41c64bf5428dd8f1b" category="inline-link-macro-rx"></block></block>
   <block id="84a123db43de03103a06de7c20323cfc" category="inline-link-macro">Saiba mais sobre os alertas de NetApp Backup and Recovery.</block>
   <block id="ea0f0b01214b1b6564dedd1ccc0ef789" category="list-text">*Os alertas de NetApp Backup and Recovery* são originados por ações de Backup and Recovery. <block ref="ce19bb3d3f0370071bd0a63bda9b1cb0" category="inline-link-macro-rx"></block></block>
   <block id="8f7cb705f10a2a8a43e44be4e26bce29" category="list-text">Suas permissões determinam quais frotas você pode visualizar. Defina o escopo da visualização para toda a organização, uma frota específica ou um sistema individual. A guia *Integridade dos sistemas* mostra o status de cada sistema e a guia *Alertas* mostra a lista de alertas atual para o escopo selecionado.</block>
   <block id="e4512e69eb5052bb89ae3cb05beb2048" category="list-text">A exportação em CSV reflete o escopo atual, o texto da pesquisa e os filtros.</block>
-  <block id="357c988d7b614f4a678bdeab216e8c0d" category="section-title">Regras de notificação de alerta</block>
   <block id="0cd5a479aeee5c75de6058d04d42884c" category="paragraph">Crie regras de notificação para determinar quais alertas geram notificações e quem as recebe. Uma regra de notificação possui as seguintes características:</block>
   <block id="bd219bf7059c2b33f0ec554be065e6f1" category="list-text">Ele relaciona alertas do serviço (como gerenciamento do ONTAP ou NetApp Backup and Recovery), gravidade, área de impacto e sistema de destino.</block>
   <block id="b2f7eced90ff21e599ef62d0fb532997" category="list-text">Para o envio de e-mails, ele envia notificações para usuários com as funções de acesso especificadas. Para o envio via webhook, ele envia dados de alerta para o endpoint configurado; o acesso a esses dados é controlado pelo aplicativo receptor, não pela implantação local do Console.</block>
-  <block id="5969773a182e2f8badfffe0e0dba85f4" category="list-text">Aplica-se a sistemas específicos, não a frotas.</block>
   <block id="e4b0a25eea6bb99ae00f0d8840506e6a" category="list-text">Pode ser silenciado durante uma janela de manutenção planejada para suprimir alertas esperados.</block>
   <block id="4cf933aaee95403e05d1324cc29e0b21" category="paragraph">A implantação local do Console inclui uma regra de notificação padrão que é ativada imediatamente após a instalação. A regra padrão monitora todos os serviços e sistemas em busca de alertas de gravidade crítica e envia notificações apenas para a Central de Notificações do Console; o envio por e-mail ou webhook não é configurado até que você o configure. Você pode visualizar e ajustar essa regra, além de criar regras personalizadas para adequá-las ao seu ambiente.</block>
   <block id="31a344bb0e11e5a55503d8881257edf1" category="paragraph">Os alertas de nível informativo são visíveis na página de Alertas, mas não são enviados por notificação a menos que você crie explicitamente uma regra que inclua o nível de gravidade informativo.</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">Informações relacionadas</block>
   <block id="82a2d6c3a1797413a862c7f45ba90fc6" category="inline-link-macro">Monitorar e investigar alertas</block>
   <block id="c4b4941c3014489a62b6f0fd2b9cbe09" category="list-text"><block ref="c4b4941c3014489a62b6f0fd2b9cbe09" category="inline-link-macro-rx"></block></block>
-  <block id="bf4a2ffc2bbdd132b48f1c5434b4d680" category="inline-link-macro">Crie e gerencie regras de notificação de alerta</block>
-  <block id="d0dcba044d6a8dc4a29573e265cf2310" category="list-text"><block ref="d0dcba044d6a8dc4a29573e265cf2310" category="inline-link-macro-rx"></block></block>
   <block id="ae385747b29e51a9811e8ce7976b7c6b" category="inline-link-macro">Saiba mais sobre os alertas do ONTAP na implantação local do NetApp Console</block>
   <block id="e77eeb959a8d6ff16124b745150a7b75" category="list-text"><block ref="e77eeb959a8d6ff16124b745150a7b75" category="inline-link-macro-rx"></block></block>
   <block id="98a9a9e956c44874c27b78d15a00bb40" category="summary">Aprenda como os painéis predefinidos da página inicial e os painéis personalizados funcionam em conjunto na implantação local do NetApp Console.</block>
@@ -2333,49 +2325,30 @@
   <block id="53ccb7bd8c0be53a952139ebd4454132" category="paragraph-title">Funções de acesso necessárias</block>
   <block id="ab92140b4fca6a428c4d9dd6177333dc" category="paragraph">Superadministrador, administrador da organização, administrador de storage, analista de suporte de operações ou qualquer uma das funções administrativas do NetApp Backup and Recovery. <block ref="358dd7829c43f386bdd1bc16bf83b432" category="inline-link-macro-rx"></block>.</block>
   <block id="181c0a0c09dfe0f8ba7b3346903c6def" category="paragraph">Use regras de notificação para encaminhar os alertas certos para as pessoas certas pelos canais adequados ao seu ambiente, enquanto reduz o ruído de alertas que não são relevantes para você. As regras de notificação complementam a página de Alertas: você investiga ou resolve o alerta no fluxo de trabalho de Alertas e, em seguida, usa regras para controlar como alertas semelhantes são entregues no futuro.</block>
-  <block id="9d9e3ddcd0ba1071d2727b34998919fe" category="paragraph">Uma regra de notificação corresponde a alertas com base em condições definidas por você, como serviço, gravidade e área de impacto, e então envia uma notificação pelos canais que você selecionar. A implantação local do NetApp Console inclui regras de notificação padrão que você pode visualizar e ajustar, e você pode criar suas próprias regras personalizadas. Você também pode silenciar regras para suprimir temporariamente as notificações durante eventos planejados, como janelas de manutenção.</block>
   <block id="ef9e7cefa30ba8567d3175e4dd97d705" category="inline-link-macro">Configurar o envio de notificações</block>
   <block id="ed25804203fe0cfacd7338fe370fab02" category="list-text">Para enviar notificações por e-mail, o administrador da sua organização deve configurar um servidor de e-mail na implantação local do Console. Para enviar notificações para um sistema externo, o administrador da sua organização deve configurar um webhook. Para obter as etapas, consulte <block ref="672eea012e5868d936761017846dcdbf" category="inline-link-macro-rx"></block>.</block>
   <block id="6be1395fcc81300b6bceb20c8b98659a" category="list-text">O Centro de Notificações da implantação local do Console exibe notificações por padrão, portanto, nenhuma configuração adicional é necessária para notificações no console.</block>
   <block id="aa0688cb1a2561ce4a0b9e33ec24c385" category="section-title">Ver regras de notificação</block>
   <block id="3fd13d8d5fe12b342d50496d8c1b14ea" category="paragraph">A página de regras de notificação é o local central para revisar e gerenciar todas as regras aplicáveis à sua organização. Cada regra exibe seus principais atributos para que você possa avaliar e ajustar rapidamente o comportamento dos seus alertas.</block>
   <block id="994fd7486592f0f379c8f7c736e9858a" category="list-text">Na barra de navegação à esquerda, selecione *Saúde &gt; Alertas*.</block>
-  <block id="232cdeb16b6b2880fb174bcdb7470db1" category="list-text">Selecione *Configurações de notificação*.</block>
   <block id="3ea34819819081b3d79348ba42359018" category="list-text">Analise as regras na lista. Cada regra mostra seu status ativo, nome, os serviços e níveis de gravidade que monitora, as funções autorizadas a receber notificações, os canais de entrega habilitados, quando foi modificada pela última vez e qualquer período de silenciamento programado.</block>
   <block id="386565a9df34302963e2a006eda691f7" category="list-text">Para encontrar uma regra específica, use os controles de filtro e pesquisa para filtrar por status ativo, serviço, gravidade, função, canal ou status de silenciamento.</block>
   <block id="18fcc442133be306ba0fe4ee156658f9" category="section-title">Criar uma regra de notificação</block>
   <block id="91c2e6e70b23b2568543595701eead74" category="paragraph">Crie uma regra de notificação para definir as condições que acionam uma notificação e como essa notificação é entregue.</block>
-  <block id="aa9b63f1bf13ee27e6302024b407c536" category="admonition">Não é possível definir regras de notificação para frotas. Você só pode defini-las para sistemas específicos. Em ambientes grandes com muitos sistemas, considere criar regras mais abrangentes por gravidade, em vez de duplicar regras por sistema. Por exemplo, uma regra Crítica que abranja todos os sistemas funciona como uma regra geral, com regras adicionais direcionadas para sistemas que precisam de roteamento ou destinatários diferentes.</block>
   <block id="6a1b057cf8bcf8cfcb7fd2f2e5190889" category="paragraph-title">Exemplo de regra de notificação para alertas críticos em todos os sistemas</block>
-  <block id="df54dc817bfa65461d11b98d1e80e8dd" category="paragraph">Suponha que você queira garantir que nenhum alerta crítico passe despercebido, independentemente do sistema de origem. Você pode criar uma regra abrangente que encaminhe todos os alertas críticos para a Central de Notificações do NetApp Console para administradores de storage.</block>
   <block id="4bbe632b2568b2274341aa0b83187f54" category="paragraph">Neste exemplo, você cria uma regra com as seguintes configurações:</block>
   <block id="61cf57ee3e9221a4a1af8b64894c7068" category="list-text">*Serviços*: todos</block>
-  <block id="96c8440cf70ffc5c99d3b6537771f675" category="list-text">*Gravidade*: crítica</block>
-  <block id="c0eb8fd624cbe8c25fc9c9407c7efea7" category="list-text">*Função do IAM*: Administrador de armazenamento</block>
-  <block id="c59b712970cde5ff67eb6de5c8da29fa" category="list-text">*Sistema*: (Deixe este campo em branco para aplicar a todos os sistemas)</block>
-  <block id="60d59c713d87c9724aa352ce6a1b5b34" category="list-text">*Método de entrega*: Central de Notificações do Console</block>
   <block id="24d167f15a64099d232cbac6cb917eaa" category="paragraph">Com essa regra implementada, os administradores de storage veem uma notificação no NetApp Console para cada alerta crítico em todos os sistemas. Essa regra serve como base, que você pode complementar com regras mais específicas.</block>
   <block id="04a7d6a2d7e7d71268015fdcc29916b9" category="paragraph-title">Exemplo de uma regra de notificação direcionada para alertas de capacidade de administrador de storage</block>
   <block id="87d32c9b50b31ec68f42710a8b498763" category="paragraph">Suponha que seus administradores de storage precisem responder imediatamente a problemas críticos de capacidade em um sistema de produção específico, mas você não queira que alertas de menor gravidade inundem suas caixas de entrada. Você pode criar uma regra direcionada que envie e-mails aos administradores de storage somente quando um alerta crítico de capacidade for acionado nesse sistema.</block>
-  <block id="8d5c68803a7483180c2f579d68754ca3" category="list-text">*Serviços*: gerenciamento do ONTAP</block>
-  <block id="d76c9afc46a2bb4ffe8c662d24c3edbe" category="list-text">*Área de impacto*: Capacidade</block>
-  <block id="50d993cad5510cc3b2bb8e1d14be3848" category="list-text">*Sistema*: &lt;system_name&gt;</block>
-  <block id="c809d6a68c232dcd6de973aa0339cb80" category="list-text">*Método de entrega*: e-mail</block>
   <block id="252e427d2b81f9a3381633ba3969aa27" category="paragraph">Com essa regra em vigor, a implantação local do NetApp Console envia e-mails para todos os administradores de storage do sistema especificado quando ocorre um alerta de capacidade crítica. Alertas com menor gravidade, como aviso ou informativo, não geram e-mail, assim a equipe pode se concentrar nos problemas que exigem atenção urgente.</block>
-  <block id="4c63fbe84255b1ec2a74b41ab272605d" category="list-text">Selecione *Configurações de notificação* e, em seguida, selecione *Adicionar regra*.</block>
   <block id="250976a2b8b2604800b3ad0e6e3ef5f3" category="list-text">Defina as condições que a regra corresponde:</block>
   <block id="de50f3dcf9e49c743a0a88531b406dab" category="list-text">*Nome da regra*: insira um nome conciso e descritivo. Este campo é obrigatório.</block>
   <block id="00d401a946554da9480911973c7c00c1" category="list-text">*Descrição da regra*: opcionalmente, insira contexto adicional sobre o propósito da regra.</block>
   <block id="3b715376b628913b6afe9e9e38110dfb" category="list-text">*Serviços*: selecione um ou mais serviços ONTAP ou de plataforma aos quais a regra se aplica.</block>
   <block id="59748e8bb2446fd93cbff6d3aafaea68" category="list-text">*Funções*: selecione as funções de acesso que os usuários devem ter para receber notificações quando a regra for acionada.</block>
   <block id="1c176ff939cc688d8fcbfca4a11a6d45" category="list-text">*Níveis de gravidade*: selecione quais níveis de gravidade a regra monitora, como Crítico, Aviso, Erro ou Informação.</block>
-  <block id="077f073ee19af6e75c93d302db769b91" category="list-text">*Área de impacto*: selecione as áreas operacionais para corresponder, como Capacidade ou Desempenho.</block>
-  <block id="beb055f49bc5e9306f77d5676880c887" category="list-text">*Nome do alerta*: selecione os tipos de alerta específicos que acionam a regra.</block>
-  <block id="f7689ae17ad0ec5b65160f8cab6da1a8" category="list-text">*Sistema*: selecione o contexto do sistema ao qual a regra se aplica.</block>
   <block id="99194c98d427b169878eeb0ceba35480" category="list-text">Selecione os canais de entrega para a notificação:</block>
-  <block id="5112c21de19690f21dfd0064336fe8de" category="list-text">*E-mail*: envia e-mails de alerta para usuários que possuem as funções selecionadas. Requer um servidor de e-mail configurado.</block>
-  <block id="b1e0543a1c0bcd7043c7a36363478e54" category="list-text">*Webhook*: envia dados de alerta para um sistema externo. Requer selecionar uma integração de webhook configurada.</block>
-  <block id="08eea354ae8007e70c04ae40c4189cae" category="list-text">*Central de Notificações do Console*: exibe alertas em tempo real para usuários que possuem as funções selecionadas.</block>
   <block id="86762968ec8f9332f58d8c0a6a2aa88f" category="list-text">Opcionalmente, para suprimir as notificações desta regra durante um período planejado, como uma janela de manutenção, defina um agendamento *Silenciar notificações* e escolha uma recorrência se você quiser que o período de silenciamento se repita. Você pode adicionar várias janelas de silenciamento por regra, o que é útil para ciclos de manutenção recorrentes, como a aplicação de patches semanais.</block>
   <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">Selecione *Criar*.</block>
   <block id="097f6ad8650956a694d1f6618a1835bc" category="section-title">Ativar ou desativar uma regra de notificação</block>
@@ -2408,7 +2381,6 @@
   <block id="38f6a4f788dc0bd7558156d75efe8105" category="paragraph">Monitore e investigue alertas na implantação local do NetApp Console para manter seu armazenamento íntegro e minimizar interrupções.</block>
   <block id="521327c34bbf46075820c1d409196127" category="paragraph">Visualize alertas ativos em toda a sua organização ou em uma frota específica, priorize-os por gravidade e área de impacto e investigue as causas principais para que você possa resolver problemas antes que eles escalem. Quando um alerta inclui uma ação recomendada ou a opção Fix It, você pode passar da investigação diretamente para a remediação.</block>
   <block id="e7738982e1706c423ed1dc4d154a847c" category="paragraph-title">Função de acesso necessária</block>
-  <block id="cbfb02cc13518d81307068ccf3ad42c2" category="paragraph">Todas as funções, exceto administrador da Federação e visualizador da Federação. Usuários com a função de administrador da Federação ou visualizador da Federação não podem visualizar alertas. <block ref="358dd7829c43f386bdd1bc16bf83b432" category="inline-link-macro-rx"></block>.</block>
   <block id="8925988857ff65e89454a4eb593456c2" category="paragraph">Para os alertas do ONTAP, você pode acessar ferramentas como o System Manager e o Workload Analyzer diretamente da página de Alertas para investigar e resolver problemas.</block>
   <block id="375606b0ccfefde5bee17bc22b7d863d" category="paragraph">Para relatórios externos, você pode exportar a lista de alertas para um arquivo CSV para análise offline.</block>
   <block id="fc55a582a8dba8c098b8ae6afe46eb47" category="inline-link-macro">Saiba como configurar notificações de alerta</block>
@@ -2426,7 +2398,6 @@
   <block id="8ba926ef4f90ffefbd189d250c5b3d19" category="list-text">Filtre o painel de acordo com os alertas que você precisa visualizar, incluindo:</block>
   <block id="3f4983c4d6a52d72256e16993979c96e" category="list-text">Gravidade (Crítica, Atenção ou Informativa)</block>
   <block id="cef4a8d30c1b18c6e2bed3dedd59f542" category="list-text">Alertas críticos agrupados por área de impacto</block>
-  <block id="6efcfe6a265e05264d40d3dda6f3a76e" category="list-text">Área de impacto (Segurança, Proteção, Disponibilidade, Desempenho, Capacidade ou Configuração)</block>
   <block id="856fb1b715c481e17f07d981ccc7ebf4" category="section-title">Ver todos os alertas</block>
   <block id="69eb2dcfcf0f3a463a90960e81522f1e" category="paragraph">Use a guia Alertas para visualizar a lista completa de alertas ativos para o escopo que você selecionou. A lista é atualizada para refletir o escopo atual da organização ou frota, e você pode pesquisar na lista alertas específicos por nome ou descrição.</block>
   <block id="b86d6a92a51eed6dfd9938fac60df907" category="list-text">Selecione a aba *Alertas* para visualizar a lista completa de alertas ativos para o escopo selecionado.</block>
@@ -2438,7 +2409,6 @@
   <block id="65f78453bc07f64ca861c0ecfe39b780" category="list-text">Selecione a guia *Saúde do sistema* para visualizar um resumo dos alertas associados aos sistemas dentro do escopo que você selecionou.</block>
   <block id="42e73fcad32a3ab24bb2fab9280da0d9" category="list-text">Selecione *Exibir alertas* na linha do respectivo sistema para visualizar a lista completa de alertas ativos associados a esse sistema.</block>
   <block id="0dc68aa31a49ba83f70b63f2b13bd416" category="section-title">Investigar um alerta</block>
-  <block id="34419c92550cbb45bc553b2679b6cf50" category="paragraph">Você pode investigar um alerta para ver o que o desencadeou e quem recebeu a notificação.</block>
   <block id="b00e88e4dda7b3a7db43247892b70bdf" category="paragraph">Ao investigar um alerta do ONTAP, você também pode acessar diretamente a interface do System Manager do sistema que gerou o alerta para visualizar detalhes adicionais e tomar as medidas necessárias.</block>
   <block id="23c5bc9e250e82c9b5bf441030d5bdd6" category="list-text">Em qualquer uma das abas, selecione o nome do alerta que você deseja investigar para visualizar seus detalhes.</block>
   <block id="9f64c529078a13eebc43993d1ac578d4" category="inline-image-macro">Ver detalhes do alerta</block>
@@ -2612,10 +2582,6 @@
   <block id="5b7fa871f0c8458f8606108c4cfd4e0f" category="list-text">Selecione *Limpar campos* para limpar a configuração existente.</block>
   <block id="a3013708d2cf8c341a84dca962344504" category="list-text">Insira os novos detalhes de conexão para o seu servidor de e-mail.</block>
   <block id="21023e438743ec26a85fc29888772fe0" category="list-text">Após o teste ser bem-sucedido, selecione *Salvar* para salvar a nova configuração.</block>
-  <block id="102683a93268c2aad1e3d9ec49c6f6ce" category="section-title">Remover uma configuração de servidor de e-mail</block>
-  <block id="4ce419a04c17b42f5c371b2953946ebf" category="paragraph">Você pode remover a configuração do servidor de e-mail se não quiser mais que a implantação local do NetApp Console envie e-mails.</block>
-  <block id="d36c245423608ab3299af01950915d86" category="list-text">Selecione *Configuração* para abrir a página de configuração do sistema.</block>
-  <block id="b41468ddb6280e56c1f532bdaa2a21c4" category="list-text">Selecione *Salvar* para salvar a configuração limpa, o que remove a configuração do servidor de e-mail da implantação local do Console.</block>
   <block id="6a254a34bb4844c3f68630aa0250b116" category="section-title">Configurar um webhook</block>
   <block id="f19efafccb40e70e49d027a90324485e" category="paragraph">Configure webhooks para enviar notificações da implantação local do Console para outras ferramentas ou serviços. Você pode configurar vários webhooks, cada um apontando para um endpoint diferente. Por exemplo, um para um SIEM e outro para um serviço de paginação de plantão.</block>
   <block id="40654a9753bb71b1c30d40fe1fcb0377" category="paragraph">Após criar um webhook, os usuários com a função de administrador de armazenamento podem atribuí-lo a regras de alerta específicas. Por exemplo, eles podem enviar alertas críticos por e-mail enquanto enviam todos os alertas para uma ferramenta de monitoramento de terceiro por meio de um webhook.</block>
@@ -3215,7 +3181,6 @@
   <block id="336e4351e57a856f458961abc5062751" category="list-text">Sua decisão quanto ao tipo de provedor: OpenAI ou compatível com OpenAI. <block ref="78f935c14127e9543a594b2e8112c798" category="inline-link-macro-rx"></block></block>
   <block id="d8bd49d8fe4a0de7a2b03c1aec99e88b" category="list-text">Uma chave de API válida para o caminho do provedor que você selecionar.</block>
   <block id="12415726cf97af159e3e05710842f040" category="list-text">A URL do endpoint para o caminho do seu provedor.</block>
-  <block id="0a3c869dbd390ca2cdefafd338d2cf3d" category="list-text">Seu nome de usuário ou ID de single sign-on (SSO) para a conta do provedor de LLM, se necessário.</block>
   <block id="cfe024af8356a3decd0f09b47eff88fa" category="list-text">Acesso à rede a partir da implantação local do NetApp Console para o endpoint selecionado.</block>
   <block id="1f3d7608a574b42ba681dcef64704661" category="list-text">Classes de armazenamento e controles de acesso baseados em funções para as ações do assistente que você planeja permitir.</block>
   <block id="6d4074b2f4345e60985cf590c19c3368" category="section-title">Conectar um LLM ao NetApp Console em uma implantação local</block>
@@ -3235,9 +3200,6 @@
   <block id="1de83f5da1c16cfca8ca9ae1534dcf3b" category="paragraph"><block ref="263da31548d1ff54f99ec1ad656a62e4" category="inline-link-macro-rx"></block>.</block>
   <block id="4e0ef856d01b17ebeacb44ab6e813a5b" category="section-title">Verifique se a integração do LLM funciona</block>
   <block id="649811a3ff05f0c93f06c2fdaa3bbeed" category="paragraph">Após salvar a configuração, verifique a disponibilidade e o comportamento do assistente.</block>
-  <block id="d7f8652c7bc65256b550f9446fb404f0" category="list-text">Confirme se o botão *Assistente do Console* aparece no painel de implantação local do NetApp Console.</block>
-  <block id="32755bc8ea4985295f55809c96237bd0" category="list-text">Abra o assistente no modo *Somente leitura* e execute uma consulta básica.</block>
-  <block id="6a0aa36fa7b572549e4bf529b93925a4" category="list-text">Abra o assistente no modo *Leitura/gravação* e confirme que as ações que alteram o storage exigem confirmação do usuário antes da execução.</block>
   <block id="b9218edb7fcba77407a69cc8446ba839" category="list-text">Verifique se os usuários que precisam executar fluxos de trabalho têm os controles de acesso baseado em funções necessários.</block>
   <block id="3bc0e23bd46bad08da1876b2cc4430a7" category="inline-link-macro">Use o assistente do NetApp Console</block>
   <block id="7d69bfcb234231881e32fc0c2d9f1364" category="paragraph">Após concluir a validação, os usuários podem abrir o assistente do Console no painel e descrever tarefas em linguagem simples. Para exemplos de uso e fluxos de trabalho do usuário final, consulte <block ref="c8bbfbc1e29e08fb75792570f8da2288" category="inline-link-macro-rx"></block>.</block>
@@ -3755,4 +3717,35 @@
   <block id="7886cf4f03a683503e8235a0eef59e73" category="list-text">*Anthropic* para os modelos Claude da Anthropic.</block>
   <block id="dc666edc3ed6edcb6babcae67d26fcd2" category="list-text">Faça o download do software de implantação local do Console a partir do <block ref="5574d9b8352359225831a51c7e6c17ee" category="inline-link-macro-rx"></block>.</block>
   <block id="ad8f5be1c708f8e891508a0a9c643e0a" category="sidebar">NetApp Trust Center</block>
+  <block id="86fe53164e7d48e6addafc1fcdf26111" category="paragraph">A implantação local do console consolida alertas dos clusters ONTAP e operações de backup e recuperação em uma única visualização. A página de alertas inclui um painel, uma lista de alertas e uma visualização que exibe alertas em todos os sistemas da organização. Cada alerta identifica o sistema afetado, sua gravidade e sua área de impacto.</block>
+  <block id="fe055be6fd6957c00b782e6ba2e57773" category="list-text">*Gravidade* indica a urgência, da mais alta para a mais baixa: crítica, alerta e informativa.</block>
+  <block id="60e4151f41d4a03ae921c4866360316f" category="list-text">*Área de impacto* identifica o domínio afetado: disponibilidade, capacidade, configuração, desempenho, proteção e segurança.</block>
+  <block id="4f4677e32164d37927668f239193f729" category="list-text">*Alertas do ONTAP* têm origem no ONTAP Event Management System (EMS) nos clusters locais que a implantação local do Console descobriu, assim como nas métricas de monitoramento coletadas do ONTAP. <block ref="9e05df594689e3a41c64bf5428dd8f1b" category="inline-link-macro-rx"></block></block>
+  <block id="b9ce699225d62badaa143b23f2a286ac" category="section-title">Regras de notificação</block>
+  <block id="a9dd2aada57993b6f95023192190ead8" category="list-text">Aplica-se a todos os sistemas da organização.</block>
+  <block id="a7ba1daf0536691400747397351ab72f" category="inline-link-macro">Crie e gerencie regras de notificação</block>
+  <block id="4bdf746b4e7f6e6dfeb75b163f3de933" category="list-text"><block ref="4bdf746b4e7f6e6dfeb75b163f3de933" category="inline-link-macro-rx"></block></block>
+  <block id="6449f494e438a56acab5430a8fa9d46f" category="paragraph">Uma regra de notificação corresponde a alertas com base em condições que você define, como serviço, gravidade e área de impacto, e então entrega uma notificação pelos canais que você seleciona. A implantação local do Console inclui uma regra de notificação padrão que você pode visualizar e ajustar, e você pode criar suas próprias regras personalizadas. Você também pode silenciar regras para suprimir temporariamente notificações durante eventos planejados, como janelas de manutenção.</block>
+  <block id="e35f5087596b0e7233f53786114a613a" category="admonition">As regras de notificação aplicam-se a todos os sistemas da organização.</block>
+  <block id="192722772d82aacac1ca6123672325c6" category="paragraph">Suponha que você queira garantir que nenhum alerta crítico passe despercebido, independentemente do sistema de origem. Você pode criar uma regra abrangente que direcione todos os alertas críticos para as notificações da interface do usuário do Console para administradores de armazenamento.</block>
+  <block id="d7ccc5bae6b4903d6c255b3b045a4e55" category="list-text">*Nível de gravidade*: Crítico</block>
+  <block id="423dffa169e3740d81b0a59fd14bc925" category="list-text">*Funções*: storage admin</block>
+  <block id="3ee7a18f4aab3d155275f688c812b12b" category="list-text">*Canais de entrega*: notificações da interface do usuário do console</block>
+  <block id="7c20f1cc356d3fb78cba60fb83153974" category="list-text">*Serviços*: Gestão do ONTAP</block>
+  <block id="830f3e0189ace7d0a984dfbb36e2fdc7" category="list-text">*Áreas de impacto*: Capacidade</block>
+  <block id="1be5a6074654d08ae3538b278b8a8485" category="list-text">*Canais de entrega*: email</block>
+  <block id="c922d0c540b57d391bd538d480dfc9cd" category="list-text">Selecione *Regras de notificação* e, em seguida, selecione *Adicionar regra*.</block>
+  <block id="a988d3b5adb4dd67097b18a868770bb4" category="list-text">*Áreas de impacto*: selecione as áreas operacionais correspondentes, como Capacidade ou Desempenho.</block>
+  <block id="867364563b61efd0618777d3d71d7f8f" category="list-text">*Alertas*: indica que todos os alertas serão notificados conforme a política.</block>
+  <block id="576412b3f5d3de4868980e97973e7d8b" category="list-text">*Sistemas*: indica que os alertas relatados em todos os sistemas da organização serão notificados conforme a política.</block>
+  <block id="ee71ff4f683cea1809ca49786f486a63" category="list-text">*Notificações por e-mail*: envia alertas por e-mail para usuários que possuem as funções selecionadas. Requer um servidor de e-mail configurado.</block>
+  <block id="9d127813c946fea889954dd0fde53b15" category="list-text">*Integrações de webhook*: envia dados de alerta para um sistema externo. Requer selecionar uma integração de webhook configurada.</block>
+  <block id="3896fb60fecaecbb0615fc54dd14d98a" category="list-text">*Notificações da interface do usuário do console*: exibe notificações em tempo real para usuários que possuem as funções selecionadas.</block>
+  <block id="c12f8f1d006dc546dc07a83b341eb41d" category="paragraph">Todas as funções. Os alertas são exibidos apenas para recursos que você está autorizado a visualizar. Se você não vir um recurso na lista de recursos disponíveis, você não tem permissão para visualizar os alertas dele. <block ref="358dd7829c43f386bdd1bc16bf83b432" category="inline-link-macro-rx"></block>.</block>
+  <block id="038da7e0743ee2312ac64e6eca9d2b12" category="list-text">Área de impacto (Disponibilidade, Capacidade, Configuração, Desempenho, Proteção ou Segurança)</block>
+  <block id="15dabf59f40706e7567510f6c6998de1" category="list-text">Alertas de desvio para ver apenas alertas causados por desvio de configuração</block>
+  <block id="6c630ee602118044ab23bd89b0b79149" category="paragraph">Você pode investigar um alerta para ver o que o desencadeou.</block>
+  <block id="30ed16d592d987bc97f9c257fb0d026c" category="list-text">Seu nome de usuário ou ID para a conta do provedor do LLM, se necessário.</block>
+  <block id="e90cfbea605d047e2c768be5cc0d5d90" category="list-text">Abra o *Assistente de console* no modo *somente leitura* e execute uma consulta básica.</block>
+  <block id="ddbbb4fd6daa8474cc88e6beb3919a85" category="list-text">Abra o *Assistente de console* no modo *Leitura/gravação* e confirme que as ações que alteram o armazenamento exigem confirmação do usuário antes da execução.</block>
 </blocks>

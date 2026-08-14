@@ -19,7 +19,7 @@ Monitore e investigue alertas na implantação local do NetApp Console para mant
 Visualize alertas ativos em toda a sua organização ou em uma frota específica, priorize-os por gravidade e área de impacto e investigue as causas principais para que você possa resolver problemas antes que eles escalem. Quando um alerta inclui uma ação recomendada ou a opção Fix It, você pode passar da investigação diretamente para a remediação.
 
 .Função de acesso necessária
-Todas as funções, exceto administrador da Federação e visualizador da Federação. Usuários com a função de administrador da Federação ou visualizador da Federação não podem visualizar alertas. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
+Todas as funções. Os alertas são exibidos apenas para recursos que você está autorizado a visualizar. Se você não vir um recurso na lista de recursos disponíveis, você não tem permissão para visualizar os alertas dele. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
 
 Para os alertas do ONTAP, você pode acessar ferramentas como o System Manager e o Workload Analyzer diretamente da página de Alertas para investigar e resolver problemas.
 
@@ -60,7 +60,8 @@ Você pode filtrar o painel para se concentrar em alertas críticos ou alertas p
 +
 ** Gravidade (Crítica, Atenção ou Informativa)
 ** Alertas críticos agrupados por área de impacto
-** Área de impacto (Segurança, Proteção, Disponibilidade, Desempenho, Capacidade ou Configuração)
+** Área de impacto (Disponibilidade, Capacidade, Configuração, Desempenho, Proteção ou Segurança)
+** Alertas de desvio para ver apenas alertas causados por desvio de configuração
 
 
 
@@ -111,7 +112,7 @@ Você pode visualizar alertas para um sistema específico dentro de uma frota ou
 [[investigate-an-alert]]
 == Investigar um alerta
 
-Você pode investigar um alerta para ver o que o desencadeou e quem recebeu a notificação.
+Você pode investigar um alerta para ver o que o desencadeou.
 
 Ao investigar um alerta do ONTAP, você também pode acessar diretamente a interface do System Manager do sistema que gerou o alerta para visualizar detalhes adicionais e tomar as medidas necessárias.
 
