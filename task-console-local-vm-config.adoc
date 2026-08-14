@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-console-local-vm-config.html 
-keywords: Console local VM, vcenter, esxi, increase cpu, increase ram, vm maintenance, Console local maintenance, Console local operating system, Console local host 
-summary: Você pode fazer alterações no seu vCenter ou host ESXi existente após implantar o Console local deployment. Por exemplo, você pode aumentar a CPU ou a RAM da instância de VM que hospeda o Console local deployment. 
+keywords: Console local VM, vcenter, esxi, vm maintenance, Console local maintenance, Console local operating system, Console local host 
+summary: Você pode fazer alterações no seu vCenter ou host ESXi existente após implantar o Console local deployment. 
 ---
 = Mantenha seu vCenter ou host ESXi para implantação local do NetApp Console
 :hardbreaks:
@@ -14,11 +14,10 @@ summary: Você pode fazer alterações no seu vCenter ou host ESXi existente ap�
 
 
 [role="lead"]
-Na implantação local do NetApp Console, você pode fazer alterações no seu VCenter ou host ESXi existente após implantar o Console local deployment. Por exemplo, você pode aumentar a CPU ou a RAM da instância de VM que hospeda o Console local deployment.
+Na implantação local do NetApp Console, você pode fazer alterações no seu VCenter ou host ESXi existente após implantar o Console local deployment.
 
 Execute essas tarefas de manutenção usando o console web da VM:
 
-* Aumentar o tamanho do disco
 * Reinicie a implantação local do NetApp Console
 * Atualizar rotas estáticas
 * Atualizar domínios de pesquisa
@@ -55,37 +54,6 @@ Você pode alterar a senha do usuário  `maint`.
 . Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
 . Digite  `1` para ver o  `System Configuration` menu.
 . Digite `1` para alterar a senha do usuário de manutenção e siga as instruções na tela.
-
-
-
-
-[[increase-the-cpu-or-ram-of-the-vm-instance]]
-=== Aumente a CPU ou a RAM da instância da máquina virtual
-
-Você pode aumentar a CPU ou a RAM da instância da máquina virtual que hospeda a implantação local do Console.
-
-Edite as configurações da instância da máquina virtual no seu vCenter ou host ESXi e, em seguida, use o Console de manutenção para aplicar as alterações.
-
-.Etapas no cliente VSphere
-. Abra o cliente VSphere e faça login no seu vCenter.
-. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
-. Clique com o botão direito do mouse na instância da máquina virtual e selecione *Editar configurações*.
-. Aumente o espaço em disco rígido usado para /opt ou para a partição /var.
-+
-.. Selecione *Disco Rígido 2* para aumentar o espaço em disco rígido usado para /opt.
-.. Selecione *Disco Rígido 3* para aumentar o espaço em disco rígido usado para /var.
-
-
-. Salve suas alterações.
-
-
-.Etapas no console de manutenção
-. Abra o cliente VSphere e faça login no seu vCenter.
-. Selecione a instância de máquina virtual que hospeda a implantação local do Console.
-. Selecione *Launch Web Console*.
-. Faça login na instância da máquina virtual usando o nome de usuário e a senha que você especificou ao criar a instância da máquina virtual. O nome de usuário é  `maint` e a senha é a que você especificou ao criar a instância da máquina virtual.
-. Digite  `1 to view the `System Configuration`menu.
-. Digite  `2` e siga as instruções na tela. O console verifica se há novas configurações e aumenta o tamanho das partições.
 
 
 

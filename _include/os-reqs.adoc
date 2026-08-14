@@ -30,6 +30,15 @@ O agente do Console requer este espaço em `/var` porque o Docker ou o Podman s�
 * vSphere 7.0u3 ou superior, com versão de hardware virtual 19 ou superior
 
 
+[NOTE]
+====
+* A CPU e a memória são reservadas no host ESXi quando a VM é ligada, não apenas alocadas. Certifique-se de que o host de destino tenha pelo menos 16 núcleos de CPU e 64 GB disponíveis como capacidade não reservada. Reservas de VM existentes no host reduzem a capacidade disponível.
+* O datastore deve atender ao desempenho mínimo de gravação em disco: latência de gravação fsync p99 ≤ 20 ms e IOPS de gravação aleatória 4K ≥ 200. Latência acima de 50 ms ou IOPS abaixo de 30 causam falha na implantação.
+* O IPv6 não é suportado. É necessário um endereço IPv4 estático.
+* Instale o NetApp Console em uma implantação local em um ambiente vCenter, em vez de diretamente em um host ESXi.
+
+
+====
 
 NOTE: O agente do Console reserva o intervalo de UID e GID de 19000 a 19200. Esse intervalo é fixo e não pode ser modificado. Se qualquer software de terceiro em seu host estiver usando UIDs ou GIDs dentro desse intervalo, a instalação do agente falhará. NetApp recomenda usar um host livre de software de terceiro para evitar conflitos.
 
