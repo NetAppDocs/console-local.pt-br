@@ -48,7 +48,6 @@ Certifique-se de que sua máquina host atenda aos requisitos de instalação ant
 
 
 [[set-up-network-access-for-the-netapp-console-local-deployment]]
-[[network-access-agent]]
 === Configure o acesso à rede para a implantação local do NetApp Console
 
 NetApp Console local deployment utiliza um espaço de endereçamento fixo para a comunicação entre serviços. Os intervalos de endereço IP 10.42.0.0/16 e 10.43.0.0/16 são usados para a rede interna. Antes de implantar o Console local deployment, certifique-se de que esses intervalos de endereço IP não estejam atribuídos a outras VMs, escopos DHCP, registros DNS ou pools de VIP de balanceadores de carga nas VLANs disponibilizadas para o Console local deployment.
