@@ -23,7 +23,7 @@ Você obtém gerenciamento de storage unificado, aplicação de políticas, auto
 [[deploy-and-operate-console-in-your-own-infrastructure]]
 == Implemente e opere o NetApp Console em sua própria infraestrutura
 
-NetApp Console local é implantado em sua própria infraestrutura, então sua equipe controla a implantação, a conectividade e as operações diárias. Você implanta o agente do Console, mantém a máquina virtual do Console e gerencia os caminhos de rede necessários para o tráfego de monitoramento e gerenciamento. Isso oferece aos administradores corporativos controle total dos limites operacionais, mantendo os dados de gerenciamento dentro do ambiente.
+NetApp Console local é implantado em sua própria infraestrutura, então sua equipe controla a implantação, a conectividade e as operações diárias. Isso oferece aos administradores corporativos controle total dos limites operacionais, mantendo os dados de gerenciamento dentro do ambiente.
 
 * link:task-install-agent-on-prem-ova.html["Instale o NetApp Console em uma implantação local usando um OVA no vCenter"].
 * link:task-console-local-vm-config.html["Mantenha seu vCenter ou host ESXi para implantação local do NetApp Console"].

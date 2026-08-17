@@ -1082,7 +1082,6 @@
   <block id="dbe73508391080b9a6912d86cd12081b" category="paragraph">A implantação local do NetApp Console permite que você hospede e execute o plano de controle autônomo do NetApp Console em sua própria infraestrutura.</block>
   <block id="beedafd761122a9080cda6f61cac7b4b" category="paragraph">Você obtém gerenciamento de storage unificado, aplicação de políticas, automação em escala de fleet e operações assistidas por IA. Nenhum dado, metadado ou tráfego de gerenciamento sai do seu ambiente.</block>
   <block id="67e0c8d8a0aad1277b006016dd82f25c" category="section-title">Implemente e opere o NetApp Console em sua própria infraestrutura</block>
-  <block id="10aa80cd468ec0811813d44ef98bca90" category="paragraph">NetApp Console local é implantado em sua própria infraestrutura, então sua equipe controla a implantação, a conectividade e as operações diárias. Você implanta o agente do Console, mantém a máquina virtual do Console e gerencia os caminhos de rede necessários para o tráfego de monitoramento e gerenciamento. Isso oferece aos administradores corporativos controle total dos limites operacionais, mantendo os dados de gerenciamento dentro do ambiente.</block>
   <block id="00a758ee2cda4e4890c0ee5cfce54b04" category="inline-link-macro">Instale o NetApp Console em uma implantação local usando um OVA no vCenter</block>
   <block id="3e3c94e96f9dd9a6b52f7e3bd29e96cd" category="list-text"><block ref="d8fb061273f01bc1c630b76c017340f0" category="inline-link-macro-rx"></block>.</block>
   <block id="dd67cc32b95952e9b3fce404242dfee2" category="inline-link-macro">Mantenha seu vCenter ou host ESXi para implantação local do NetApp Console</block>
@@ -1932,13 +1931,10 @@
   <block id="ad720d685bc721c408c448c0fe562369" category="summary">Referência para limitações conhecidas na implantação local do NetApp Console.</block>
   <block id="7ffe052f293422713268a6bb9df1fc9f" category="doc">Limitações conhecidas na implantação local do NetApp Console</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="paragraph">As limitações conhecidas identificam plataformas, dispositivos ou funções que não são compatíveis com esta versão do produto ou que não interoperam corretamente com ela. Analise estas limitações cuidadosamente.</block>
-  <block id="dceccbe9e562b7202ac801a976ca4d73" category="paragraph">Essas limitações são específicas da configuração do NetApp Console e da administração: o agente, a plataforma de software como serviço (SaaS) e outros.</block>
   <block id="360330c9adc975e1008000d1df74a468" category="section-title">Limitações da VM do NetApp Console</block>
   <block id="682a2eb88d49c213f5029c53633e10c9" category="section-title">Possível conflito com endereços IP nos intervalos 10.42.0.0/16 e 10.43.0.0/16</block>
   <block id="3b9690f89f4029f3b099f8b7c371b951" category="section-title">Hosts Linux compartilhados não são suportados</block>
-  <block id="55334f6c7481482659eaa1b0aef1601a" category="paragraph">O agente não é compatível com uma máquina virtual que é compartilhada com outros aplicativos. A máquina virtual deve ser dedicada ao software do agente.</block>
   <block id="5ef1446cf0ab868961d473d928c394d6" category="section-title">Agentes e extensões de terceiros</block>
-  <block id="08ea771e22fb933fc1428178b36eb902" category="paragraph">Agentes de terceiros ou extensões de VM não são suportados na VM do agente.</block>
   <block id="3d8cb3230f2a32ea6afadc9475030feb" category="summary">Referência para alertas do ONTAP monitorados na implantação local do NetApp Console, organizados por categoria de impacto.</block>
   <block id="a9a22f62e500b57a916841885d3320a2" category="doc">Referência de alertas do ONTAP na implantação local do NetApp Console</block>
   <block id="a3831fb324d31cc99ef99e375686386a" category="paragraph">Esta referência lista os alertas do ONTAP que a implantação local do NetApp Console pode monitorar, organizados por categoria de impacto.</block>
@@ -3094,7 +3090,6 @@
   <block id="5783f062ee67d1e08bcb603d908bec19" category="list-text">*Remover acesso de membro neste escopo*: Para um membro que tenha uma função definida diretamente nesta pasta ou frota, remova a função para revogar o acesso dele neste escopo. Isso não remove o membro da sua organização nem afeta as funções que ele possui em outros escopos.</block>
   <block id="1f68cc23ffd79d8b92a25e3163e1bcff" category="paragraph"><block ref="2b3106c38646014daf77549827b80860" category="inline-link-macro-rx"></block>.</block>
   <block id="24347b3ddf5a25cc9c27e54ae285ade1" category="list-text">Selecione *Aplicar*.</block>
-  <block id="54ead9f62e4ad67dbab07d7ac18a67c2" category="summary">Se você for usuário do VMware, pode usar um arquivo OVA para instalar um agente do Console no seu vCenter. O download ou a URL do OVA estão disponíveis por meio da NetApp Console implantação local.</block>
   <block id="732484ec48b3de6a355c4a8d10a6491f" category="paragraph">Você usa um arquivo OVA para instalar uma implantação local do NetApp Console no seu vCenter. O download ou a URL do OVA estão disponíveis no site de suporte da NetApp.</block>
   <block id="bfa61bc8df2f0d4cb1dd6df73376608c" category="section-title">Prepare-se para instalar o NetApp Console na implantação local</block>
   <block id="4e00644af1cd7d7ae6f52544a8dc1472" category="paragraph">Antes da instalação, certifique-se de que seu host de máquina virtual atenda aos requisitos e que a implantação local do NetApp Console possa acessar a internet e as redes de destino. Para usar os serviços de dados do NetApp, como o NetApp Backup and Recovery, crie credenciais do provedor de nuvem para que a implantação local do NetApp Console execute ações em seu nome.</block>
@@ -3750,4 +3745,7 @@
   <block id="924c6a9c613412a0e4058026aa89a86a" category="cell">API do Kubelet para o metrics-server e kube-apiserver para kubelet</block>
   <block id="50a807a194603f6075b05395337e3064" category="summary">Você pode fazer alterações no seu vCenter ou host ESXi existente após implantar o Console local deployment.</block>
   <block id="e137fee1052a69e09aea64b66a681285" category="paragraph">Na implantação local do NetApp Console, você pode fazer alterações no seu VCenter ou host ESXi existente após implantar o Console local deployment.</block>
+  <block id="c3bdc6c19998b310e22df96fbe31d526" category="paragraph">NetApp Console local é implantado em sua própria infraestrutura, então sua equipe controla a implantação, a conectividade e as operações diárias. Isso oferece aos administradores corporativos controle total dos limites operacionais, mantendo os dados de gerenciamento dentro do ambiente.</block>
+  <block id="8797fdac4224deac7f57143811175742" category="paragraph">NetApp Console local não é compatível com uma máquina virtual compartilhada com outros aplicativos. A máquina virtual deve ser dedicada à implantação local do NetApp Console.</block>
+  <block id="9d22f7f3fcf091469f2515885be2bfb9" category="paragraph">Agentes de terceiros ou extensões de VM não são suportados na VM de implantação local do NetApp Console.</block>
 </blocks>

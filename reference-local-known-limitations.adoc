@@ -16,8 +16,6 @@ summary: Referência para limitações conhecidas na implantação local do NetA
 [role="lead"]
 As limitações conhecidas identificam plataformas, dispositivos ou funções que não são compatíveis com esta versão do produto ou que não interoperam corretamente com ela. Analise estas limitações cuidadosamente.
 
-Essas limitações são específicas da configuração do NetApp Console e da administração: o agente, a plataforma de software como serviço (SaaS) e outros.
-
 
 
 [[console-vm-limitations]]
@@ -37,11 +35,11 @@ Consulte o artigo da Knowledge Base Agent IP conflict with existing network para
 [[shared-linux-hosts-are-not-supported]]
 === Hosts Linux compartilhados não são suportados
 
-O agente não é compatível com uma máquina virtual que é compartilhada com outros aplicativos. A máquina virtual deve ser dedicada ao software do agente.
+NetApp Console local não é compatível com uma máquina virtual compartilhada com outros aplicativos. A máquina virtual deve ser dedicada à implantação local do NetApp Console.
 
 
 
 [[third-party-agents-and-extensions]]
 === Agentes e extensões de terceiros
 
-Agentes de terceiros ou extensões de VM não são suportados na VM do agente.
+Agentes de terceiros ou extensões de VM não são suportados na VM de implantação local do NetApp Console.
