@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Os alertas são mantidos na implantação local do NetApp Console por 7 dias a partir do momento em que são gerados.
+
+
+NOTE: As notificações da interface do usuário do NetApp Console são mantidas por 24 horas.

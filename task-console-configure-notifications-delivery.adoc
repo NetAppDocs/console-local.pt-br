@@ -21,6 +21,9 @@ Superadministrador ou administrador da organização. link:reference-iam-predefi
 
 Por padrão, a implantação local do Console exibe notificações por meio de seu sistema de notificações incorporado. Configurar canais de entrega adicionais permite que você receba notificações da maneira que melhor se adapte ao seu fluxo de trabalho.
 
+
+NOTE: As notificações da interface do usuário do NetApp Console são mantidas por 24 horas.
+
 Você pode enviar todas as notificações pelos mesmos canais ou usar canais diferentes para diferentes tipos de notificação. Por exemplo, você pode enviar alertas urgentes de storage por e-mail enquanto direciona outros alertas para uma ferramenta de monitoramento de terceiro por meio de um webhook.
 
 Após configurar os canais de entrega de notificações, você pode configurar as regras de notificação e atribuí-las a diferentes canais link:task-alert-rules-manage.html["Aprenda como configurar regras de notificação"].

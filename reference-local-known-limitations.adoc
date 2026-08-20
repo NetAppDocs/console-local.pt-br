@@ -43,3 +43,19 @@ NetApp Console local não é compatível com uma máquina virtual compartilhada 
 === Agentes e extensões de terceiros
 
 Agentes de terceiros ou extensões de VM não são suportados na VM de implantação local do NetApp Console.
+
+
+
+[[identity-and-access-limitations]]
+== Limitações de identidade e acesso
+
+[cols="1,3"]
+|===
+| Área | Limitação 
+
+
+| Integração de usuários locais e recuperação de contas | É necessário configurar um servidor de e-mail SMTP antes de você poder convidar usuários locais ou usar a redefinição de senha para usuários locais. 
+
+
+| Integração com o Active Directory | Endereços de e-mail duplicados não são suportados entre usuários locais e usuários do Active Directory. Por exemplo, se o administrador local da organização posteriormente se adicionar como um usuário do Active Directory, ele deverá usar um endereço de e-mail diferente. 
+|===

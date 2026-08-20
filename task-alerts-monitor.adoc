@@ -26,6 +26,9 @@ Para os alertas do ONTAP, você pode acessar ferramentas como o System Manager e
 Para relatórios externos, você pode exportar a lista de alertas para um arquivo CSV para análise offline.
 
 
+NOTE: Os alertas são mantidos na implantação local do NetApp Console por 7 dias a partir do momento em que são gerados.
+
+
 NOTE: Você também pode configurar regras de notificação para receber alertas por e-mail ou webhook. link:task-alert-rules-manage.html["Saiba como configurar notificações de alerta"].
 
 

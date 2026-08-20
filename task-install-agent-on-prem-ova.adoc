@@ -108,11 +108,6 @@ Faça login no seu ambiente vCenter para implantar a implantação local do Cons
 
 ** *Configuração de Máquina Virtual*
 +
-*** *Ignorar verificação de configuração*: Esta caixa de seleção está desmarcada por padrão, o que significa que o NetApp Console implantação local executa uma verificação de configuração para validar o acesso à rede.
-+
-**** NetApp recomenda deixar esta caixa desmarcada para que a instalação inclua uma verificação de configuração da implantação local do NetApp Console. A verificação de configuração valida se a implantação local do NetApp Console tem acesso à rede aos endpoints necessários. Se a implantação falhar devido a problemas de conectividade, você pode acessar o relatório de validação e os logs no host da implantação local do NetApp Console. Em alguns casos, se você tiver certeza de que a implantação local do NetApp Console tem acesso à rede, pode optar por ignorar a verificação.
-
-
 *** *Senha de manutenção*: Defina a senha para o usuário  `maint` que permite o acesso ao console de manutenção da implantação local do NetApp Console.
 *** *Servidores NTP*: especifique um ou mais servidores NTP para sincronização de tempo.
 *** *Nome do host*: Defina o nome do host para esta VM. Ele não deve incluir o nome de domínio de pesquisa. Por exemplo, um FQDN como console10.searchdomain.company.com deve ser inserido como console10.

@@ -94,6 +94,9 @@ O Console envia instruções ao usuário por e-mail.
 
 
 
+NOTE: Os links de convite para usuários locais são de uso único e expiram após 7 dias. Se um link expirar antes que o usuário conclua a configuração, remova o usuário e adicione-o novamente para enviar um novo link de convite.
+
+
 
 [[add-a-service-account]]
 [[service-account]]

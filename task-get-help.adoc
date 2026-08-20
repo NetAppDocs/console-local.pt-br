@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-get-help.html 
-keywords: help, ticket, open support case, support, netapp support, technical support, call support, phone number, open ticket, web ticket, open an issue 
+keywords: help, ticket, open support case, support, netapp support, technical support, call support, open ticket, web ticket, open an issue 
 summary: 'NetApp oferece suporte para NetApp Console implantação local de diversas maneiras. Opções extensas e gratuitas de autoatendimento estão disponíveis 24x7, como artigos da base de conhecimento (KB) e um fórum da comunidade. Seu registro de suporte inclui suporte técnico remoto via sistema de tickets online.' 
 ---
 = Obtenha ajuda com a implantação local do NetApp Console
