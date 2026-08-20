@@ -3633,4 +3633,7 @@
   <block id="66ae36e07e30e4c89165201182d037be" category="cell">É necessário configurar um servidor de e-mail SMTP antes de você poder convidar usuários locais ou usar a redefinição de senha para usuários locais.</block>
   <block id="d433d6de6ccf389e02982430306a440f" category="cell">Endereços de e-mail duplicados não são suportados entre usuários locais e usuários do Active Directory. Por exemplo, se o administrador local da organização posteriormente se adicionar como um usuário do Active Directory, ele deverá usar um endereço de e-mail diferente.</block>
   <block id="3be37f60cf59fb4438b6120b07ffd2e9" category="admonition">Os links de convite para usuários locais são de uso único e expiram após 7 dias. Se um link expirar antes que o usuário conclua a configuração, remova o usuário e adicione-o novamente para enviar um novo link de convite.</block>
+  <block id="d2a0f46558d1ad15a1efcaa26aef1b39" category="inline-link">Conheça as diferenças entre a implantação local do NetApp Console, o NetApp Console SaaS e o modo privado</block>
+  <block id="fc43c258a671e0d243e8a95a48956300" category="paragraph"><block ref="a79ef635b40614d2cd5c555de517dd6f" category="inline-link-rx"></block>.</block>
+  <block id="4688d87a2acbed67ab6380ef3dbee717" category="paragraph"><block ref="dff1bfa50abe498b973310763c6748f5" category="inline-link-macro-rx"></block>.</block>
 </blocks>

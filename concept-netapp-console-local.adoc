@@ -18,6 +18,8 @@ A implantação local do NetApp Console permite que você hospede e execute o pl
 
 Você obtém gerenciamento de storage unificado, aplicação de políticas, automação em escala de fleet e operações assistidas por IA. Nenhum dado, metadado ou tráfego de gerenciamento sai do seu ambiente.
 
+link:console-differences.html["Conheça as diferenças entre a implantação local do NetApp Console, o NetApp Console SaaS e o modo privado"].
+
 
 
 [[deploy-and-operate-console-in-your-own-infrastructure]]
