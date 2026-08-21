@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-llm-connect.html 
 keywords: LLM, AI, connect, large language model, console assistant, openai, openai-compatible, proxy, netapp console 
-summary: Conecte o OpenAI ou um endpoint compatível com OpenAI para habilitar o assistente do Console e o gerenciamento assistido por IA na implantação local do NetApp Console. 
+summary: Conecte um endpoint de LLM compatível para habilitar o assistente do Console e o gerenciamento assistido por IA na implantação local do NetApp Console. 
 ---
 = Conecte seu LLM e habilite o assistente do NetApp Console na implantação local do NetApp Console
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Conecte o OpenAI ou um endpoint compatível com OpenAI para habilitar o
 
 
 [role="lead"]
-Conecte seu modelo de linguagem amplo (LLM) à implantação local do NetApp Console para habilitar o assistente do Console e o gerenciamento de storage assistido por IA.
+Conecte um endpoint LLM compatível para disponibilizar orientações e operações de storage em linguagem natural controladas aos usuários de implantação local do NetApp Console.
 
 
 NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
@@ -35,24 +35,23 @@ Para conectar seu LLM, selecione um caminho de provedor, insira os detalhes do e
 [[gather-what-you-need-before-you-connect-an-llm]]
 == Reúna tudo o que você precisa antes de conectar um LLM
 
-Antes de conectar seu LLM, reúna o seguinte:
+Prepare as credenciais do provedor e o acesso ao endpoint para que o assistente do NetApp Console possa operar dentro dos limites de governança configurados em sua organização.
 
-* Sua decisão quanto ao tipo de provedor: OpenAI ou compatível com OpenAI. link:concept-llm-integration.html["Conheça as opções de provedores."]
+* Sua decisão sobre o tipo de provedor: OpenAI, OpenAI-compatible ou Anthropic, conforme suportado pela release e pelo endpoint.
 * Uma chave de API válida para o caminho do provedor que você selecionar.
 * A URL do endpoint para o caminho do seu provedor.
 * Seu nome de usuário ou ID para a conta do provedor do LLM, se necessário.
 * Acesso à rede a partir da implantação local do NetApp Console para o endpoint selecionado.
-* Classes de armazenamento e controles de acesso baseados em funções para as ações do assistente que você planeja permitir.
 
 
-Para obter detalhes sobre os modelos compatíveis, consulte link:reference-llm-supported-models.html["Saiba mais sobre os provedores e modelos de LLM compatíveis na implantação local do NetApp Console"].
+link:reference-llm-supported-models.html["Saiba mais sobre os provedores e modelos de LLM compatíveis na implantação local do NetApp Console"].
 
 
 
 [[connect-an-llm-to-netapp-console-local-deployment]]
 == Conectar um LLM ao NetApp Console em uma implantação local
 
-Insira as configurações do provedor, a chave da API e o modelo para conectar seu LLM à implantação local do Console.
+Habilite as funcionalidades do assistente por meio de uma configuração de provedor validada, mantendo o controle administrativo sobre as credenciais do endpoint.
 
 .Passos
 . Faça login na implantação local do NetApp Console.
@@ -63,24 +62,21 @@ Insira as configurações do provedor, a chave da API e o modelo para conectar s
 link:concept-llm-integration.html["Saiba mais sobre a integração do LLM na implantação local do NetApp Console"].
 
 . Caso seja solicitado o endpoint do provedor, insira a URL do endpoint para o caminho do provedor que você selecionou.
-. Insira a URL e as credenciais do proxy ou gateway.
 . No campo *Nome de usuário*, insira seu nome de usuário ou ID de SSO se o caminho do seu provedor exigir isso.
 . No campo *Chave de API*, cole a chave de API do seu caminho de provedor selecionado.
 . Selecione um modelo da lista.
 . Revise a configuração e selecione *Salvar*.
 +
-Se a operação de salvar ou testar falhar, verifique o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado e tente novamente.
+Revise o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado antes de salvar a configuração.
 
 
-
-link:task-llm-troubleshoot-integration.html["Solucione problemas na integração do seu LLM"].
 
 
 
 [[verify-that-llm-integration-works]]
 == Verifique se a integração do LLM funciona
 
-Após salvar a configuração, verifique a disponibilidade e o comportamento do assistente.
+Confirme a disponibilidade do assistente e o comportamento de aprovação para que os usuários possam confiar na integração configurada para operações governadas.
 
 .Passos
 . Abra o *Assistente de console* no modo *somente leitura* e execute uma consulta básica.
@@ -88,15 +84,16 @@ Após salvar a configuração, verifique a disponibilidade e o comportamento do 
 . Verifique se os usuários que precisam executar fluxos de trabalho têm os controles de acesso baseado em funções necessários.
 
 
-Após concluir a validação, os usuários podem abrir o assistente do Console no painel e descrever tarefas em linguagem simples. Para exemplos de uso e fluxos de trabalho do usuário final, consulte link:task-console-asst-use.html["Use o assistente do NetApp Console"].
+Após concluir a validação, os usuários podem abrir o assistente do Console no painel e descrever tarefas em linguagem simples. link:task-console-asst-use.html["Saiba mais sobre o uso do assistente do NetApp Console"].
 
 
 
 [[protect-credentials-and-monitor-llm-usage]]
 == Proteja as credenciais e monitore o uso do LLM
 
+Proteja as credenciais do LLM e monitore a atividade do provedor para reduzir o uso não autorizado da integração e apoiar a governança organizacional.
+
 * Use uma chave de API dedicada para a integração de implantação local do Console sempre que possível.
 * Gire as chaves de API de acordo com a política da sua organização.
-* Restrinja quem pode editar as configurações do AI Tools apenas às funções de administrador necessárias.
-* Monitore o uso da API do lado do provedor e alertas para rastrear atividades anormais ou picos de custo.
+* Monitore o uso da API do lado do provedor e os alertas de acordo com os requisitos de governança da sua organização.
 

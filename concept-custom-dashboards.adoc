@@ -53,7 +53,7 @@ Saúde:: Estado de saúde, contagem de objetos degradados ou críticos, discos c
 Alertas:: Contagem de alertas críticos, alertas por gravidade, alertas por área de impacto, alertas recentes e tendências de alertas ao longo do tempo.
 
 
-Para um catálogo completo de cartões predefinidos e métricas, consulte link:reference-dashboard-card-templates.html["Saiba mais sobre cartões de dashboard personalizados e métricas na implantação local do NetApp Console"].
+link:reference-dashboard-card-templates.html["Consulte o catálogo de cartões de dashboard personalizados e métricas na implantação local do NetApp Console"].
 
 
 

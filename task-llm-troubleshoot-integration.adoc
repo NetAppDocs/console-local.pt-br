@@ -14,7 +14,7 @@ summary: Solucione problemas de integração do LLM na implantação local do Ne
 
 
 [role="lead"]
-Utilize este fluxo de triagem rápida para diagnosticar e resolver problemas comuns de integração do LLM na implantação local do NetApp Console.
+Diagnostique falhas de integração do LLM na implantação local do NetApp Console para restaurar o acesso ao assistente do Console e respostas confiáveis para orientação e operações de storage.
 
 
 NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
@@ -53,7 +53,7 @@ Execute uma solicitação simples de leitura e confirme a acessibilidade do endp
 | Salvar ou testar falha em Ferramentas de IA | Incompatibilidade de configuração ou conectividade | Tipo de provedor, URL do endpoint, formato da chave da API, modelo selecionado e acesso de saída | Corrija o valor que não passou na validação e salve novamente 
 
 
-| O botão *Console assistant* está faltando. | Status de integração inadequado, incompatibilidade organizacional ou incompatibilidade de RBAC | Salvamento bem-sucedido das ferramentas de IA, status de integração, organização atual e função de acesso esperada | Atualize a sessão e verifique com uma conta de administrador conhecida e válida 
+| O botão *Console assistant* está faltando. | Status de integração não saudável | Salvamento bem-sucedido das ferramentas de IA, status de integração e função de acesso esperada | Atualize a sessão e verifique com uma conta de administrador conhecida e válida 
 
 
 | O assistente abre, mas a solicitação falha | Problema com o provedor ou caminho de runtime | Acessibilidade do endpoint, disponibilidade do modelo nesse endpoint, limites do provedor e status temporário do provedor | Tente novamente após corrigir problemas de incompatibilidade de endpoint/modelo ou de limite do lado do provedor 

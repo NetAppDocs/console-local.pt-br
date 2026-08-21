@@ -63,7 +63,7 @@ Se você tiver a função de _Administrador de pasta ou frota_, a página exibir
 
 Você pode ajustar o acesso de um membro sempre que as responsabilidades mudarem. Por exemplo, quando um colega de equipe assume as funções de backup para uma segunda região, adicione a função de administrador de Backup e Recovery à frota dessa região sem alterar suas funções de armazenamento existentes.
 
-Se você precisar adicionar um novo membro e atribuir sua primeira função, consulte link:task-iam-manage-members-permissions.html#add-members["Adicione membros e atribua funções"].
+link:task-iam-manage-members-permissions.html#add-members["Aprenda como adicionar membros e atribuir funções"].
 
 
 

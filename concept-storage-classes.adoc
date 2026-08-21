@@ -101,17 +101,18 @@ Os passos a seguir descrevem o processo de utilização de classes de storage pa
 
 As classes de armazenamento são associadas a frotas. Quando você associa uma classe de armazenamento a uma frota, essa classe fica disponível para todo o provisionamento dentro da frota. Isso garante que todas as cargas de trabalho provisionadas na frota sigam os mesmos padrões, tornando as frotas a principal maneira de impor storage consistente em clusters relacionados.
 
-Para obter detalhes sobre como organizar frotas, consulte link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
+link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
 
 
 
 [[where-to-go-next]]
 == Para onde ir a seguir
 
-* Para entender a organização da frota, consulte link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
-* Para criar políticas e classes de armazenamento, consulte link:task-storage-class-manage.html["Gerenciar classes de storage e políticas"].
+* link:concept-manage-storage.html["Saiba mais sobre gerenciamento de frotas na implantação local do NetApp Console"].
+* link:task-storage-class-manage.html["Gerenciar classes de storage e políticas"].
 * link:task-provisioning-manual.html["Provisionar storage manualmente"]
 * link:task-provisioning-automated.html["Provisionar storage automaticamente"]
 * link:task-provisioning-agentic.html["Provisione storage com assistência de IA"]
-* Para analisar e remediar a deriva, consulte link:task-storage-class-drift-remediate.html["Corrigir a deriva da storage class"]
+* link:reference-console-assistant-operations.html["Veja as operações compatíveis do assistente do NetApp Console"]
+* link:task-storage-class-drift-remediate.html["Aprenda como corrigir a deriva de storage class"]
 

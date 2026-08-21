@@ -37,8 +37,6 @@ O gerenciamento de frotas aborda três desafios principais:
 
 A hierarquia de recursos da sua organização consiste em pastas e frotas:
 
-Para uma visão geral detalhada da hierarquia e do modelo de acesso, consulte link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas na implantação local do NetApp Console"].
-
 * *Organização* - o nível mais alto que representa sua empresa.
 * *Pastas* - Ajudam você a organizar frotas relacionadas. Por exemplo, você pode criar uma pasta para cada região ou unidade de negócios, depois criar frotas dentro de cada pasta. As pastas podem conter outras pastas ou frotas. Quando você atribui uma função no nível da pasta, os membros herdam essa função para todas as frotas dentro da pasta.
 * *Frotas* - Agrupe os sistemas de storage que você gerencia. Você associa sistemas de storage a frotas e atribui membros às frotas para conceder acesso a eles.
@@ -46,6 +44,8 @@ Para uma visão geral detalhada da hierarquia e do modelo de acesso, consulte li
 
 
 NOTE: As pastas são uma ferramenta organizacional e não são visíveis para membros que não possuem permissões do IAM, como as funções de administrador da organização, administrador de pastas ou administrador de frota. Os membros acessam frotas, não pastas.
+
+link:concept-folders-fleets-overview.html["Saiba mais sobre pastas e frotas na implantação local do NetApp Console"].
 
 
 
@@ -108,9 +108,10 @@ A implantação local do NetApp Console oferece suporte a três abordagens de pr
 [[where-to-go-next]]
 == Para onde ir a seguir
 
-* Para entender os padrões de storage, consulte link:concept-storage-classes.html["Saiba mais sobre classes e políticas de armazenamento na implantação local do NetApp Console"].
-* Para criar e gerenciar frotas, consulte link:task-iam-manage-folders-fleets.html["Gerencie pastas e frotas"].
+* link:concept-storage-classes.html["Saiba mais sobre classes e políticas de armazenamento na implantação local do NetApp Console"].
+* link:task-iam-manage-folders-fleets.html["Aprenda como criar e gerenciar frotas"].
 * link:task-provisioning-manual.html["Provisionar storage manualmente"]
 * link:task-provisioning-automated.html["Provisionar storage automaticamente"]
 * link:task-provisioning-agentic.html["Provisione storage com assistência de IA"]
+* link:reference-console-assistant-operations.html["Veja as operações compatíveis do assistente do NetApp Console"]
 

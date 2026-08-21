@@ -156,13 +156,19 @@ Usuários locais podem habilitar a autenticação multifator (MFA) para adiciona
 == Gerenciamento assistido por IA
 
 .Quais provedores de LLM o NetApp Console com implantação local suporta para gerenciamento assistido por IA?
-Você traz sua própria assinatura ou acesso a serviços para um tipo de provedor compatível: OpenAI ou OpenAI-compatible. Em seguida, você fornece uma chave de API válida durante a configuração. Você também precisa do Console implantado com acesso ao cluster, conectividade de rede de saída para o endpoint configurado, a função de administrador da organização e classes de armazenamento que orientam o provisionamento. link:concept-llm-integration.html["Saiba mais sobre a integração do LLM"].
+Você fornece sua própria assinatura ou acesso a serviço para um tipo de provedor compatível: OpenAI, compatível com OpenAI ou Anthropic, conforme suportado pela sua versão e endpoint. Em seguida, você fornece uma chave de API válida durante a configuração. Você também precisa de conectividade de rede de saída para o endpoint configurado e da função de administrador da organização ou superadministrador para configurar a integração. link:concept-llm-integration.html["Saiba mais sobre a integração do LLM"].
 
 .Habilitar a integração com o LLM envia seus dados de storage ou consultas para um serviço de terceiro?
 O Console envia prompts e contexto relacionado apenas para o endpoint LLM que você configurar. Se esse endpoint for um serviço de nuvem de terceiro, os dados serão enviados para esse serviço via HTTPS. Se esse endpoint for um serviço interno compatível com OpenAI, os dados permanecem no seu caminho interno para essa integração. Todas as ações de IA também respeitam seu RBAC e operações sensíveis exigem sua confirmação. link:concept-llm-integration.html["Saiba mais sobre a integração do LLM"].
 
 .O que o assistente do Console pode fazer e como posso controlar se ele altera seu armazenamento?
-Após conectar um LLM, o assistente do Console permite que os usuários provisionem armazenamento, investiguem alertas e obtenham respostas usando linguagem natural. Os usuários escolhem um modo de acesso: no modo *somente leitura*, o assistente responde e orienta sem fazer alterações, enquanto no modo *leitura/gravação*, ele pode agir na infraestrutura de storage, mas mostra os detalhes para o usuário revisar e confirmar antes de cada alteração. link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+Após conectar um LLM, o assistente do Console permite que os usuários obtenham orientações, analisem as métricas compatíveis, realizem o provisionamento de storage, investiguem alertas e solicitem operações ONTAP compatíveis usando linguagem natural. No modo *Somente leitura*, o assistente não realiza alterações. No modo *Leitura/gravação*, ele exibe as ações propostas para alteração de storage, para revisão e confirmação antes da execução. link:task-console-asst-use.html["Use o assistente do NetApp Console"].
+
+.Quais operações o assistente do NetApp Console suporta?
+O assistente do NetApp Console oferece suporte à orientação conversacional, análise de métricas somente leitura, provisionamento de storage, investigação de alertas e operações selecionadas de gerenciamento do ONTAP. As operações disponíveis dependem da versão, do endpoint configurado e da sua função e escopo de recursos. link:reference-console-assistant-operations.html["Veja as operações compatíveis do assistente do NetApp Console"].
+
+.O que acontece quando o assistente do NetApp Console executa uma operação assíncrona?
+Para operações suportadas que não são concluídas imediatamente, o assistente cria uma tarefa e pode retornar o status atual quando você perguntar sobre a solicitação. link:task-console-asst-use.html["Use o assistente do NetApp Console"].
 
 
 

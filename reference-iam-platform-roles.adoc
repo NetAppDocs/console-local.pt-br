@@ -60,6 +60,12 @@ As tabelas a seguir indicam as ações que cada função da plataforma de implan
 
 
 | Veja a página Audit e as notificações | Sim | Sim 
+
+
+| Configurar a integração do LLM e ativar o assistente do NetApp Console | Sim | Não 
+
+
+| Configurar o envio de notificações e as configurações do servidor de e-mail | Sim | Não 
 |===
 
 

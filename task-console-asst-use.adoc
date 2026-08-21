@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-console-asst-use.html 
 keywords: console assistant, ai assistant, ask questions, provision storage, natural language, agentic, netapp console local 
-summary: Utilize o assistente do Console para provisionar armazenamento, investigar alertas e obter respostas em linguagem natural na implantação local do NetApp Console. 
+summary: Utilize o assistente do Console para obter orientações sobre storage, análises, provisionamento e operações suportadas na implantação local do NetApp Console. 
 ---
 = Use o assistente do NetApp Console na implantação local do NetApp Console
 :hardbreaks:
@@ -26,11 +26,13 @@ As ações do assistente são limitadas pelo acesso baseado em funções atribu�
 [[see-what-you-can-do-with-the-console-assistant]]
 == Veja o que você pode fazer com o assistente do NetApp Console
 
-O assistente do Console é uma interface de linguagem natural para o NetApp Console em implantação local. Faça uma pergunta ou descreva uma tarefa, e ele retorna uma resposta ou uma ação proposta. O assistente oferece estas capacidades:
+Identifique as condições de storage e as ações suportadas por meio de uma interface conversacional para que você possa decidir quando é necessário orientação ou intervenção. Faça uma pergunta ou descreva uma tarefa, e ele retorna uma resposta, análise ou ação proposta. O assistente oferece estas capacidades:
 
 * *Provisionar armazenamento* Descreva uma carga de trabalho em linguagem simples. O assistente recomenda uma classe de armazenamento e um local adequado e, em seguida, cria o volume ou LUN depois que você confirma os detalhes. Por exemplo, peça para criar um volume CIFS com uma capacidade específica. O assistente identifica o cluster e a máquina virtual de storage (SVM), preenche os parâmetros necessários e provisiona o armazenamento.
+* *Analisar métricas* Pergunte sobre a capacidade suportada, desempenho e métricas de storage para os recursos dentro do seu escopo permitido. O assistente retorna uma análise somente leitura com base no estado disponível da frota.
 * *Pesquise e obtenha orientação* Faça perguntas sobre seu ambiente de storage, encontre recursos de implantação local do Console e obtenha respostas contextuais da documentação da NetApp e do estado atual da frota.
 * *Investigar alertas* Peça ao assistente para investigar um alerta ativo. Ele analisa o problema e sugere uma solução ou, com sua confirmação, executa uma ação corretiva.
+* *Gerencie os ONTAP* Solicite uma operação de gerenciamento ONTAP compatível em linguagem natural. O assistente identifica o contexto ausente do sistema ou SVM, apresenta a operação proposta e requer confirmação antes de uma operação de gravação.
 
 
 O assistente envia solicitações apenas para o endpoint LLM configurado pelo seu administrador na implantação local do Console. Ele solicita confirmação antes de executar ações que alteram o storage, e todas as ações respeitam os controles de acesso baseado em funções atribuídos à sua conta.
@@ -40,7 +42,7 @@ O assistente envia solicitações apenas para o endpoint LLM configurado pelo se
 [[confirm-that-you-can-use-the-console-assistant]]
 == Confirme que você pode usar o assistente do NetApp Console
 
-* Um administrador da organização ou superadministrador deve habilitar o assistente do Console conectando um large language model (LLM) à implantação local do Console. Se você não vir o botão *Assistente do Console* no painel, peça ao seu administrador para habilitá-lo. Para mais informações, consulte link:task-llm-connect.html["Conecte seu LLM e ative o assistente do NetApp Console"].
+* Um administrador da organização ou superadministrador deve habilitar o assistente do Console conectando um large language model (LLM) à implantação local do Console. Se você não vir o botão *Assistente do Console* no painel, peça ao seu administrador para habilitá-lo. link:task-llm-connect.html["Aprenda como conectar seu LLM e ativar o assistente do NetApp Console"].
 * Certifique-se de que você tenha os controles de acesso baseado em funções necessários para as ações que deseja que o assistente execute.
 
 
@@ -49,7 +51,7 @@ O assistente envia solicitações apenas para o endpoint LLM configurado pelo se
 [[ask-the-console-assistant-a-question-or-request-an-action]]
 == Faça uma pergunta ao assistente do Console ou solicite uma ação
 
-Abra o assistente do Console, escolha um modo de acesso e insira um prompt que descreva sua solicitação.
+Solicite storage compatível de forma conversacional, para que você possa avaliar as alterações propostas antes que elas afetem sua infraestrutura.
 
 .Passos
 . No painel de implantação local do NetApp Console, selecione o botão *Console assistant*.
@@ -72,3 +74,19 @@ Por exemplo: `Create a 10GiB volume for home directories named home, and share i
 . Confirme a ação. Para operações assíncronas, como a criação de volumes, o assistente cria uma tarefa para concluir a solicitação.
 . Para verificar o status de uma solicitação, pergunte ao assistente. Por exemplo, digite  `Let me know when the job completes`, e o assistente retorna o status atual.
 
+
+
+
+[[use-the-assistant-for-metrics-and-analytics]]
+== Utilize o assistente para métricas e análises
+
+Faça uma pergunta somente leitura que identifique o recurso, o escopo, a métrica e o período de tempo que você deseja entender. O assistente retorna uma análise das métricas compatíveis e não altera seu storage.
+
+
+
+[[use-the-assistant-for-ontap-management]]
+== Use o assistente para o gerenciamento do ONTAP
+
+Gerencie as operações do ONTAP com suporte por meio de propostas de assistente revisadas, para que as alterações na infraestrutura permaneçam deliberadas e controladas por permissões.
+
+link:reference-console-assistant-operations.html["Saiba mais sobre as operações do assistente do Console compatíveis"].

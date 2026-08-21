@@ -67,7 +67,7 @@ Analise o log de auditoria para confirmar quem alterou o acesso MFA, quando a al
 [[recreate-the-credentials-for-a-service-account]]
 == Recrie as credenciais para uma conta de serviço
 
-Você pode criar novas credenciais para uma conta de serviço caso as perca ou precise atualizá-las.
+Rotacione as credenciais da conta de serviço quando os requisitos de segurança mudarem, invalidando os segredos anteriores e preservando o acesso controlado à API.
 
 A criação de novas credenciais exclui as antigas. Você não pode usar as credenciais antigas.
 

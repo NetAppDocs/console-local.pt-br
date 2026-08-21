@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-provisioning-agentic.html 
 keywords: agentic provisioning, AI-assisted provisioning, natural language, conversational provisioning, plan-and-approve, storage class, Console assistant, LLM, RBAC, netapp console local 
-summary: Utilize o provisionamento baseado em agente com IA para atender de forma autônoma às solicitações de storage na implantação local do NetApp Console. 
+summary: Utilize o provisionamento assistido por IA para solicitar storage, revisar um plano proposto e aprovar a alteração na implantação local do NetApp Console. 
 ---
 = Provisione armazenamento com fluxos de trabalho assistidos por IA (agentes) na implantação local do NetApp Console
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Utilize o provisionamento baseado em agente com IA para atender de form
 
 
 [role="lead"]
-Na implantação local do NetApp Console, use o provisionamento assistido por IA (agente) quando você quiser solicitar storage de forma conversacional, revisar um plano proposto e aprovar a alteração. Essa abordagem é útil quando você deseja solicitações mais rápidas com menos navegação na interface do usuário, mantendo o provisionamento alinhado com as classes de storage e o RBAC.
+Na implantação local do NetApp Console, solicite armazenamento de forma conversacional, preservando a intenção de classe de storage aprovada e os controles baseados em funções em todas as frotas gerenciadas.
 
 
 NOTE: Esta documentação sobre como conectar um LLM ao assistente do Console para habilitar recursos de IA é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
@@ -29,15 +29,17 @@ O provisionamento baseado em agentes requer que uma integração com o LLM estej
 [[before-you-begin]]
 == Antes de começar
 
+Prepare as frotas, os sistemas, as classes de storage e o acesso ao LLM para que o assistente possa gerar planos dentro dos limites de provisionamento aprovados.
+
 * Certifique-se de que a integração do LLM esteja configurada e habilitada para sua implantação local do NetApp Console.
 * Garanta que a frota alvo contenha os sistemas de storage descobertos.
 * Garanta que as classes de armazenamento estejam configuradas e associadas à frota para que o assistente possa propor planos alinhados às classes.
 
 
-.Etapas (a serem revistas)
+.Passos
 . Abra o assistente do NetApp Console.
 . Descreva o que você precisa em linguagem simples (por exemplo, protocolo, tamanho, ambiente, objetivo de desempenho e frota alvo, se aplicável).
-. Analise o plano proposto, incluindo: a frota selecionada e o posicionamento do sistema alvo (se aplicável) a classe de armazenamento selecionada ou recomendada principais configurações que serão aplicadas (comportamento da capacidade, programação de proteção, requisitos de segurança e qualquer intenção relacionada à QoS, se exibida)
+. Analise o plano proposto, incluindo: a frota selecionada e o posicionamento do sistema alvo, se aplicável. A classe de storage selecionada ou recomendada. As principais configurações que serão aplicadas, como comportamento da capacidade, programação de proteção, requisitos de segurança e intenção relacionada à QoS, se exibida.
 . Confirme ou ajuste o plano. Se o plano selecionar uma classe ou localização inesperada, especifique a classe, frota ou restrições desejadas e gere um novo plano.
 . Aprove a execução para provisionar a carga de trabalho.
 . Verifique o recurso criado no inventário de storage e confirme se ele está associado à classe de storage pretendida para o monitoramento contínuo de desvios.
