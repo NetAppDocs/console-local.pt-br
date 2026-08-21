@@ -14,7 +14,7 @@ summary: Informações de referência sobre ações corretivas disponíveis na i
 
 
 [role="lead"]
-Use esta referência para entender as ações de correção disponíveis em *Corrigir* na NetApp Console implantação local. Para cada ação, a tabela descreve o que a ação faz e o alerta relacionado. Revise os detalhes da ação na caixa de diálogo de confirmação antes de executá-la.
+Use esta referência para entender as ações de correção disponíveis em *Corrigir* na implantação local do NetApp Console. Para cada ação, a tabela descreve o que a ação faz e o alerta relacionado. Revise os detalhes da ação na caixa de diálogo de confirmação antes de executá-la. Esta referência descreve as ações no fluxo de trabalho de Alertas; ela não identifica quais ações o assistente do Console pode sugerir.
 
 
 

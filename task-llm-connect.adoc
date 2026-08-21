@@ -32,8 +32,8 @@ Para conectar seu LLM, selecione um caminho de provedor, insira os detalhes do e
 
 
 
-[[gather-what-you-need-before-you-connect-an-llm]]
-== Reúna tudo o que você precisa antes de conectar um LLM
+[[before-you-begin]]
+== Antes de começar
 
 Prepare as credenciais do provedor e o acesso ao endpoint para que o assistente do NetApp Console possa operar dentro dos limites de governança configurados em sua organização.
 

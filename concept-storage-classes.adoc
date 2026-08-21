@@ -68,7 +68,7 @@ Os problemas se dividem em duas categorias:
 * *Não conformidade de desempenho*: o comportamento de tempo de execução da carga de trabalho não atende mais à intenção de desempenho da classe de armazenamento (por exemplo, pressão sustentada próxima a um limite de QoS ou latência de cauda elevada).
 
 
-Uma visualização de análise explica o que mudou e por quê. Ações de remediação guiadas (por exemplo, *Corrigir*) podem estar disponíveis para ajudar você a restaurar a conformidade. Algumas remediações podem ser aplicadas no local, enquanto outras podem exigir alinhar a carga de trabalho a uma classe de storage diferente para restaurar o comportamento pretendido.
+Uma visualização de análise explica o que mudou e por quê. Ações de remediação guiadas (por exemplo, *Corrigir*) podem estar disponíveis para ajudar a restaurar a conformidade. Algumas remediações podem ser aplicadas no local, enquanto outras podem exigir alinhar a carga de trabalho a uma classe de storage diferente para restaurar o comportamento pretendido.
 
 .Onde investigar
 Normalmente, você pode investigar desvios e não conformidades a partir de um destes locais (a disponibilidade depende da sua implementação e permissões):

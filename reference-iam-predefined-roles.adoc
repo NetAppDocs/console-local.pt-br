@@ -28,7 +28,7 @@ As funções da plataforma concedem ao NetApp Console permissões de administra�
 | Função da plataforma | Responsabilidades 
 
 
-| link:reference-iam-platform-roles.html#organization-admin-roles["Administrador da organização"] | Permite ao usuário acesso irrestrito a todas as frotas e pastas dentro de uma organização, adicionar membros a qualquer frota ou pasta, bem como executar qualquer tarefa e usar qualquer serviço de dados que não tenha uma função explícita associada a ele. Usuários com essa função gerenciam sua organização criando pastas e frotas, atribuindo funções, adicionando usuários e gerenciando sistemas, desde que possuam as credenciais adequadas. 
+| link:reference-iam-platform-roles.html#organization-admin-roles["Administrador da organização"] | Permite a um usuário acesso irrestrito a todas as frotas e pastas dentro de uma organização, adicionar membros a qualquer frota ou pasta, bem como executar qualquer tarefa e usar qualquer serviço de dados que não tenha uma função explícita associada a ele. Usuários com a função de administrador da organização também podem configurar integrações de LLM, configurações do servidor de e-mail e adicionar webhooks. Usuários com essa função gerenciam sua organização criando pastas e frotas, atribuindo funções, adicionando usuários e gerenciando sistemas se tiverem as credenciais adequadas. 
 
 
 | link:reference-iam-platform-roles.html#organization-admin-roles["Administrador de pasta ou de fleet"] | Permite ao usuário acesso irrestrito às frotas e pastas atribuídas. Pode adicionar membros às pastas ou frotas que gerencia, bem como executar qualquer tarefa e usar qualquer serviço de dados ou aplicativo nos recursos dentro da pasta ou frota à qual está atribuído. 
@@ -68,6 +68,13 @@ A seguir, apresentamos uma lista de funções na categoria de aplicativos. Cada 
 
 | link:reference-iam-storage-roles.html["Especialista em integridade do sistema"] | Administrar as funções de armazenamento, integridade e governança, todas as permissões do administrador de armazenamento, exceto não pode modificar ou excluir sistemas existentes. 
 |===
+
+
+[[console-assistant-access]]
+== Acesso ao assistente do NetApp Console
+
+Um administrador ou superadministrador da organização deve configurar uma integração de LLM antes que os membros possam usar o assistente do NetApp Console. Cada membro pode visualizar ou alterar apenas os recursos permitidos pelas suas funções atribuídas e pelo escopo da organização, pasta ou frota. link:reference-console-assistant-operations.html["Saiba mais sobre as operações compatíveis do assistente do Console."]
+
 
 
 [[data-service-roles]]

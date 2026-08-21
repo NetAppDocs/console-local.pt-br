@@ -46,7 +46,7 @@ A página *Alertas > Visão geral* é aberta com filtros aplicados.
 +
 Para identificar desvios de configuração, compare as configurações pretendidas e as reais para determinar o que mudou.
 
-. Selecione a ação corretiva recomendada, como *Fix it*.
+. Selecione a ação corretiva recomendada, como *Fix It*.
 . Analise as alterações propostas e aplique a remediação.
 . Retorne a *Armazenamento > Classes de armazenamento* e verifique se a carga de trabalho não aparece mais como desalinhada.
 +

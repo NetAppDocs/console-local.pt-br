@@ -166,6 +166,8 @@ Se a ação resolver o problema, o alerta deixará de aparecer como ativo para e
 
 Você pode analisar um alerta do ONTAP no Workload Analyzer para entender o que o desencadeou.
 
+Use o Workload Analyzer para uma análise detalhada e baseada no tempo do volume afetado. Para perguntas em linguagem natural ou para análise de alto nível em todos os recursos permitidos, use o assistente do Console. link:reference-console-assistant-operations.html["Saiba mais sobre as operações compatíveis do assistente do Console."]
+
 Ao investigar um alerta do ONTAP, você também pode acessar diretamente a interface do System Manager do sistema que gerou o alerta para visualizar detalhes adicionais e tomar as medidas necessárias.
 
 .Passos

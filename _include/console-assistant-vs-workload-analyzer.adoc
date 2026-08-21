@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+Use o assistente do Console para perguntas em linguagem natural e análises de alto nível dos recursos dentro do seu escopo permitido. Use o Workload Analyzer quando você precisar de uma análise detalhada baseada em tempo de um volume, incluindo latência, taxa de transferência, utilização de recursos, capacidade, eventos e previsões.
