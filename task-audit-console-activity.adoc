@@ -14,21 +14,21 @@ summary: 'Você pode auditar a atividade do usuário (iniciada tanto pela interf
 
 
 [role="lead"]
-Você pode auditar a atividade do usuário iniciada tanto pela interface do usuário quanto pela API na página de auditoria, e pode monitorar o status das operações na implantação local do NetApp Console e o usuário que as iniciou.
+Documente a atividade administrativa durante as revisões de conformidade para verificar as alterações de acesso e preservar um registro das ações em toda a implantação local do NetApp Console.
 
 .Funções necessárias
 Super admin, administrador da organização, administrador de pastas e frotas, analista de suporte operacional, super viewer, visualizador da organização ou visualizador de pastas e frotas. link:reference-iam-predefined-roles.html["Saiba mais sobre funções de acesso"].
 
-Você pode visualizar a atividade de auditoria na implantação local do Console, baixar um arquivo CSV do log de auditoria ou configurar o log de auditoria para ser enviado ao seu próprio servidor syslog usando um webhook.
+Você pode visualizar a atividade de auditoria na implantação local do NetApp Console e baixar um arquivo CSV do log de auditoria.
 
 
 
 [[audit-user-activity-from-the-audit-page]]
 == Audite a atividade do usuário na página Audit.
 
-Utilize a página de Auditoria para identificar quem realizou uma ação ou seu status.
+Monitore a atividade administrativa para rastrear alterações em toda a sua implantação local do NetApp Console ao resolver incidentes ou verificar a responsabilidade operacional.
 
-A página de Auditoria mostra as ações que os usuários realizaram em sua organização. Por exemplo, você pode verificar quem adicionou um membro à organização ou se uma frota foi excluída com sucesso, além de ver outras ações de gerenciamento de storage realizadas pelos usuários em sua organização.
+A página de Auditoria mostra as ações que os usuários realizaram em sua organização. Por exemplo, você pode verificar quem adicionou um membro à organização, confirmar que um usuário excluiu uma frota ou visualizar outras ações de gerenciamento de storage que os usuários executam em sua organização.
 
 Os logs de auditoria mostram a atividade dos seguintes serviços:
 
@@ -39,18 +39,19 @@ Os logs de auditoria mostram a atividade dos seguintes serviços:
 
 .Passos
 . Selecione *Administração > Auditoria*.
-. Use os filtros acima da tabela para alterar quais ações são exibidas na tabela.
-+
+. Utilize os filtros acima da tabela para restringir a atividade de auditoria por intervalo de tempo, serviço, ação, recurso, usuário ou status.
+
+
+Os registros de auditoria mostram o usuário que realizou a ação quando a identidade do usuário pode ser determinada. Se a identidade do usuário não puder ser determinada, o registro mostra o usuário `auth0Id` em vez do nome.
+
 Por exemplo, você pode usar o filtro *Serviço* para exibir ações relacionadas a um serviço específico ou pode usar o filtro *Usuário* para exibir ações relacionadas a uma conta de usuário específica.
-
-
 
 
 
 [[filter-audit-logs-for-identity-and-access-management-actions]]
 === Filtre os logs de auditoria para ações de gerenciamento de identidade e acesso
 
-Para visualizar apenas as ações relacionadas ao gerenciamento da sua organização, como adicionar membros, criar frotas ou excluir recursos, filtre o log de auditoria pelo serviço Tenancy.
+Revise as alterações de gerenciamento de acesso para confirmar quem modificou os recursos da organização e apoiar investigações de segurança precisas.
 
 .Passos
 . Selecione *Administração > Auditoria*.
@@ -66,7 +67,7 @@ Por exemplo, use o filtro *Usuário* para exibir as ações do IAM realizadas po
 [[download-audit-logs-from-the-audit-page]]
 === Faça o download dos logs de auditoria na página de Auditoria
 
-Você pode baixar os logs de auditoria da página Auditoria para um arquivo CSV. Isso permite que você mantenha um registro das ações que os usuários realizam em sua organização. O arquivo CSV baixado inclui todas as colunas do log de auditoria, independentemente dos filtros ou colunas exibidas na página Auditoria.
+Mantenha um registro independente das ações organizacionais para dar suporte a revisões de conformidade e futuras investigações de incidentes. O arquivo CSV baixado inclui todas as colunas do log de auditoria, mesmo se você aplicar filtros ou alterar as colunas exibidas.
 
 .Passos
 . Na página *Audit*, selecione o ícone de download no canto superior direito da tabela.
