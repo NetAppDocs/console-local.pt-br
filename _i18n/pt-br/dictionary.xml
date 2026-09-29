@@ -3716,4 +3716,6 @@
   <block id="4e2631c6a272a31e284ef25e345044a4" category="list-text">CPU: 16 núcleos ou 16 vCPUs (reservados)</block>
   <block id="1c79bf4bb50e04e0a86202e73216460a" category="list-text">RAM: 64 GB (reservado)</block>
   <block id="43e1d149efe94e65609c12dcb5cab779" category="list-text">A CPU e a memória são reservadas no host ESXi quando a VM é ligada, não apenas alocadas. Certifique-se de que o host de destino tenha pelo menos 16 núcleos de CPU e 64 GB disponíveis como capacidade reservada. Reservas de VM existentes no host reduzem a capacidade disponível.</block>
+  <block id="e68d2c37dd2355df41bb544adc897de6" category="inline-link-macro">Artigo da Knowledge Base do site de suporte da NetApp</block>
+  <block id="29bfebf6dcc74c9e558756ca6998173c" category="admonition">Para proteger a comunicação com seu próprio certificado TLS, siga as instruções neste <block ref="eb10a8c97ab666bf81650f11f6a3aa78" category="inline-link-macro-rx"></block>.</block>
 </blocks>
