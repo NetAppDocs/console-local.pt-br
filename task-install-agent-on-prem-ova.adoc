@@ -100,12 +100,6 @@ Faça login no seu ambiente vCenter para implantar a implantação local do Cons
 . Selecione a rede à qual você deseja conectar a VM e, em seguida, selecione *Avançar*. Certifique-se de que a rede seja IPv4 e tenha acesso à internet de saída para os endpoints necessários.
 . Na janela *Personalizar modelo*, preencha os seguintes campos:
 +
-** *Informações de proxy*
-+
-*** Se você selecionou proxy explícito, insira o nome do host ou endereço IP do servidor proxy e o número da porta, bem como o nome de usuário e a senha.
-*** Se você selecionou o proxy transparente, faça o upload do respectivo certificado.
-
-
 ** *Configuração de Máquina Virtual*
 +
 *** *Senha de manutenção*: Defina a senha para o usuário  `maint` que permite o acesso ao console de manutenção da implantação local do NetApp Console.
