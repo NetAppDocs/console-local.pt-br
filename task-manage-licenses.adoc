@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: task-manage-licenses.html 
+keywords: licenses, licensing, NetApp Backup and Recovery, NetApp Console local deployment, BYOL, bring-your-own-license, direct license 
+summary: Gerencie licenças diretas para o NetApp Backup and Recovery na implantação local do NetApp Console. 
+---
+= Gerencie licenças na implantação local do NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gerencie a licença do NetApp Backup and Recovery na implantação local do NetApp Console. Essa é uma licença flutuante que você pode usar em todos os sistemas associados à sua organização do NetApp Console. Se a licença fornecer capacidade de backup suficiente, você não precisará comprar outra. Você pode adicionar, atualizar e remover a licença, além de visualizar a capacidade consumida, a capacidade da licença e a expiração da licença.
+
+
+NOTE: A implantação local do NetApp Console não requer licença. O NetApp Backup and Recovery é atualmente o único serviço compatível com licenciamento direto na implantação local do NetApp Console. Essa licença também é chamada de licença traga sua própria licença (BYOL). Para obter mais informações, consulte o link:https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html["Documentação de licenciamento do NetApp Backup and Recovery"^].
+
+.Funções de acesso necessárias
+Você precisa ter a função de Super admin ou Organization admin para gerenciar licenças na implantação local do Console.
+
+
+
+[[add-a-license]]
+== Adicionar uma licença
+
+Adicione uma licença à sua organização do Console carregando um arquivo de licença.
+
+.Antes de começar
+Você precisa do número de série do seu serviço em nuvem e do ID da organização do NetApp Console para gerar o arquivo de licença.
+
+.Passos
+. Selecione *Administração > Licenças*.
+. Selecione a guia *Licenças diretas*.
+. Selecione *Adicionar licença*.
+. Acesse a aba *Sistema > Licenças de Software* no site de suporte da NetApp e gere o arquivo de licença.
+. Retorne à caixa de diálogo *Adicionar licença*, selecione *Upload* e selecione o arquivo de licença.
+. Selecione *Adicionar licença* para instalar a licença.
+
+
+A licença aparece na tabela *Licenças diretas* e o resumo *Distribuição de licenças e capacidade* é atualizado.
+
+
+
+[[view-license-status]]
+== Ver o status da licença
+
+Revise as licenças instaladas e seus status na guia *Direct licenses*. A tabela mostra o serviço, o número de série, o tipo, a capacidade consumida, a capacidade da licença e a expiração da licença. O resumo *License and Capacity Distribution* mostra o número de licenças instaladas e a capacidade alocada para o NetApp Backup and Recovery.
+
+No menu de ações image:icon-action.png["Um ícone com três pontos"] em cada linha, você pode atualizar ou remover uma licença.
+
+.Passos
+. Selecione *Administração > Licenças*.
+. Selecione a guia *Licenças diretas*.
+. Analise a tabela e o resumo de *License and Capacity Distribution*.
+
+
+
+
+[[update-a-license]]
+== Atualize uma licença
+
+Substitua uma licença existente na sua organização do Console, por exemplo, quando uma licença for renovada ou sua capacidade ou data de expiração mudar.
+
+.Passos
+. Selecione *Administração > Licenças*.
+. Selecione a guia *Licenças diretas*.
+. Selecione o menu de ações image:icon-action.png["Um ícone com três pontos"] para a licença que você está atualizando e selecione *Atualizar licença*.
+. Na caixa de diálogo *Atualizar licença*, selecione *Carregar* e selecione o novo arquivo de licença.
+. Selecione *Atualizar licença* para confirmar a atualização.
+
+
+Após a atualização da licença, a linha selecionada exibe a nova capacidade da licença e a expiração da licença. O resumo *Distribuição de Licenças e Capacidade* também é atualizado.
+
+
+
+[[remove-a-license]]
+== Remover uma licença
+
+Remova uma licença da sua organização do Console. Remover uma licença é permanente. Uma licença removida não contribui mais com capacidade nem duração para o NetApp Backup and Recovery. Se a licença expirar, os backups de políticas existentes e as restaurações continuarão, mas você não poderá criar novas políticas de backup nem estender a proteção para cargas de trabalho e datastores adicionais.
+
+.Passos
+. Selecione *Administração > Licenças*.
+. Selecione a guia *Licenças diretas*.
+. Selecione o menu de ações image:icon-action.png["Um ícone com três pontos"] para a licença que deseja remover e selecione *Remover licença*.
+. Na caixa de diálogo de confirmação *Remover licença*, verifique o número de série no prompt.
+. Selecione *Remover* para remover permanentemente a licença.
+
+
+A licença é removida da tabela *Licenças diretas* e o resumo *Distribuição de licenças e capacidade* é atualizado.

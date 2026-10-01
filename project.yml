@@ -170,8 +170,8 @@ sidebar:
       url: "/concept-administer-netapp-console-local.html"
     - title: Audite as operações de implantação local do NetApp Console
       url: "/task-audit-console-activity.html"
-    - title: Licenças
-      url: https://docs.netapp.com/us-en/console-licenses-subscriptions/index.html
+    - title: Gerencie licenças na implantação local do NetApp Console
+      url: "/task-manage-licenses.html"
     - title: Manter o NetApp Console
       entries:
       - title: Manutenção da VM do NetApp Console
