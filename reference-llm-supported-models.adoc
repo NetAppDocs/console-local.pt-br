@@ -29,7 +29,7 @@ Escolha um modelo que corresponda aos seus requisitos de desempenho, custo e gov
 O tipo de provedor que você escolher determina quais modelos aparecem na lista de modelos de implantação local do NetApp Console:
 
 * *OpenAI* — fornece modelos para integração direta com o OpenAI.
-* *Compatível com OpenAI* — fornece modelos que o endpoint compatível da sua organização expõe.
+* *Proxy compatível com OpenAI*: para usar um gateway corporativo ou serviço de proxy para se conectar a modelos compatíveis.
 * *Anthropic* — fornece modelos para integração direta com o Anthropic.
 
 
