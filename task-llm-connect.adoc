@@ -62,13 +62,20 @@ Habilite as funcionalidades do assistente por meio de uma configuração de prov
 ** *OpenAI* para acesso direto ao modelo OpenAI.
 ** *Proxy compatível com OpenAI* para usar um gateway empresarial ou serviço de proxy.
 ** *Anthropic* para os modelos Claude da Anthropic.
++
+link:concept-llm-integration.html["Saiba mais sobre a integração do LLM na implantação local do NetApp Console"].
 
 
 
+. Caso seja solicitado o endpoint do provedor, insira a URL do endpoint para o caminho do provedor que você selecionou.
+. No campo *Nome de usuário*, insira seu nome de usuário ou ID de SSO se o caminho do seu provedor exigir isso.
+. No campo *Chave de API*, cole a chave de API do seu caminho de provedor selecionado.
+. Selecione um modelo da lista.
+. Revise a configuração e selecione *Salvar*.
++
+Revise o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado antes de salvar a configuração.
 
-link:concept-llm-integration.html["Saiba mais sobre a integração do LLM na implantação local do NetApp Console"]. . Caso seja solicitado o endpoint do provedor, insira a URL do endpoint para o caminho do provedor que você selecionou. . No campo *Nome de usuário*, insira seu nome de usuário ou ID de SSO se o caminho do seu provedor exigir isso. . No campo *Chave de API*, cole a chave de API do seu caminho de provedor selecionado. . Selecione um modelo da lista. . Revise a configuração e selecione *Salvar*.
 
-+ Antes de salvar a configuração, revise o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado.
 
 
 

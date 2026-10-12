@@ -3738,6 +3738,10 @@
   <block id="06b44c661a84a26e0ce1a017b3a10bf5" category="list-text">*Proxy compatível com OpenAI* para usar um gateway empresarial ou serviço de proxy.</block>
   <block id="06cec8d93319a0a41f62ded52e6e388b" category="list-text">*Proxy compatível com OpenAI*: para usar um gateway corporativo ou serviço de proxy para se conectar a modelos compatíveis.</block>
   <block id="b1cda2c8041bdb2e7c757f55bc07d4e0" category="list-text">Sua decisão sobre o tipo de provedor: OpenAI, proxy compatível com OpenAI ou Anthropic</block>
-  <block id="a9e0ed29bcf0eb9114558aea8e38b3dd" category="paragraph"><block ref="ab74dc1a527eb39bc2a75230306dc5a0" category="inline-link-macro-rx"></block>. . Caso seja solicitado o endpoint do provedor, insira a URL do endpoint para o caminho do provedor que você selecionou. . No campo *Nome de usuário*, insira seu nome de usuário ou ID de SSO se o caminho do seu provedor exigir isso. . No campo *Chave de API*, cole a chave de API do seu caminho de provedor selecionado. . Selecione um modelo da lista. . Revise a configuração e selecione *Salvar*.</block>
-  <block id="3202e0a5b24589a1f3bedee597ddb7d9" category="paragraph">+ Antes de salvar a configuração, revise o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado.</block>
+  <block id="cf72c8170aef768cae71f4e2a449acaf" category="list-text">Caso seja solicitado o endpoint do provedor, insira a URL do endpoint para o caminho do provedor que você selecionou.</block>
+  <block id="d78f26f4373007724d98776e20cd9322" category="list-text">No campo *Nome de usuário*, insira seu nome de usuário ou ID de SSO se o caminho do seu provedor exigir isso.</block>
+  <block id="b2914c614292093e506dbf4a10fd671c" category="list-text">No campo *Chave de API*, cole a chave de API do seu caminho de provedor selecionado.</block>
+  <block id="73d0a6de3953116536b1666d0db7c78a" category="list-text">Selecione um modelo da lista.</block>
+  <block id="f646c307a4396cd41f6593ce84be57d7" category="list-text">Revise a configuração e selecione *Salvar*.</block>
+  <block id="26033ba1ab8ce1319bdb0de963d1cdcc" category="paragraph">Revise o tipo de provedor, o URL do endpoint, a chave da API e o modelo selecionado antes de salvar a configuração.</block>
 </blocks>
